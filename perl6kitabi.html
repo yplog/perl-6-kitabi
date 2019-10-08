@@ -1,0 +1,3672 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.9">
+<meta name="description" content="Perl 6 Programlama Dili Türkçe Kitap Çalışması">
+<meta name="keywords" content="perl 6, programlama dili">
+<meta name="author" content="Yalın Pala">
+<title>Perl 6 Programlama Dili</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<style>
+/* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
+/* Uncomment @import statement to use as custom stylesheet */
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";*/
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}
+audio,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+a{background:none}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+abbr[title]{border-bottom:1px dotted}
+b,strong{font-weight:bold}
+dfn{font-style:italic}
+hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,*::before,*::after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+img,object,svg{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:0}
+p{font-family:inherit;font-weight:400;font-size:1em;line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #dddddf;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em;height:0}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{font-size:1em;line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0;font-size:1em}
+ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
+ul.square{list-style-type:square}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+abbr,acronym{text-transform:uppercase;font-size:90%;color:rgba(0,0,0,.8);border-bottom:1px dotted #ddd;cursor:help}
+abbr{text-transform:none}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote cite{display:block;font-size:.9375em;color:rgba(0,0,0,.6)}
+blockquote cite::before{content:"\2014 \0020"}
+blockquote cite a,blockquote cite a:visited{color:rgba(0,0,0,.6)}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+h1{font-size:2.75em}
+h2{font-size:2.3125em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
+table thead,table tfoot{background:#f7f8f7}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
+table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt{background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
+.clearfix::after,.float-group::after{clear:both}
+:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed;word-wrap:break-word}
+:not(pre)>code.nobreak{word-wrap:normal}
+:not(pre)>code.nowrap{white-space:nowrap}
+pre{color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;line-height:1.45;text-rendering:optimizeSpeed}
+pre code,pre pre{color:inherit;font-size:inherit;line-height:inherit}
+pre>code{display:block}
+pre.nowrap,pre.nowrap pre{white-space:pre;word-wrap:normal}
+em em{font-style:normal}
+strong strong{font-weight:400}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menuref{color:#000}
+.menuseq b:not(.caret),.menuref{font-weight:inherit}
+.menuseq{word-spacing:-.02em}
+.menuseq b.caret{font-size:1.25em;line-height:.8}
+.menuseq i.caret{font-weight:bold;text-align:center;width:.45em}
+b.button::before,b.button::after{position:relative;top:-1px;font-weight:400}
+b.button::before{content:"[";padding:0 3px 0 2px}
+b.button::after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header::before,#header::after,#content::before,#content::after,#footnotes::before,#footnotes::after,#footer::before,#footer::after{content:" ";display:table}
+#header::after,#content::after,#footnotes::after,#footer::after{clear:both}
+#content{margin-top:1.25em}
+#content::before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
+#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:-ms-flexbox;display:-webkit-flex;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span::before{content:"\00a0\2013\00a0"}
+#header .details br+span.author::before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark::before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber::after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #dddddf;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #e7e7e9;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#7a2518;font-size:1.2em}
+@media screen and (min-width:768px){#toctitle{font-size:1.375em}
+body.toc2{padding-left:15em;padding-right:0}
+#toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+#toc.toc2>ul{font-size:.9em;margin-bottom:0}
+#toc.toc2 ul ul{margin-left:0;padding-left:1em}
+#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+body.toc2.toc-right{padding-left:0;padding-right:15em}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #e7e7e9;left:auto;right:0}}
+@media screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+#toc.toc2{width:20em}
+#toc.toc2 #toctitle{font-size:1.375em}
+#toc.toc2>ul{font-size:.95em}
+#toc.toc2 ul ul{padding-left:1.25em}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:100%;background:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:rgba(255,255,255,.8);line-height:1.44}
+#content{margin-bottom:.625em}
+.sect1{padding-bottom:.625em}
+@media screen and (min-width:768px){#content{margin-bottom:1.25em}
+.sect1{padding-bottom:1.25em}}
+.sect1:last-child{padding-bottom:0}
+.sect1+.sect1{border-top:1px solid #e7e7e9}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor::before,h2>a.anchor::before,h3>a.anchor::before,#toctitle>a.anchor::before,.sidebarblock>.content>.title>a.anchor::before,h4>a.anchor::before,h5>a.anchor::before,h6>a.anchor::before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+details,.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+details>summary:first-of-type{cursor:pointer;display:list-item;outline:none;margin-bottom:.75em}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
+.paragraph.lead>p,#preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:1.21875em;line-height:1.6;color:rgba(0,0,0,.85)}
+table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:inherit}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6)}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border-style:solid;border-width:1px;border-color:#e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;-webkit-border-radius:4px;border-radius:4px}
+.exampleblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child{margin-bottom:0}
+.sidebarblock{border-style:solid;border-width:1px;border-color:#dbdbd6;margin-bottom:1.25em;padding:1.25em;background:#f3f3f2;-webkit-border-radius:4px;border-radius:4px}
+.sidebarblock>:first-child{margin-top:0}
+.sidebarblock>:last-child{margin-bottom:0}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock>.content>pre{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;overflow-x:auto;padding:1em;font-size:.8125em}
+@media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
+@media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
+.literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class="highlight"],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
+.literalblock.output pre{color:#f7f7f8;background:rgba(0,0,0,.9)}
+.listingblock>.content{position:relative}
+.listingblock code[data-lang]::before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:inherit;opacity:.5}
+.listingblock:hover code[data-lang]::before{display:block}
+.listingblock.terminal pre .command::before{content:attr(data-prompt);padding-right:.5em;color:inherit;opacity:.5}
+.listingblock.terminal pre .command:not([data-prompt])::before{content:"$"}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;-webkit-border-radius:4px;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.prettyprint{background:#f7f7f8}
+pre.prettyprint .linenums{line-height:1.45;margin-left:2em}
+pre.prettyprint li{background:none;list-style-type:inherit;padding-left:0}
+pre.prettyprint li code[data-lang]::before{opacity:1}
+pre.prettyprint li:not(:first-child) code[data-lang]::before{display:none}
+table.linenotable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.linenotable td[class]{color:inherit;vertical-align:top;padding:0;line-height:inherit;white-space:normal}
+table.linenotable td.code{padding-left:.75em}
+table.linenotable td.linenos{border-right:1px solid currentColor;opacity:.35;padding-right:.5em}
+pre.pygments .lineno{border-right:1px solid currentColor;opacity:.35;display:inline-block;margin-right:.75em}
+pre.pygments .lineno::before{content:"";margin-right:-.125em}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote::before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.75em;margin-right:.5ex;text-align:right}
+.verseblock{margin:0 1em 1.25em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract blockquote::before,.quoteblock.excerpt blockquote::before,.quoteblock .quoteblock blockquote::before{display:none}
+.quoteblock.abstract blockquote,.quoteblock.abstract p,.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{line-height:1.6;word-spacing:0}
+.quoteblock.abstract{margin:0 1em 1.25em;display:block}
+.quoteblock.abstract>.title{margin:0 0 .375em;font-size:1.15em;text-align:center}
+.quoteblock.excerpt,.quoteblock .quoteblock{margin:0 0 1.25em;padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
+.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
+.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;text-align:left;margin-right:0}
+table.tableblock{max-width:100%;border-collapse:separate}
+p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content>:last-child{margin-bottom:-1.25em}
+td.tableblock>.content>:last-child.sidebarblock{margin-bottom:0}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
+table.grid-all>thead>tr>.tableblock,table.grid-all>tbody>tr>.tableblock{border-width:0 1px 1px 0}
+table.grid-all>tfoot>tr>.tableblock{border-width:1px 1px 0 0}
+table.grid-cols>*>tr>.tableblock{border-width:0 1px 0 0}
+table.grid-rows>thead>tr>.tableblock,table.grid-rows>tbody>tr>.tableblock{border-width:0 0 1px}
+table.grid-rows>tfoot>tr>.tableblock{border-width:1px 0 0}
+table.grid-all>*>tr>.tableblock:last-child,table.grid-cols>*>tr>.tableblock:last-child{border-right-width:0}
+table.grid-all>tbody>tr:last-child>.tableblock,table.grid-all>thead:last-child>tr>.tableblock,table.grid-rows>tbody>tr:last-child>.tableblock,table.grid-rows>thead:last-child>tr>.tableblock{border-bottom-width:0}
+table.frame-all{border-width:1px}
+table.frame-sides{border-width:0 1px}
+table.frame-topbot,table.frame-ends{border-width:1px 0}
+table.stripes-all tr,table.stripes-odd tr:nth-of-type(odd),table.stripes-even tr:nth-of-type(even),table.stripes-hover tr:hover{background:#f8f8f7}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{display:table-cell;line-height:1.6;background:#f7f8f7}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
+ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
+ul.unstyled,ol.unstyled{margin-left:0}
+ul.checklist{margin-left:.625em}
+ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{margin-right:.25em}
+ul.inline{display:-ms-flexbox;display:-webkit-box;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap;list-style:none;margin:0 0 .625em -1.25em}
+ul.inline>li{margin-left:1.25em}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
+.colist td:not([class]):first-child img{max-width:none}
+.colist td:not([class]):last-child{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:solid 4px #fff;-webkit-box-shadow:0 0 0 1px #ddd;box-shadow:0 0 0 1px #ddd}
+.imageblock.left{margin:.25em .625em 1.25em 0}
+.imageblock.right{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+.gist .file-data>table{border:0;background:#fff;width:100%;margin-bottom:0}
+.gist .file-data>table td.line-data{width:99%}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background:#00fafa}
+.black{color:#000}
+.black-background{background:#000}
+.blue{color:#0000bf}
+.blue-background{background:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background:#fa00fa}
+.gray{color:#606060}
+.gray-background{background:#7d7d7d}
+.green{color:#006000}
+.green-background{background:#007d00}
+.lime{color:#00bf00}
+.lime-background{background:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background:#7d0000}
+.navy{color:#000060}
+.navy-background{background:#00007d}
+.olive{color:#606000}
+.olive-background{background:#7d7d00}
+.purple{color:#600060}
+.purple-background{background:#7d007d}
+.red{color:#bf0000}
+.red-background{background:#fa0000}
+.silver{color:#909090}
+.silver-background{background:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background:#fafa00}
+span.icon>.fa{cursor:default}
+a span.icon>.fa{cursor:inherit}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note::before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip::before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);-webkit-border-radius:100px;border-radius:100px;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]::after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,span.alt{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background:#fffef7;border-color:#e0e0dc;-webkit-box-shadow:0 1px 4px #e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@page{margin:1.25cm .75cm}
+@media print{*{-webkit-box-shadow:none!important;box-shadow:none!important;text-shadow:none!important}
+html{font-size:80%}
+a{color:inherit!important;text-decoration:underline!important}
+a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+a[href^="http:"]:not(.bare)::after,a[href^="https:"]:not(.bare)::after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]::after{content:" (" attr(title) ")"}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+thead{display:table-header-group}
+svg{max-width:100%}
+p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#toc,.sidebarblock,.exampleblock>.content{background:none!important}
+#toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
+body.book #header{text-align:center}
+body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em}
+body.book #header .details{border:0!important;display:block;padding:0!important}
+body.book #header .details span:first-child{margin-left:0!important}
+body.book #header .details br{display:block}
+body.book #header .details br+span::before{content:none!important}
+body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+.listingblock code[data-lang]::before{display:block}
+#footer{padding:0 .9375em}
+.hide-on-print{display:none!important}
+.print-only{display:block!important}
+.hide-for-print{display:none!important}
+.show-for-print{display:inherit!important}}
+@media print,amzn-kf8{#header>h1:first-child{margin-top:1.25rem}
+.sect1{padding:0!important}
+.sect1+.sect1{border:0}
+#footer{background:none}
+#footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
+@media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="book toc2 toc-left">
+<div id="header">
+<h1>Perl 6 Programlama Dili</h1>
+<div class="details">
+<span id="author" class="author">Yalın Pala</span><br>
+<span id="email" class="email"><a href="mailto:yalinpala@protonmail.com">yalinpala@protonmail.com</a></span><br>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel0">
+<li><a href="#_önsöz">Önsöz</a></li>
+<li><a href="#_giriş">Giriş</a>
+<ul class="sectlevel1">
+<li><a href="#_perl_6_nedir">Perl 6 Nedir?</a></li>
+<li><a href="#_perl_versiyonları">Perl Versiyonları</a>
+<ul class="sectlevel2">
+<li><a href="#_perl_5_versiyonuna_aşinalar_i̇çin_bir_rehber">Perl 5 Versiyonuna Aşinalar İçin Bir Rehber</a></li>
+</ul>
+</li>
+<li><a href="#_kütüphane_desteği">Kütüphane Desteği</a></li>
+<li><a href="#_neden_perl_6">Neden Perl 6?</a></li>
+</ul>
+</li>
+<li><a href="#_perl_6_i̇le_i̇lk_adımlar">Perl 6 İle İlk Adımlar</a>
+<ul class="sectlevel1">
+<li><a href="#_perl_6_kurulumu">Perl 6 Kurulumu</a></li>
+<li><a href="#_temel_komut_satırı_özellikleri">Temel Komut Satırı Özellikleri</a>
+<ul class="sectlevel2">
+<li><a href="#_h_veya_help_komutu">-h veya --help Komutu:</a></li>
+<li><a href="#_c_komutu">-c Komutu:</a></li>
+<li><a href="#_e_komutu">-e Komutu:</a></li>
+<li><a href="#_n_komutu">-n Komutu:</a></li>
+<li><a href="#_p_komutu">-p Komutu:</a></li>
+<li><a href="#_i_ve_m_komutları">-I ve -M Komutları:</a></li>
+<li><a href="#_v_veya_version_komutu">-v veya —version Komutu:</a></li>
+<li><a href="#_stagestats_komutu">—stagestats Komutu:</a></li>
+<li><a href="#_doc_komutu">—doc Komutu:</a></li>
+<li><a href="#_v_komutu">-V Komutu:</a></li>
+</ul>
+</li>
+<li><a href="#_etkileşimli_perl_6">Etkileşimli Perl 6</a></li>
+<li><a href="#_metin_editörleri_ve_tümleşik_geliştirme_ortamları">Metin Editörleri ve Tümleşik Geliştirme Ortamları</a></li>
+<li><a href="#_i̇lk_programımız">İlk Programımız</a></li>
+</ul>
+</li>
+<li><a href="#_perl_6_temelleri">Perl 6 Temelleri</a>
+<ul class="sectlevel1">
+<li><a href="#_dokümantasyonu_okumak">Dokümantasyonu Okumak</a></li>
+<li><a href="#_unicode_kullanımı">Unicode Kullanımı</a></li>
+<li><a href="#_i̇şleçler">İşleçler</a>
+<ul class="sectlevel2">
+<li><a href="#_atama_operatörü">Atama Operatörü(=)</a></li>
+<li><a href="#_aritmatik_i̇şleçler">Aritmatik İşleçler</a></li>
+<li><a href="#_karakter_dizisi_i̇şleçleri">Karakter Dizisi İşleçleri</a></li>
+<li><a href="#_mantıksal_i̇şleçler">Mantıksal İşleçler</a></li>
+</ul>
+</li>
+<li><a href="#_yorumlar_açıklama_satırları">Yorumlar, Açıklama Satırları</a>
+<ul class="sectlevel2">
+<li><a href="#_tek_satırlık_yorumlar">Tek Satırlık Yorumlar</a></li>
+<li><a href="#_çok_satırlı_yorumlar">Çok Satırlı Yorumlar</a></li>
+<li><a href="#_gömülü_yorumlar">Gömülü Yorumlar</a></li>
+</ul>
+</li>
+<li><a href="#_pod">POD</a>
+<ul class="sectlevel2">
+<li><a href="#_begin_ve_end_blokları">=begin ve =end Blokları</a></li>
+<li><a href="#_paragraf_bloklar">Paragraf Bloklar</a></li>
+<li><a href="#_tek_satırlık_bloklar">Tek Satırlık Bloklar</a></li>
+<li><a href="#_blok_tipleri">Blok Tipleri</a></li>
+<li><a href="#_pod_doküman_yapısı">Pod Doküman Yapısı</a></li>
+<li><a href="#_pod_dokümanını_dışarı_aktarma">Pod Dokümanını Dışarı Aktarma</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_temel_veri_tipleri_ve_değişken_kullanımı">Temel Veri Tipleri ve Değişken Kullanımı</a>
+<ul class="sectlevel1">
+<li><a href="#_değişken_tanımlamak_ve_değer_atamak">Değişken Tanımlamak ve Değer Atamak</a></li>
+<li><a href="#_sayılar">Sayılar</a></li>
+<li><a href="#_karakter_dizileri">Karakter Dizileri</a></li>
+<li><a href="#_sabitler">Sabitler</a></li>
+<li><a href="#_değişken_tanımlama_yöntemleri">Değişken Tanımlama Yöntemleri</a>
+<ul class="sectlevel2">
+<li><a href="#_değişken_tipi_belirtme">Değişken Tipi Belirtme</a></li>
+<li><a href="#_çoklu_değişken_tanımlama">Çoklu Değişken Tanımlama</a></li>
+</ul>
+</li>
+<li><a href="#_değişkenlerin_kapsamı_ve_bloklar">Değişkenlerin Kapsamı ve Bloklar</a></li>
+<li><a href="#_tip_dönüşümleri">Tip Dönüşümleri</a></li>
+</ul>
+</li>
+<li><a href="#_listeler_2">Listeler</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<h1 id="_önsöz" class="sect0">Önsöz</h1>
+<div class="openblock partintro">
+<div class="content">
+<div class="paragraph">
+<p>Kitap hiç programlama bilmeyen kullanıcılar için uygun olmayabilir. Ancak başka diller ile çalışmış kişilerin bu kitabı kolayca okuyacaklarını düşünüyorum.</p>
+</div>
+<div class="paragraph">
+<p>Kitap boyunca, Perl 6 diline özel konulara ağırlık vermeye, çok sayıda örnek kod koymaya, örnek kodların kolay anlaşılır türden olmasına gayret gösterdim. Umarım sizlerde okurken, uygularken keyif alırsınız.</p>
+</div>
+<div class="paragraph">
+<p>Kitap yayımlandığı sırada henüz Perl 6 ile ilgili çok az Türkçe kaynak vardı. Bu nedenle Perl 6 dili için ilk Türkçe kitap olan bu çalışmada özellikle Türkçe ifadeler kullanmaya özen gösterdim. Eğer ülkemizde Perl 6 ile yapılan çalışmalara birazcıkta olsa katkım olabilirse, ne mutlu bana.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<h1 id="_giriş" class="sect0">Giriş</h1>
+<div class="openblock partintro">
+<div class="content">
+<div class="paragraph">
+<p>Bu bölümde dilin genel özelliklerine, nasıl bir süreçten geçtiğine değineceğiz. İlerideki bölümlerde burada üzerinde konuştuklarımızı detaylandıracak ve kod örneklerine geçeceğiz.</p>
+</div>
+<div class="paragraph">
+<p>Öncelikler Perl 6 dilinin ne olduğundan bahsedeceğiz, Perl 5 ile nasıl bir ilişkisi olduğuna değineceğiz, kütüphane kavramına değineceğiz ve son olarak neden Perl 6’yı kullandığımızdan bahsederek bölümü bitireceğiz.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_perl_6_nedir">Perl 6 Nedir?</h2>
+<div class="sectionbody">
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Perl 6’nın  gelişimini açıkladığımda, bunun bir topluluk tasarımı olacağını söylemiştim. Perl’ü kendim tasarladım. Bu benim kendi beyin gücümle sınırlı. Bu yüzden Perl 6’nın bir topluluk tasarımı olmasını istedim.</p>
+</div>
+</blockquote>
+<div class="attribution">
+&#8212; Larry Wall
+</div>
+</div>
+<div class="paragraph">
+<p>Perl 6 yüksek seviyeli, genel amaçlı Perl programlama dili ailesine dahil bir programlama dilidir. Kolayca öğrenilebilecek, yazılıp okunabilecek şekilde tasarlanmıştır. Tecrübeli programcılara ifade özgürlüğü verirken, acemi programcıların da yazabilmesine olanak verir.</p>
+</div>
+<div class="paragraph">
+<p>Kademeli tipleme(Graduall Typed) kullanır. Dinamik diller gibi çalışır, derleme sırasında tip güvenliğini garanti edemediği programları kabul eder. Ancak, birçok dinamik dilden farklı olarak, tip kısıtlamarını kabul eder ve uygular. Bunu için ek açıklamalar kullanılır.</p>
+</div>
+<div class="paragraph">
+<p>Birçok programlama paradigması destekler. Fonksiyonel, nesne yönelimli, emirsel olarak yazılabilir.</p>
+</div>
+<div class="paragraph">
+<p>Perl 6 şu anda hevesli gönüllülerden oluşan bir ekip tarafından geliştirilmektedir ve Perl topluluğunun yüksek ideallerini bir üst çitaya taşımayı amaçlamaktadır.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_perl_versiyonları">Perl Versiyonları</h2>
+<div class="sectionbody">
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Kolay şeyler kolay olmalı, zor şeyler kolaylaştırılmalı ve imkansız şeyler zorlanmalı.</p>
+</div>
+</blockquote>
+<div class="attribution">
+&#8212; Perl dilinin mottolarından biri<br>
+<cite>(Easy things should stay easy hard things should get easier and impossible things should get hard.)</cite>
+</div>
+</div>
+<div class="paragraph">
+<p>Perl 5, otuz yılı aşkın süredir geliştirilen yüksek seviyeli ve zengin özelliklere sahip bir programlama dilidir. Yüzden fazla platformda çalışır ve hem prototipleme hem de büyük ölçekli projeler için uygundur.</p>
+</div>
+<div class="paragraph">
+<p>Perl bir dil ailesidir, Perl 6 ise bu ailenin bir üyesidir ancak kendi gelişim ekibine sahip ayrı bir dildir. Varlığının devam edem Perl 5 gelişimi üzerimde önemli bir etkisi yoktur.</p>
+</div>
+<div class="paragraph">
+<p>Yaklaşık olarak 2000 yılında Perl dilinin revize edilmesi söz konusu olmaya başladı. Perl 5 dilinin kalabalık bir dil olarak görülmesi, yazılan kodların anlaşılmazlığı gibi eleştiriler buna ön ayak oldu.  Perl 6 da tasarımcılar kötü düşündükleri her şeyi attılar ve iyi olduğunu düşündükleri özellikleri sakladılar. Perl 6 aşağı yukarı bu şekilde oluşturuldu.</p>
+</div>
+<div class="paragraph">
+<p>Perl 6 dilinin size öğreteceği kavramlara bakınca emirli(imperative), fonksiyonel veya nesne yönelimli programlama gibi öğreneceğiniz diğer dillere uygulayabileceğiniz kavramları öğrenmiş olacaksınız.</p>
+</div>
+<div class="sect2">
+<h3 id="_perl_5_versiyonuna_aşinalar_i̇çin_bir_rehber">Perl 5 Versiyonuna Aşinalar İçin Bir Rehber</h3>
+<div class="paragraph">
+<p>Burası daha önce Perl deneyimine sahip kullanıcılar için bir tür kısa karşılaştırma bölümü. Tabi ki tüm özellikleri karşılaştırmayacağız, burada amacımız küçük farklara değinmek. Daha önce Perl dili kullanmadıysanız bu bölümü atlayabilirsiniz.</p>
+</div>
+<div class="paragraph">
+<p>Bu rehberin çok daha ayrıntılı haline <a href="https://docs.perl6.org/language/5to6-nutshell" class="bare">https://docs.perl6.org/language/5to6-nutshell</a> adresinden ulaşabilirsiniz.</p>
+</div>
+<div class="sect3">
+<h4 id="_cpan">CPAN</h4>
+<div class="paragraph">
+<p>Modüller için <a href="https://modules.perl6.org/" class="bare">https://modules.perl6.org/</a> adresine bakabilirsiniz.</p>
+</div>
+<div class="paragraph">
+<p>Eğer aradığınız modül Perl 6 için henüz yoksa <strong>Inline::Perl5</strong> modülü ile Perl 6 kodunuz içinde Perl 5 modüllerini doğrudan kullanabilirsiniz.</p>
+</div>
+<div class="paragraph">
+<p>CPAN Butterfly planının parçası olarak bazı modüllerin API&#8217;leri korunmaya çalışılarak bir takım Perl 5 modüllü Perl 6&#8217;ya taşındı. Bunlara <a href="https://modules.perl6.org/t/CPAN5" class="bare">https://modules.perl6.org/t/CPAN5</a> adresinden ulaşabilirsiniz.</p>
+</div>
+<div class="paragraph">
+<p>Birçok yerleşik Perl 5 fonksiyonu olduğu gibi Perl 6&#8217;ya taşındı ancak aradığınız yerleşik fonsiyonu Perl 6 da kullanmak için P5built-ins modülünü kullanabilirsiniz. Hakkında daha fazla bilgi için <a href="https://modules.perl6.org/dist/P5built-ins" class="bare">https://modules.perl6.org/dist/P5built-ins</a> adresine bakabilirsiniz.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_bazı_sözdizimi_farklılıkları">Bazı Sözdizimi Farklılıkları</h4>
+<div class="paragraph">
+<p>Perl 5 ve Perl 6 arasında bazı sözdizimi farklılıkları vardır. Bunlardan bazılarına bakalım.</p>
+</div>
+<div class="paragraph">
+<p>Perl 6 isimlendirme kurallarında tire (-), alt çizgi (_), kesme işareti (') ve alfanumerik kullanımına izin verir.</p>
+</div>
+<div class="paragraph">
+<p>Metot çağrıları Perl 5&#8217;den farklı olarak ok(&#8594;) yerine nokta(.) kullanılır. Nokta gösterimi kullanım ve standart olarak daha kolaydır.</p>
+</div>
+<div class="paragraph">
+<p>Boşlukların kullanımın da Perl 5 şaşırtıcı derecede esnektir. Perl 6 daha anlamlı bir söz dizilimi için tasarlanmıştır.
+Sonuç olarak sözdiziminde Perl 5&#8217;te boşluğun isteğe bağlı olduğu ancak Perl 6&#8217;da zorunlu veya yasak olduğu yerler vardır.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Bir argüman listesinin açılış parantezi öncesi boşluğa izin verilmez.</p>
+</li>
+<li>
+<p>Anahtar kelimelerden hemen sonra boşluk kullanılmalı.</p>
+</li>
+<li>
+<p>Ön ek veya son eklerden önce boşluk kullanılmaz.</p>
+</li>
+<li>
+<p>Aradaki ifadelerin sağına ve soluna boşluk konulur. (4 &lt; 5)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Sözdizimi ile ilgili çok daha fazla bilgiye <a href="https://docs.perl6.org/language/syntax#Lexical_conventions" class="bare">https://docs.perl6.org/language/syntax#Lexical_conventions</a> adresinden ulaşabilirsiniz.</p>
+</div>
+<div class="paragraph">
+<p>Perl 5&#8217;de değişkenlerin başlarına konulan işaretler nasıl erişildiklerine bağlı olarak değişir, Perl 6&#8217;da değişmez.</p>
+</div>
+<div class="paragraph">
+<p>Ternary operatörü de değişmiştir. Karşılaştırma operatörleri olan <strong>?</strong> ve <strong>:</strong> işaretleri <strong>??</strong> ve <strong>!!</strong> olarak değiştirilmiştir.</p>
+</div>
+<div class="paragraph">
+<p>Karakter dizilerini birleştirmemizi sağlayan ".", "~" ile değiştirilmiştir.</p>
+</div>
+<div class="paragraph">
+<p>Ve Perl 6 pek çok değişiklik getirdi, kalanları kitabın ilerleyen bölümlerinde birlikte keşfedelim.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_kütüphane_desteği">Kütüphane Desteği</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Nispeten genç bir dil olan Perl 6, Perl 5 ve Python gibi dillerin sağladığı olgun modül ekosisteminden yoksundur. Eklenen modüller her geçen gün artmaktadır ancak işinize yarayacak bir modülü bulamıyorsanız, bu boşluğu doldurmak için C, Python, Perl 5 ve Ruby ile yazılmış kütüphaneleri aramanıza izin veren arayüzler bulunmaktadır.</p>
+</div>
+<div class="paragraph">
+<p>Örneğin belirli bir Python kütüphanesini seviyorsanız Inline::Python modülünü kullanarak programınıza yükleyebilirsiniz. Bunun gibi arayüz kullanımlarına ilerideki bölümlerde detaylı olarak değineceğiz.</p>
+</div>
+<div class="paragraph">
+<p>Perl 6 da çeşitli dillerde gördüğümüz (Python - pip, Ruby -gem, vb.) zef adında modern modül yöneticisine sahiptir. Kolay kullanımlı ve hızlıdır.</p>
+</div>
+<div class="paragraph">
+<p>Modüller hakkında daha fazla bilgiye <a href="https://modules.perl6.org/" class="bare">https://modules.perl6.org/</a> adresinden ulaşılabilir.
+Detayları sonraki bölümlere bırakıp devam edelim.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_neden_perl_6">Neden Perl 6?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Bu bölümde Perl 6’yı çekici bir dil yapan özelliklerden bahsetmeye çalışacağız. Öncelikle hızlı prototip oluşturma deneyimini seviyorsanız, büyük, güvenilir ve yeterli güvenlik özellikleri de istiyorsanız Perl 6 sizin için uygun.</p>
+</div>
+<div class="paragraph">
+<p>Kademeli tiplemeye(gradual typing) izin verir. Yani bir değişkenin tipini belirtmeyeceğiniz gibi kötüye kullanımını önlemek, güvenlik ve okunabilirlik için değişkenlerin tiplerini belirtebilirsiniz.</p>
+</div>
+<div class="paragraph">
+<p>Düzenli ifadeler(regex) aracılığıyla metin işleme konusunda üne sahiptir ve harika bir metin işleme dilidir. Perl 6, düzenli ifadeleri kodla aynı düzeye getirerek, bunları alt yordamlar(alt yordamları diğer programlama dillerideki fonksiyonlara benzetebiliriz.)  gibi adlandırmanıza ve hatta nesneye yönelik özellikleri kullanmanıza olanak tanır.</p>
+</div>
+<div class="paragraph">
+<p>İnanılmaz bir Unicode desteğine sahiptir. Dahili eşzamanlılık ve tembel listeler gibi pek çok özelliğe sahiptir. Hata çıktıları oldukça detaylı ve anlaşılırdır. Son olarak Perl 6 size problemi ve çözümünü farklı yollar ve programlama paradigmaları ile ifade etme özgürlüğü verir.</p>
+</div>
+<div class="paragraph">
+<p>Listeleyebileceğimiz pek çok özellik var, ama daha da önemlisi dili kullanmak eğlenceli olacak şekilde tasarlandı. Kitap boyunca bu kavramlar ve şaşırtıcı pek çok özellikten daha bahsedeceğiz.</p>
+</div>
+<div class="paragraph">
+<p>Perl 6’yı kullanmayı tercih etmeyeceğiniz zamanlar tabii ki olacaktır. Hiçbir dil her iş için doğru araç değildir.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<h1 id="_perl_6_i̇le_i̇lk_adımlar" class="sect0">Perl 6 İle İlk Adımlar</h1>
+<div class="openblock partintro">
+<div class="content">
+<div class="paragraph">
+<p>Bu bölümde nihayet ilk kodumuzu yazacağız. Öncelikle kurulum ile başlayacağız, daha sonra REPL ile ilgileneceğiz, editörlere göz atacağız ve küçük bir uygulama yaparak Perl 6 programlama dilinin derinliklerine doğru yol alacağız.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_perl_6_kurulumu">Perl 6 Kurulumu</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Perl kurulumuna geçmeden önce kısaca jargondan bahsedenim.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Rakudo:</strong> Perl 6 derleyicisidir.</p>
+</li>
+<li>
+<p><strong>Zef:</strong> Perl 6 modül yöneticisidir.</p>
+</li>
+<li>
+<p><strong>Rakudo Star:</strong> Rakudo, zef, Perl 6 modül koleksiyonu ve dokümantasyonu içeren pakettir.</p>
+</li>
+<li>
+<p><strong>Rakudobrew:</strong> Rakudo kurulum yöneticisidir.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Bu noktada birden fazla kurulum alternatifimiz var. Rakudo Star kurulumu yapabilirsiniz veya rakudobrew aracılığı ile kurulumu gerçekleştirebilirsiniz. Burada kurulum tamamen kullanıcının insiyatifindedir.</p>
+</div>
+<div class="paragraph">
+<p>Bu kitap yazılırken son versiyon 2019.03 idi. Kurulum aşamasını bu versiyona göre takip edeceğiz.</p>
+</div>
+<div class="paragraph">
+<p>Rakudo Star kurulumu için <a href="http://rakudo.org/files" class="bare">http://rakudo.org/files</a> adresinden işletim sisteminize uygun versiyonu indirip yükleyebilirsiniz.</p>
+</div>
+<div class="paragraph">
+<p><strong>Docker</strong> ile kurulum için, Docker’ı destekleyen platformlarda, mevcut Docker Rakudo Star konteynırını Docker hub’dan yükleyebilirsiniz.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ docker pull rakudo-star</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Daha sonra etkileşimli kabuk için aşağıdaki kodu çalıştırabilirsiniz:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ docker run -it rakudo-star perl6:2019.03</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Rakudobrew kurlumu için: <a href="https://github.com/tadzik/rakudobrew" class="bare">https://github.com/tadzik/rakudobrew</a> adresine bakabilirsiniz. Oldukça kolay kurulum adımlarına sahip.</p>
+</div>
+<div class="paragraph">
+<p>Kaynak koddan derlemek için:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ wget https://rakudostar.com/files/star/rakudo-star-2019.03.tar.gz
+$ tar xfz rakudo-star-2019.03.tar.gz
+$ <span class="tok-nb">cd</span> rakudo-star-2019.03
+$ perl Configure.pl —gen-moar —make-install —prefix ~rakudo</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Komutlarını kullanabilirsiniz. Kaynak koddan derleme tecrübesiz kullanıcılar için önermediğim bir yöntem.</p>
+</div>
+<div class="paragraph">
+<p>Kurulumumuzun başarılı olup olmadığına sistemimizde yüklü olan rakudo versiyonunu aşağıdaki komut ile görebiliriz.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ perl6 —version
+This is Rakudo version <span class="tok-m">2019</span>.03-32-g33e2d7f4c built on MoarVM version <span class="tok-m">2019</span>.03-2-gbb2dc6619
+implementing Perl <span class="tok-m">6</span>.d.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Benim sistemim de yukarıdaki çıktıyı oluşturmaktadır. Eğer buna benzer bir çıktı görüyorsanız Perl 6 kurulumunuz başarılı olmuş demektir.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_temel_komut_satırı_özellikleri">Temel Komut Satırı Özellikleri</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Perl 6 bir önceki bölümde kullandığımıza(perl6 —version) benzer bazı komut satırı özellikleri ile birlikte gelir.  Bu bölümde bu özellikleri inceleyeceğiz. Komutları kullanırken</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$  perl6 &lt;komut&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>şeklinde kullanmamız gerekiyor.</p>
+</div>
+<div class="sect2">
+<h3 id="_h_veya_help_komutu">-h veya --help Komutu:</h3>
+<div class="paragraph">
+<p>Bu komut bize yardım yazısının bir çıktısını verir ve kullanabileceğimiz çeşitli komutları ve açıklamalarını burada görebiliriz. Aşağıdaki çıktıya benzer bir çıktı oluşturur.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$  perl6 -h
+<span class="tok-o">[</span>…<span class="tok-o">]</span>
+-c                   check syntax only <span class="tok-o">(</span>runs BEGIN and CHECK blocks<span class="tok-o">)</span>
+  --doc                extract documentation and print it as text
+  -e program           one line of program, strict is enabled by default
+  -h, --help           display this <span class="tok-nb">help</span> text
+  -n                   run program once <span class="tok-k">for</span> each line of input
+  -p                   same as -n, but also print <span class="tok-nv">$_</span> at the end of lines
+<span class="tok-o">[</span>…<span class="tok-o">]</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_c_komutu">-c Komutu:</h3>
+<div class="paragraph">
+<p>Programın söz dizilimini kontrol eder ve çıkar, kodu çalıştırmaz. Eğer kodun yazılı olduğu adresi belirtmezsek <strong>Syntax OK</strong> dönüşünü yaparak aynı zamanda herhangi bir söz dizimsel hata ile karşılaşmadığında da aynı dönüşü yapar ve sonlanır. Eğer bir hata ile karşılaşırsa hata mesajı dönerek sonlanır. Ayrıca daha sonra göreceğimiz <em>BEGIN</em> ve <em>CHECK</em> bloklarını çalıştırır.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_e_komutu">-e Komutu:</h3>
+<div class="paragraph">
+<p>Bu komut ile bir kodu komut satırı aracılığı ile yazıp kullanabiliriz. Kısa programlar ve küçük testler için uygundur.</p>
+</div>
+<div class="paragraph">
+<p>Şimdi bir örnek yapalım. Burada endişelenmenize gerek yok ekrana basit bir “Merhaba Dünya!” yazan programı tek <strong>-e</strong> komutu ile kullanmaya çalışalım. Şu aşamada kodun ekrana Merhaba Dünya yazması gerektiğini bilmemiz yeterli. Oldukça kolay bir kod.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$  perl6 -e ‘say “Merhaba Dünya”’
+Merhaba Dünya</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Evet kodumuz düzgün bir şekilde çalıştı ve istediğimiz sonucu aldık.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_n_komutu">-n Komutu:</h3>
+<div class="paragraph">
+<p>Programa gönderilen bir metnin her satırı için yazılan komutun tekrar çalıştırılmasını sağlar. Yine buradaki kod parçası ve biraz sihir için endişelenmenize gerek yok kullanım örneği oluşturması için yazıyoruz sadece.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ perl6 -n -e ‘say <span class="tok-nv">$_</span>’ &lt; davet.txt
+Dörtnala gelip Uzak Asya<span class="tok-err">&#39;</span>dan
+Akdenize bir kısrak başı gibi uzanan
+Bu memleket bizim!
+Bilekler kan içinde, dişler kenetli
+Ayaklar çıplak
+Ve ipek bir halıya benzeyen toprak
+Bu cehennem, bu cennet bizim!
+Kapansın el kapıları bir daha açılmasın
+Yok edin insanın insana kulluğunu
+Bu davet bizim!
+Yaşamak bir ağaç gibi tek ve hür
+Ve bir orman gibi kardeşçesine
+Bu hasret bizim!</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Bu kod parçacığını açacak olursak şöyle bir ifade orataya çıkacaktır. Sana bir dosyayı parametre olarak gönderiyorum bunu dosya bitene kadar <strong>-n</strong> kere <strong>-e</strong> kod parçacığını çalıştır.</p>
+</div>
+<div class="paragraph">
+<p>Kodumuz tam olarak beklediğimiz gibi çalıştı. Nazım Hikmet’in Davet adlı şiirinin olduğu “davet.txt” dosyamızın içeriğini dosya bitene kadar ekrana yazdı.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_p_komutu">-p Komutu:</h3>
+<div class="paragraph">
+<p><strong>-n</strong> komutuna benzer bir şekilde çalışır ancak <strong>$_</strong> ifadesinin yaptığı işi program sonunda çalıştırır.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ perl6 -p -e ‘say “-“‘ &lt; davet.txt
+-
+Dörtnala gelip Uzak Asya<span class="tok-err">&#39;</span>dan
+-
+Akdenize bir kısrak başı gibi uzanan
+-
+Bu memleket bizim!
+-
+Bilekler kan içinde, dişler kenetli
+-
+Ayaklar çıplak
+-
+Ve ipek bir halıya benzeyen toprak
+-
+Bu cehennem, bu cennet bizim!
+-
+Kapansın el kapıları bir daha açılmasın
+-
+Yok edin insanın insana kulluğunu
+-
+Bu davet bizim!
+-
+Yaşamak bir ağaç gibi tek ve hür
+-
+Ve bir orman gibi kardeşçesine
+-
+Bu hasret bizim!</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Kod öncelikle dediğimiz gibi program bitene kadar “-“ işaretini ekrana yazdı ve sonra kodumuzda “$_” ifadesi varmış gibi davranarak ekrana davet.txt dosyasının içerisindeki metnin satırını yazdı.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_i_ve_m_komutları">-I ve -M Komutları:</h3>
+<div class="paragraph">
+<p>Modülleri programa dahil etmek için kullanılır. -M seçeceği ile modülün adı ve gerekirse -I seçeceği ile modülün dizin yolu belirtilmeli.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_v_veya_version_komutu">-v veya —version Komutu:</h3>
+<div class="paragraph">
+<p>Bir önceki bölümde de kullandığımız gibi Perl 6 versiyonunun çıktısını ekrana yazar.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_stagestats_komutu">—stagestats Komutu:</h3>
+<div class="paragraph">
+<p>Derleyici tarafından harcanan zamanı, programın derlenmesi ve yürütülmesi zamanlarını ekrana yazdırır.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_doc_komutu">—doc Komutu:</h3>
+<div class="paragraph">
+<p>Dokümantasyonu programdan alır ve yazdırır. Dokümantasyondan kast ettiğimiz Pod(Plain Old Documentation) dokümantasyonudur. Buna ilerideki bölümlerde değineceğiz.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_v_komutu">-V Komutu:</h3>
+<div class="paragraph">
+<p>Ekrana konfigürasyon özetini yazdırır. Bu ekrana oldukça uzun bir çıktı yazdırır.</p>
+</div>
+<div class="paragraph">
+<p>Komutların farklı bir kullanım şekli de çoklu komutlarda ilk tire(-) işaretinden sonra bir tire daha koymadan birleşik şekilde komutun yazılmasıdır. Farklı bir kullanımda komuttan sonra gelen kodumuzdan sonra gelen parametrenin bizim komutumuzda <em>davet.txt</em>) farklı yazımıdır. Bu da tamamen okunabilirlikle alakalıdır ve "&lt;" işareti kullanılmadan yazılabilir.</p>
+</div>
+<div class="paragraph">
+<p>Hemen örneklendirelim:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ perl6 -p -e <span class="tok-s1">&#39;say &quot;-&quot;&#39;</span> &lt; davet.txt
+<span class="tok-o">[</span>...<span class="tok-o">]</span>
+$ perl6 -pe <span class="tok-s1">&#39;say &quot;-&quot;&#39;</span> &lt; davet.txt
+<span class="tok-o">[</span>...<span class="tok-o">]</span>
+$ perl6 -pe <span class="tok-s1">&#39;say &quot;-&quot;&#39;</span> davet.txt
+<span class="tok-o">[</span>...<span class="tok-o">]</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ perl6 -n -e <span class="tok-s1">&#39;say $_&#39;</span> &lt; davet.txt
+<span class="tok-o">[</span>...<span class="tok-o">]</span>
+$ perl6 -ne <span class="tok-s1">&#39;say $_&#39;</span> &lt; davet.txt
+<span class="tok-o">[</span>...<span class="tok-o">]</span>
+$ perl6 -ne <span class="tok-s1">&#39;say $_&#39;</span> davet.txt
+<span class="tok-o">[</span>...<span class="tok-o">]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Son olarak davet.txt dosyamızın her satırı için bir satır numarası yazdıralım ve inceleyelim.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ perl6 -ne <span class="tok-s1">&#39;say $++ ~ &quot;. satır: &quot; ~ $_&#39;</span> davet.txt
+<span class="tok-m">0</span>. satır: Dörtnala gelip Uzak Asya<span class="tok-err">&#39;</span>dan
+<span class="tok-m">1</span>. satır: Akdenize bir kısrak başı gibi uzanan
+<span class="tok-m">2</span>. satır: Bu memleket bizim!
+<span class="tok-m">3</span>. satır: Bilekler kan içinde, dişler kenetli
+<span class="tok-m">4</span>. satır: Ayaklar çıplak
+<span class="tok-m">5</span>. satır: Ve ipek bir halıya benzeyen toprak
+<span class="tok-m">6</span>. satır: Bu cehennem, bu cennet bizim!
+<span class="tok-m">7</span>. satır: Kapansın el kapıları bir daha açılmasın
+<span class="tok-m">8</span>. satır: Yok edin insanın insana kulluğunu
+<span class="tok-m">9</span>. satır: Bu davet bizim!
+<span class="tok-m">10</span>. satır: Yaşamak bir ağaç gibi tek ve hür
+<span class="tok-m">11</span>. satır: Ve bir orman gibi kardeşçesine
+<span class="tok-m">12</span>. satır: Bu hasret bizim!</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Kodumuzu inceleyecek olursak şimdiye kadar kullanmadığımız "<strong>$++</strong>" ve "<strong>~</strong>" kullanımını gördük. Şu an için bu kodun ne yaptığını bilsek yeterli.</p>
+</div>
+<div class="paragraph">
+<p><strong>$++</strong> kullanımı ile bize gelen dosyadaki her bir satır için bir sayma oluşturduk. Program sonlanana kadar sayım yapacağız. Perl 6 da sayma işlemi çoğu programlama dilinde olduğu gibi 0&#8217;dan başlar.</p>
+</div>
+<div class="paragraph">
+<p><strong>~</strong> kullanımı ile karakter dizilerini birleştirdik. Kodumuzda $++ ile ". satır: " karakter dizisini ve $_ işaretinin çıktılarını birleştirmek için kullandık.</p>
+</div>
+<div class="paragraph">
+<p>$++ ve $_ kullanımları değişken olduğu için doğrudan çift tırnak("") işaretleri arasına yazamadık. Bu nedenle "~" kullandık.</p>
+</div>
+<div class="paragraph">
+<p><strong>say</strong> fonksiyonu ile tüm bunları ekrana yazdık.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_etkileşimli_perl_6">Etkileşimli Perl 6</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>REPL, Python, Ruby gibi dillerden aşina olunan Okuma-Değerlendirme-Yazdırma-Döngü etkileşimli ortamdır. REPL basitçe yazılan kodu değerlendirir, sonucu gösterir ve tekrar etkileşim bekler.</p>
+</div>
+<div class="paragraph">
+<p>Teknik olarak bu ekrana etkileşimli kabuk (interactive shell)adı verildiğini bilmemizde fayda var. Etkileşimli kabuk, bizim Perl programlama dili ile ilişki kurabileceğimiz, yani onunla etkileşebileceğimiz bir üst katmandır. Etkileşimli kabuk, asıl programımız içinde kullanacağımız kodları deneme imkanı sunar bize. Burası bir nevi test alanı gibidir. Örneğin bir Perl kodunun çalışıp çalışmadığını denemek veya nasıl çalıştığını, ne sonuç verdiğini görmek istediğimizde bu ekran son derece faydalı bir araç olarak karşımıza çıkar. Bu ortam, özellikle Perl&#8217;e yeni başlayanların bu programlama diline aşinalık kazanmasını sağlaması açısından da bulunmaz bir araçtır. Biz de bu bölümde etkileşimli kabuk üzerinde bazı çalışmalar yaparak, Perl&#8217;e alışma turları atacağız.</p>
+</div>
+<div class="paragraph">
+<p>Perl 6 hızlı ve etkin bir arayüz sunar. Bu arayüzü dilin inceliklerini öğrenirken deneme-yanılma yapabilmek açısından oldukça etkili, küçük kodların denenmesi için güzel bir ortamdır. Komut satırına <strong>perl6</strong> yazarak REPL ortamını başlatabilirsiniz.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ perl6
+To <span class="tok-nb">exit</span> <span class="tok-nb">type</span> <span class="tok-s1">&#39;exit&#39;</span> or ‘^D<span class="tok-err">&#39;</span>
+&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>"&gt;" işareti ile Perl 6 etkileşimli kabuğu bizden girdi bekler. Bir önceki bölümde yazdığımız ekrana “Merhaba Dünya” yazan kodu burada deneyelim.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; say “Merhaba Dünya”
+Merhaba Dünya</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Beklediğimiz sonucu aldık ve ortam bizden “&gt;” işareti ile yeni bir etkileşim bekliyor. REPL aynı zamanda bir hesap makinesidir. Bir kaç deneme yapalım.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; <span class="tok-m">2</span> + <span class="tok-m">2</span>
+<span class="tok-m">4</span>
+&gt; <span class="tok-m">2</span> * <span class="tok-m">3</span>
+<span class="tok-m">6</span>
+&gt; <span class="tok-m">2</span> ** <span class="tok-m">12</span>
+<span class="tok-m">4096</span>
+&gt; <span class="tok-m">5</span> / <span class="tok-m">2</span>
+<span class="tok-m">2</span>.5
+&gt; <span class="tok-m">5</span> % <span class="tok-m">2</span>
+<span class="tok-m">1</span>
+&gt; “Merhaba Dünya”
+Merhaba Dünya</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Gibi örnekler yapabiliriz. Alışma aşaması için bu kadar REPL bilgisi bize yeterli ilerideki bölümlerde sık sık kullanacağız.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_metin_editörleri_ve_tümleşik_geliştirme_ortamları">Metin Editörleri ve Tümleşik Geliştirme Ortamları</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Çoğu zaman, Perl 6 programlarımız dosyalara yazıp depolayacağımız için, Perl 6 söz dizilimini tanıyan iyi bir editöre sahip olmalıyız. Bu noktada pek çok alternatifimiz bulunmakta.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Atom:</strong> Atom editörüne <a href="https://atom.io/" class="bare">https://atom.io/</a> adresinden ulaşabilirsiniz. Perl 6 söz dizilimi için <a href="https://atom.io/packages/language-perl6" class="bare">https://atom.io/packages/language-perl6</a> eklentisini yükleyebilirsiniz.</p>
+</li>
+<li>
+<p><strong>Visual Studio Code:</strong> VSCode editörüne <a href="https://code.visualstudio.com/" class="bare">https://code.visualstudio.com/</a> adresinden ulaşabilirsiniz. Perl 6 söz dizilimi için <a href="https://marketplace.visualstudio.com/items?itemName=scriplit.perl6-lsp" class="bare">https://marketplace.visualstudio.com/items?itemName=scriplit.perl6-lsp</a> eklentisini kurabilirsiniz.</p>
+</li>
+<li>
+<p><strong>Padre:</strong> <a href="http://padre.perlide.org/" class="bare">http://padre.perlide.org/</a></p>
+</li>
+<li>
+<p><strong>Comma IDE:</strong> <a href="https://commaide.com/" class="bare">https://commaide.com/</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Sublime Text, JetBrains ortamları, Emacs veya Vim gibi metin editörleri kullanıyorsanız Perl 6 eklentileri mevcut. Bu editörlerden herhangi birini kullanabilirsiniz. Basit bir internet aramasıyla daha fazla sonuca ulaşabilirsiniz.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_i̇lk_programımız">İlk Programımız</h2>
+<div class="sectionbody">
+<div class="quoteblock">
+<blockquote>
+Perl 6 eğlence için optimize edilmiştir.
+</blockquote>
+<div class="attribution">
+&#8212; Audrey Tang
+</div>
+</div>
+<div class="paragraph">
+<p>Favori geliştirme ortamımızı kurduğumuzu ve gerekli ayarları yaptığımızı varsayarak yeni bir Perl 6 dosyası oluşturalım. Dokümantasyon dosya uzantısı olarak “<strong>.p6</strong>” veya “<strong>.pl6</strong>” önermesine rağmen Perl 6 uzantıyı önemsemez. Ancak Dokümantasyona sadık kalmak iyi bir alışkanlıktır.</p>
+</div>
+<div class="paragraph">
+<p>Dosyamızı “<strong>merhaba-dunya.p6</strong>” olarak kayıt edelim.
+Dosyamızın içerisine ekrana “Merhaba Dünya” yazan kodumuzu yazalım ve kayıt edelim.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="perl6"><span></span><span class="tok-nb">say</span> “<span class="tok-n">Merhaba</span> <span class="tok-n">Dünya</span>”</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Terminal arkalığı ile kodumuzu kayıt ettiğimiz yere gidelim ve dosyamızı çalıştıralım.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ perl6 merhaba-dunya.p6
+Merhaba Dünya</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>İlk programımız başarı ile çalıştı ve ekrana Merhaba Dünya yazdı.</p>
+</div>
+<div class="paragraph">
+<p>Programımızı çalıştırmadan önce perl6 komut satırı özelliklerinde gördüğümüz -c parametresi ile bir kontrol yapalım. Hatırlarsanız bu komut programımızın söz dizilimini kontrol ediyordu.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ perl6 -c merhaba-dunya.p6
+Syntax OK</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cevabını bize döndürdü ve sonlandı. Bu demek oluyorki herhangi bir söz dizimsel hata yapmadık. Programımızı biraz değiştirip tekrar deneyelim.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="perl6"><span></span><span class="tok-nb">say</span> “<span class="tok-n">Merhaba</span> <span class="tok-n">Dünya&#39;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Kayıt edip tekrar -c komutu ile çalıştıralım.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ perl6 -c merhaba-dunya.p6
+Unable to parse expression in double quotes<span class="tok-p">;</span> couldn<span class="tok-s1">&#39;t find final &#39;</span><span class="tok-s2">&quot;&#39; (corresponding starter was at line 1)</span>
+<span class="tok-s2">at […]Perl 6 Kitabı/perl-6-kitabı/merhaba-dunya.p6:1</span>
+<span class="tok-s2">------&gt; say &quot;</span>Merhaba Dünya<span class="tok-err">&#39;</span>⏏&lt;EOL&gt;
+    expecting any of:
+        argument list
+        double quotes
+        term</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Bize bir hata döndü ki bu hatayı tahmin ediyorduk.
+Oldukça açıklayıcı bir hata aldık: İfade çift tırnak içinde değil sonuncu çift tırnağı bulamadım, karşılık gelen başlangıç birinci satırdaydı.</p>
+</div>
+<div class="paragraph">
+<p>Programlarınızı çalıştırmadan önce -c parametresi uygulamak programın çalışmadan önce söz diziliminde bir hatanız olup olmadığını size bildirecektir.</p>
+</div>
+<div class="paragraph">
+<p>Sonra yapacağımız örnekler için merhaba-dunya.p6 dosyamızın içerisindeki kodu eski(çalışan) haline getirelim.</p>
+</div>
+<div class="paragraph">
+<p>Önceki bölümlerde örneklendirmediğimiz bir komutta <strong>—-stagestats</strong> komutuydu. Bu komut hatırlayacağınız gibi derleyici tarafından harcanan zamanı, programın derlenmesi ve yürütülmesi zamanlarını ekrana yazdırıyordu.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ perl6 --stagestats merhaba-dunya.p6
+Stage start      :   <span class="tok-m">0</span>.000
+Stage parse      :   <span class="tok-m">0</span>.241
+Stage syntaxcheck:   <span class="tok-m">0</span>.000
+Stage ast        :   <span class="tok-m">0</span>.000
+Stage optimize   :   <span class="tok-m">0</span>.004
+Stage mast       :   <span class="tok-m">0</span>.006
+Stage mbc        :   <span class="tok-m">0</span>.001
+Stage moar       :   <span class="tok-m">0</span>.000
+Merhaba Dünya</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>--stagestats komutu bize adım adım derleyicinin neler yaptığını göstermiş oldu ve son olarak programı çalıştırarak sonlandı.</p>
+</div>
+<div class="paragraph">
+<p>Perl 6&#8217;nın dosya uzantılarını umursamadığını belirtmiştik, şimdi bunun için bir deneme yapaılım. Bu sefer <strong>merhaba-dunya.txt</strong> adında bir dosya oluşturalım ve içerisine ekrana "Merhaba DÜnya" yazan kodumuzu içerisine yazalım ve kayıt edip çalıştırmaya çalışalım.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ perl6 merhaba-dunya.txt
+Merhaba Dünya</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Gördüğünüz gibi herhangi bir problem ile karşılaşmadık.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<h1 id="_perl_6_temelleri" class="sect0">Perl 6 Temelleri</h1>
+<div class="openblock partintro">
+<div class="content">
+<div class="paragraph">
+<p>Bu bölümde dokümantasyonu okumayı, operatörleri, yorumları, POD dokümantasyonunu, blokları, boşlukları, unicode kullanımını ve basit olarak girdi çıktı işlemlerine değineceğiz.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_dokümantasyonu_okumak">Dokümantasyonu Okumak</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Perl 6 dokumantasyonuna komut satirina <strong>p6doc</strong> yazarak ulasabiliriz. p6doc sisteminizde kurulu olarka gelmez. Eger bir hata ile karsilasirsaniz muhtemelen p6doc sisteminizde kurulu degildir. Zef modul yoneticisi ile kurabiliriz.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ zef install p6doc</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Eğer bir sorun ile karşılaşırsanız <em>--force</em> parametresiyle tekrar deneyiniz.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ zef install p6doc --force</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Herhangi bir hata almadıysanız kurulum başarılı demektir. Komut satırına p6doc yazarak kontrol edelim.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ p6doc
+<span class="tok-o">[</span>...<span class="tok-o">]</span>
+
+What documentation <span class="tok-k">do</span> you want to read?
+Examples: p6doc Str
+          p6doc Str.split
+          p6doc faq
+          p6doc path/to/file
+
+<span class="tok-o">[</span>...<span class="tok-o">]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dokumantasyonu kullanmak son derece kolaydir. Şimdi birkaç örnek yapalım:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ p6doc Int.is-prime
+<span class="tok-o">[</span>...<span class="tok-o">]</span>
+Defined as:
+
+    multi sub    is-prime <span class="tok-o">(</span>Int:D <span class="tok-nv">$number</span> --&gt; Bool:D<span class="tok-o">)</span>
+    multi method is-prime <span class="tok-o">(</span>Int:D: --&gt; Bool:D<span class="tok-o">)</span>
+
+Returns True <span class="tok-k">if</span> this Int is known to be a prime, or is likely to be a prime
+based on a probabilistic Miller-Rabin test.
+
+Returns False <span class="tok-k">if</span> this Int is known not to be a prime.
+
+    say <span class="tok-m">2</span>.is-prime<span class="tok-p">;</span>         <span class="tok-c1"># OUTPUT: «True»</span>
+    say is-prime<span class="tok-o">(</span><span class="tok-m">9</span><span class="tok-o">)</span><span class="tok-p">;</span>        <span class="tok-c1"># OUTPUT: «False»</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Gördüğünüz gibi p6doc bize oldukça detaylı bir sonuç döndü. Kısaca <em>.is-prime</em> fonksiyonun ne yaptığını açıkladı ve kullanım örnekleri verdi.</p>
+</div>
+<div class="paragraph">
+<p>Dokümantasyondan çıkmak için "<strong>q</strong>" tuşunu kullanabilirsiniz.</p>
+</div>
+<div class="paragraph">
+<p>Şimdi bu örnekleri deneyelim.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ perl6 -e <span class="tok-s1">&#39;say 21.is-prime&#39;</span>
+False
+$ perl6 -e <span class="tok-s1">&#39;say is-prime(101)&#39;</span>
+True</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>p6doc</strong> dışında <a href="https://docs.perl6.org" class="bare">https://docs.perl6.org</a> adresinden de dokümantasyona ulaşabilirsiniz.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_unicode_kullanımı">Unicode Kullanımı</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Unicode (Evrensel Kod) Unicode Consortium organizasyonu tarafından geliştirilen ve her karaktere bir sayı değeri karşılığı atayan bir endüstri standardıdır. Sistemin amacı farklı karakter kodlama sistemlerinin birbiriyle tutarlı çalışmasını ve dünyadaki tüm yazım sistemlerinden metinlerin bilgisayar ortamında tek bir standart altında temsil edilebilmesini sağlamaktır.</p>
+</div>
+<div class="paragraph">
+<p>Perl 6 yüksek seviyede Unicode desteğine sahiptir.</p>
+</div>
+<div class="paragraph">
+<p>Örneğin:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ perl6 -e <span class="tok-s1">&#39;say &quot;😃&quot;&#39;</span>
+😃
+$ perl6 -e <span class="tok-s1">&#39;say &quot;𝛂 + 𝛃&quot;&#39;</span>
+𝛂 + 𝛃
+$ perl6 -e <span class="tok-s1">&#39;say e&#39;</span>
+<span class="tok-m">2</span>.718281828459045
+$ perl6 -e <span class="tok-s1">&#39;say &quot;Хороший язык.&quot;&#39;</span>
+Хороший язык.
+$ perl6 -e <span class="tok-s1">&#39;say &quot;好语言。&quot;&#39;</span>
+好语言
+$ perl6 -e <span class="tok-s1">&#39;say ½ + ½&#39;</span>
+<span class="tok-m">1</span>
+$ perl6 -e <span class="tok-s1">&#39;say π&#39;</span>
+<span class="tok-m">3</span>.141592653589793
+$ perl6 -e <span class="tok-s1">&#39;say &quot;\c[PILE OF POO]&quot;&#39;</span>
+💩
+$ perl6 -e <span class="tok-s1">&#39;say &quot;\c[BELL]&quot;&#39;</span>
+🔔
+$ perl6 -e <span class="tok-s1">&#39;say &quot;dizzy symbol&quot;.uniparse;&#39;</span>
+💫
+$ perl6 -e <span class="tok-s1">&#39;say uniparse(&quot;speech balloon&quot;), &quot; Merhaba&quot;&#39;</span>
+💬 Merhaba
+$ perl6 -e <span class="tok-s1">&#39;say &quot;\x1F4AF&quot;&#39;</span>
+💯</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Şimdi tek bir örnek üzerinden kullanımlara bakalım.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ perl6 -e <span class="tok-s1">&#39;say &quot;Bu kopyala yapıştır: 🎉&quot;&#39;</span>
+Bu kopyala yapıştır: 🎉
+$ perl6 -e <span class="tok-s1">&#39;say &quot;🎉&quot;.uniname&#39;</span>
+PARTY POPPER
+$ perl6 -e <span class="tok-s1">&#39;say &quot;Bu codepoint ismi: \c[PARTY POPPER]&quot;&#39;</span>
+Bu codepoint ismi: 🎉
+$ perl6 -e <span class="tok-s1">&#39;say &quot;PARTY POPPER&quot;.uniparse&#39;</span>
+🎉
+$ perl6 -e <span class="tok-s1">&#39;say &quot;Bu decimal: \c[127881]&quot;&#39;</span>
+Bu deciamal: 🎉
+$ perl6 -e <span class="tok-s1">&#39;say &quot;Bu hexadecimal: \x1F389&quot;&#39;</span>
+Bu hexadecimal: 🎉</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Unicode kullanımı Perl 6 da oldukça kolaydır.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_i̇şleçler">İşleçler</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Bu bölümde, aslında pek de yabancısı olmadığımız ve hatta önceki derslerimizde üstünkörü de olsa değindiğimiz bir konuyu çok daha ayrıntılı bir şekilde ele alacağız. Burada anlatacağımız konu size yer yer sıkıcı gelebilir. Ancak bu konuyu hakkıyla öğrenmenizin, programcılık maceranız açısından hayati önemde olduğunu rahatlıkla söyleyebilirim.</p>
+</div>
+<div class="paragraph">
+<p>İşleçler sağında ve solunda bulunan değerler arasında ilişki kuran işaretlerdir.</p>
+</div>
+<div class="paragraph">
+<p>İşleçler değerler üzerinde eylemler gerçekleştirerek sonuç döndürürler. Bu değerlere veya işlecin argümanlarına işlenen denir.</p>
+</div>
+<div class="paragraph">
+<p>Perl 6 çok sayıda işlecin bulunduğu bir dildir.</p>
+</div>
+<div class="paragraph">
+<p>İşleçler inflix(bağlama), prefix(önek), postfix(sonek), circumfix(koşulsal) ve postcircumfix(sonrasında koşulsal) durumlarında bulunabilir ve bunlara göre kategorize edilir.
+Bunların sözdizimlerine bakalım.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Bağlama İşleçleri</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">işlenen1 + işlenen2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Önek İşleçleri</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">+işlenen</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sonek İşleçleri</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">işlenen+</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Koşulsal İşleçler</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(işlenen)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sonrasında Koşulsal İşleçler</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">işlenen1[işlenen2]</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Şeklinde kullanılırlar.</p>
+</div>
+<div class="paragraph">
+<p>Bu bölüm bir tür referans bölümü gibi düşünülebilir. İşleçler kullanıldıkça aklınızda kalacaktır. Bölüm boyunca bazı işleçleri açıklayabilmek ve örneklendirebilmek için henüz kullanmadığımız kod parçaları kullanacağız, bunlar için endişelenmenize gerek yok ileride ki bölümlerde hepsini netliğe kavuşturacağız.</p>
+</div>
+<div class="sect2">
+<h3 id="_atama_operatörü">Atama Operatörü(=)</h3>
+<div class="paragraph">
+<p>Atama işleci "<strong>=</strong>" işaretidir. Bağlama işleci olarak kullanılır.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="perl6"><span></span><span class="tok-k">my</span> <span class="tok-nv">$yedi</span> = <span class="tok-mi">7</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Kudu <strong>$yedi</strong> değişkenine 7 değerini atar.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_aritmatik_i̇şleçler">Aritmatik İşleçler</h3>
+<div class="paragraph">
+<p><strong>Toplama(+), Çıkarma(-), Çarpma(</strong>), Bölme(/) İşleçleri:*</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; <span class="tok-m">1</span> + <span class="tok-m">2</span>
+<span class="tok-m">3</span>
+&gt; <span class="tok-m">2</span> - <span class="tok-m">1</span>
+<span class="tok-m">1</span>
+&gt; <span class="tok-m">2</span> * <span class="tok-m">2</span>
+<span class="tok-m">4</span>
+&gt; <span class="tok-m">4</span> / <span class="tok-m">2</span>
+<span class="tok-m">2</span>
+&gt; <span class="tok-m">3</span> / <span class="tok-m">2</span>
+<span class="tok-m">1</span>.5</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Kuvvet İşleci (</strong>*):*</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; <span class="tok-m">4</span> ** <span class="tok-m">2</span>
+<span class="tok-m">16</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Tam Sayı Bölme İşleci (div):</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; <span class="tok-m">3</span> div <span class="tok-m">2</span>
+<span class="tok-m">1</span>
+&gt; <span class="tok-m">7</span> div <span class="tok-m">3</span>
+<span class="tok-m">2</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Mod (%):</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; <span class="tok-m">7</span> % <span class="tok-m">4</span>
+<span class="tok-m">3</span>
+&gt; <span class="tok-m">2</span> % <span class="tok-m">2</span>
+<span class="tok-m">0</span>
+&gt; <span class="tok-m">3</span> % <span class="tok-m">2</span>
+<span class="tok-m">1</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Bölünebilme (%%):</strong> İşlenenler tam bölünebiliyorsa <em>True</em> bölünemiyorsa <em>False</em> sonucunu döner.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; <span class="tok-m">7</span> %% <span class="tok-m">4</span>
+False
+&gt; <span class="tok-m">6</span> %% <span class="tok-m">3</span>
+True</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Sayısal Eşitlik (==) ve Tersi (!=):</strong> İşlenenler birbirine eşitse <em>True</em> değilse <em>False</em> sonucunu döner. Tersi ise tam tersini yapar ve işlenenler birbirine eşit değilse <em>True</em> eşitse <em>False</em> sonucunu döner.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; <span class="tok-nv">7</span> <span class="tok-o">==</span> <span class="tok-m">7</span>
+True
+&gt; <span class="tok-nv">6</span> <span class="tok-o">==</span> <span class="tok-m">3</span>
+False
+&gt; <span class="tok-m">7</span> !<span class="tok-o">=</span> <span class="tok-m">7</span>
+False
+&gt; <span class="tok-m">6</span> !<span class="tok-o">=</span> <span class="tok-m">3</span>
+True</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Küçük(&lt;), Büyük(&gt;), Küçük Eşit(&#8656;), Büyük Eşit(&gt;=):</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; <span class="tok-m">1</span> &lt; <span class="tok-m">2</span>
+True
+&gt; <span class="tok-m">1</span> &gt; <span class="tok-m">2</span>
+False
+&gt; <span class="tok-m">1</span> &lt;<span class="tok-o">=</span> <span class="tok-m">2</span>
+True
+&gt; <span class="tok-m">2</span> &lt;<span class="tok-o">=</span> <span class="tok-m">2</span>
+True
+&gt; <span class="tok-m">1</span> &gt;<span class="tok-o">=</span> <span class="tok-m">2</span>
+False
+&gt; <span class="tok-m">2</span> &gt;<span class="tok-o">=</span> <span class="tok-m">2</span>
+True</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Sayısal Üç Yönlü Karşılaştırma (&lt;&#8658;):</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; <span class="tok-m">1</span> &lt;<span class="tok-o">=</span>&gt; <span class="tok-m">1</span>.0
+Same
+&gt; <span class="tok-m">1</span> &lt;<span class="tok-o">=</span>&gt; <span class="tok-m">1</span>
+Same
+&gt; <span class="tok-m">1</span> &lt;<span class="tok-o">=</span>&gt; <span class="tok-m">2</span>
+Less
+&gt; <span class="tok-m">3</span> &lt;<span class="tok-o">=</span>&gt; <span class="tok-m">2</span>
+More</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>En Büyük Ortak Bölen ve en Küçük Ortak Kat İşleçleri (gcd, lcm)</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; <span class="tok-m">6</span> gcd <span class="tok-m">9</span>
+<span class="tok-m">3</span>
+&gt; <span class="tok-m">4</span> lcm <span class="tok-m">3</span>
+<span class="tok-m">12</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Önek ve Sonek Arttırma İşleçleri (işlenen, işlenen):</strong> <strong>Sonek</strong> olarak kullanıldığında değişkenin değerini döner ve 1 arttırır veya azaltır. <strong>Önek</strong> olarak kullanıldığında değeri 1 arttırır veya 1 azaltır ve değişkenin değerini döner.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; my <span class="tok-nv">$a</span> <span class="tok-o">=</span> <span class="tok-m">0</span>
+<span class="tok-m">0</span>
+&gt; <span class="tok-nv">$a</span>++
+<span class="tok-m">0</span>
+&gt; <span class="tok-nv">$a</span>
+<span class="tok-m">1</span>
+&gt; <span class="tok-nv">$a</span>--
+<span class="tok-m">1</span>
+&gt; <span class="tok-nv">$a</span>
+<span class="tok-m">0</span>
+&gt; ++<span class="tok-nv">$a</span>
+<span class="tok-m">1</span>
+&gt; --<span class="tok-nv">$a</span>
+<span class="tok-m">0</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_karakter_dizisi_i̇şleçleri">Karakter Dizisi İşleçleri</h3>
+<div class="paragraph">
+<p><strong>Karakter Dizisi Eşitliği (eq) ve Tersi:</strong> İşlenen Karakter dizileri birbirine eşit ise <em>True</em> değil ise <em>False</em> sonucunu döner. Tersi ise tam tersini yapar ve diziler birbirine eşit değilse <em>True</em> eşitse <em>False</em> sonucunu döner. (Bir hatırlatıcı, eq: equal, ne: not equal)</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; <span class="tok-s2">&quot;a&quot;</span> eq <span class="tok-s2">&quot;a&quot;</span>
+True
+&gt; <span class="tok-s2">&quot;a&quot;</span> eq <span class="tok-s2">&quot;b&quot;</span>
+False
+&gt; <span class="tok-s2">&quot;a&quot;</span> ne <span class="tok-s2">&quot;b&quot;</span>
+True
+&gt; <span class="tok-s2">&quot;a&quot;</span> ne <span class="tok-s2">&quot;a&quot;</span>
+False</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Karakter Dizisi Önceliği (lt, gt, le, ge):</strong> Karakterleri sözlüksel sıraya göre karşılaştırır.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; <span class="tok-s2">&quot;a&quot;</span> lt <span class="tok-s2">&quot;b&quot;</span>
+True
+&gt; <span class="tok-s2">&quot;a&quot;</span> gt <span class="tok-s2">&quot;b&quot;</span>
+False
+&gt; <span class="tok-s2">&quot;a&quot;</span> le <span class="tok-s2">&quot;b&quot;</span>
+True
+&gt; <span class="tok-s2">&quot;a&quot;</span> ge <span class="tok-s2">&quot;a&quot;</span>
+False</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Karakter Dizisi Üç Yönlü Karşılaştırma (leg):</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; <span class="tok-s2">&quot;a&quot;</span> leg <span class="tok-s2">&quot;a&quot;</span>
+Same
+&gt; <span class="tok-s2">&quot;a&quot;</span> leg <span class="tok-s2">&quot;b&quot;</span>
+Less
+&gt; <span class="tok-s2">&quot;c&quot;</span> leg <span class="tok-s2">&quot;b&quot;</span>
+More</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Akıllı Üç Yönlü Karşılaştırma (cmp):</strong> Hem sayısal hem de karakter dizilerini karşılaştırabilir.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; <span class="tok-s2">&quot;a&quot;</span> cmp <span class="tok-s2">&quot;b&quot;</span>
+Less
+&gt; <span class="tok-m">1</span> cmp <span class="tok-m">1</span>
+Same
+&gt; <span class="tok-s2">&quot;c&quot;</span> cmp <span class="tok-s2">&quot;b&quot;</span>
+More</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Karakter Dizisi Olarak Birleştirme (~):</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; <span class="tok-s2">&quot;Merhaba&quot;</span> ~ <span class="tok-s2">&quot; Dünya&quot;</span>
+Merhaba Dünya
+&gt; <span class="tok-m">1</span> ~ <span class="tok-m">2</span>
+<span class="tok-m">12</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Karakter Dizisi Olarak Çoğaltma (x):</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; <span class="tok-s2">&quot;Merhaba &quot;</span> x <span class="tok-m">4</span>
+Merhaba Merhaba Merhaba Merhaba
+&gt; <span class="tok-m">25</span> x <span class="tok-m">4</span>
+<span class="tok-m">25252525</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Akıllı Eşleme (~~):</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; <span class="tok-s2">&quot;Merhaba&quot;</span> ~~ <span class="tok-s2">&quot;Merhaba&quot;</span>
+True
+&gt; <span class="tok-m">25</span> ~~ <span class="tok-m">25</span>
+True
+&gt; <span class="tok-m">25</span> ~~ <span class="tok-s2">&quot;25&quot;</span>
+True
+&gt; <span class="tok-s2">&quot;Merhaba Dünya&quot;</span> ~~ /Merhaba/
+｢Merhaba｣
+&gt; <span class="tok-s2">&quot;Merhaba Dünya&quot;</span> ~~ /Perl/
+Nil
+&gt; <span class="tok-s2">&quot;Merhaba&quot;</span> ~~ Str
+True
+&gt; <span class="tok-m">2</span> ~~ Int
+True</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Önek Olarak ? İşleci:</strong> İşleneni mantıksal bir veri tipi şeklinde döndürür.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; ?<span class="tok-s2">&quot;Merhaba&quot;</span>
+True
+&gt; ?<span class="tok-s2">&quot;&quot;</span>
+False
+&gt; ?1
+True
+&gt; ?100
+True
+&gt; ?0
+False
+&gt; my <span class="tok-nv">$b</span>
+<span class="tok-o">(</span>Any<span class="tok-o">)</span>
+&gt; ?<span class="tok-nv">$b</span>
+False
+&gt; <span class="tok-nv">$b</span> <span class="tok-o">=</span> <span class="tok-m">3</span>
+<span class="tok-m">3</span>
+&gt; ?<span class="tok-nv">$b</span>
+True</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Önek Olarak ! İşleci:</strong> İşleneni <em>False</em> ise <em>True</em>, <em>True</em> ise <em>False</em> şeklinde döndürür.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; !<span class="tok-s2">&quot;Merhaba&quot;</span>
+False
+&gt; !<span class="tok-s2">&quot;&quot;</span>
+True
+&gt; !1
+False
+&gt; ?0
+True
+&gt; my <span class="tok-nv">$c</span>
+<span class="tok-o">(</span>Any<span class="tok-o">)</span>
+&gt; !<span class="tok-nv">$c</span>
+True
+&gt; <span class="tok-nv">$c</span> <span class="tok-o">=</span> <span class="tok-m">2</span>
+<span class="tok-m">2</span>
+&gt; !<span class="tok-nv">$c</span>
+False</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Bağlayıcı Olarak Aralık İşleçleri (.., ..^, ^.., ^.. ^, ^, &#8230;&#8203;):</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>..:</strong> İki işlenen arasında aralık oluşturur.</p>
+</li>
+<li>
+<p><strong>..^:</strong> Son işlenen değeri dahil etmeden bir aralık oluşturur.</p>
+</li>
+<li>
+<p><strong>^..:</strong> İlk işlenen değeri dahil etmeden bir aralık oluşturur.</p>
+</li>
+<li>
+<p><strong>^.. ^:</strong> İşlenen değerleri dahil etmeden bir aralık oluşturur.</p>
+</li>
+<li>
+<p><strong>&#8230;&#8203;:</strong> İşlenen değerler arası bir tembel <strong>liste</strong> oluşturur. Bunun ne olduğuna ilerideki bölümlerde değneceğiz.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; <span class="tok-m">1</span>..5
+<span class="tok-m">1</span>..5
+&gt; <span class="tok-m">1</span>..^5
+<span class="tok-m">1</span>..^5
+&gt; <span class="tok-m">1</span>^..5
+<span class="tok-m">1</span>^..5
+&gt; <span class="tok-m">1</span>^..^5
+<span class="tok-m">1</span>^..^5
+&gt; <span class="tok-m">1</span>...1000
+<span class="tok-o">(</span><span class="tok-m">1</span> <span class="tok-m">2</span> <span class="tok-m">3</span> <span class="tok-m">4</span> <span class="tok-m">5</span> <span class="tok-m">6</span> <span class="tok-m">7</span> <span class="tok-m">8</span> <span class="tok-m">9</span> <span class="tok-m">10</span> <span class="tok-m">11</span> <span class="tok-m">12</span> <span class="tok-m">13</span> <span class="tok-m">14</span> <span class="tok-m">15</span> <span class="tok-m">16</span> <span class="tok-m">17</span> <span class="tok-m">18</span> <span class="tok-m">19</span> <span class="tok-m">20</span> <span class="tok-m">21</span> <span class="tok-m">22</span> <span class="tok-m">23</span> <span class="tok-m">24</span> <span class="tok-m">25</span> <span class="tok-m">26</span> <span class="tok-m">27</span> <span class="tok-m">28</span> <span class="tok-m">29</span> <span class="tok-m">30</span> <span class="tok-m">31</span> <span class="tok-m">32</span> <span class="tok-m">33</span> <span class="tok-m">34</span> <span class="tok-m">35</span> <span class="tok-m">36</span> <span class="tok-m">37</span> <span class="tok-m">38</span> <span class="tok-m">39</span> <span class="tok-m">40</span> <span class="tok-m">41</span> <span class="tok-m">42</span> <span class="tok-m">43</span> <span class="tok-m">44</span> <span class="tok-m">45</span> <span class="tok-m">46</span> <span class="tok-m">47</span> <span class="tok-m">48</span> <span class="tok-m">49</span> <span class="tok-m">50</span> <span class="tok-m">51</span> <span class="tok-m">52</span> <span class="tok-m">53</span> <span class="tok-m">54</span> <span class="tok-m">55</span> <span class="tok-m">56</span> <span class="tok-m">57</span> <span class="tok-m">58</span> <span class="tok-m">59</span> <span class="tok-m">60</span> <span class="tok-m">61</span> <span class="tok-m">62</span> <span class="tok-m">63</span> <span class="tok-m">64</span> <span class="tok-m">65</span> <span class="tok-m">66</span> <span class="tok-m">67</span> <span class="tok-m">68</span> <span class="tok-m">69</span> <span class="tok-m">70</span> <span class="tok-m">71</span> <span class="tok-m">72</span> <span class="tok-m">73</span> <span class="tok-m">74</span> <span class="tok-m">75</span> <span class="tok-m">76</span> <span class="tok-m">77</span> <span class="tok-m">78</span> <span class="tok-m">79</span> <span class="tok-m">80</span> <span class="tok-m">81</span> <span class="tok-m">82</span> <span class="tok-m">83</span> <span class="tok-m">84</span> <span class="tok-m">85</span> <span class="tok-m">86</span> <span class="tok-m">87</span> <span class="tok-m">88</span> <span class="tok-m">89</span> <span class="tok-m">90</span> <span class="tok-m">91</span> <span class="tok-m">92</span> <span class="tok-m">93</span> <span class="tok-m">94</span> <span class="tok-m">95</span> <span class="tok-m">96</span> <span class="tok-m">97</span> <span class="tok-m">98</span> <span class="tok-m">99</span> <span class="tok-m">100</span> ...<span class="tok-o">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Önek Olarak ^ İşleci:</strong> Sıfırdan başlayarak kendisinden sonra gelen sayıya kadar aralık oluşturur.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; ^5
+^5</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Aralıkları Listeye Çeviren | Önek İşleci:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; <span class="tok-p">|</span><span class="tok-o">(</span><span class="tok-m">1</span>..5<span class="tok-o">)</span>
+<span class="tok-o">(</span><span class="tok-m">1</span> <span class="tok-m">2</span> <span class="tok-m">3</span> <span class="tok-m">4</span> <span class="tok-m">5</span><span class="tok-o">)</span>
+&gt; <span class="tok-p">|</span><span class="tok-o">(</span><span class="tok-m">1</span>..^5<span class="tok-o">)</span>
+<span class="tok-o">(</span><span class="tok-m">1</span> <span class="tok-m">2</span> <span class="tok-m">3</span> <span class="tok-m">4</span><span class="tok-o">)</span>
+&gt; <span class="tok-p">|</span><span class="tok-o">(</span><span class="tok-m">1</span>^..5<span class="tok-o">)</span>
+<span class="tok-o">(</span><span class="tok-m">2</span> <span class="tok-m">3</span> <span class="tok-m">4</span> <span class="tok-m">5</span><span class="tok-o">)</span>
+&gt; <span class="tok-p">|</span><span class="tok-o">(</span><span class="tok-m">1</span>^..^5<span class="tok-o">)</span>
+<span class="tok-o">(</span><span class="tok-m">2</span> <span class="tok-m">3</span> <span class="tok-m">4</span><span class="tok-o">)</span>
+&gt; <span class="tok-p">|</span><span class="tok-o">(</span>^5<span class="tok-o">)</span>
+<span class="tok-o">(</span><span class="tok-m">0</span> <span class="tok-m">1</span> <span class="tok-m">2</span> <span class="tok-m">3</span> <span class="tok-m">4</span><span class="tok-o">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>İşlenenlerin Yerini Değiştiren R İşleci:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; <span class="tok-m">2</span> R/ <span class="tok-m">3</span>
+<span class="tok-m">1</span>.5
+&gt; <span class="tok-m">2</span> R- <span class="tok-m">1</span>
+-1</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>İndirgeme(Reduction) İşleci:</strong> Lisp dil ailesine aşina kişilere yabancı gelmeyecek bir kullanım sunar.
+Örneğin Racket dilinde bir Toplama işlemi yapalım:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="racket"><span></span><span class="tok-nb">&gt;</span> <span class="tok-p">(</span><span class="tok-nb">+</span> <span class="tok-mi">1</span> <span class="tok-mi">2</span> <span class="tok-mi">3</span> <span class="tok-mi">4</span> <span class="tok-mi">5</span><span class="tok-p">)</span>
+<span class="tok-mi">15</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Şimdi de Perl 6 ile yapalım:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; <span class="tok-m">1</span> + <span class="tok-m">2</span> + <span class="tok-m">3</span> + <span class="tok-m">4</span> + <span class="tok-m">5</span>
+<span class="tok-m">15</span>
+&gt; <span class="tok-o">[</span>+<span class="tok-o">]</span> <span class="tok-m">1</span>,2,3,4,5
+<span class="tok-m">15</span>
+&gt; <span class="tok-o">[</span>+<span class="tok-o">]</span> <span class="tok-m">1</span>..5
+<span class="tok-m">15</span>
+&gt; <span class="tok-m">1</span> * <span class="tok-m">2</span> * <span class="tok-m">3</span> * <span class="tok-m">4</span> * <span class="tok-m">5</span>
+<span class="tok-m">120</span>
+&gt; <span class="tok-o">[</span>*<span class="tok-o">]</span> <span class="tok-m">1</span>,2,3,4,5
+<span class="tok-m">120</span>
+&gt; <span class="tok-o">[</span>*<span class="tok-o">]</span> <span class="tok-m">1</span>..5
+<span class="tok-m">120</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Bağlı(Bound) Kontrol İşleci (=:=):</strong> Her iki işlenende aynı değişkene atanmışsa, yani iki işlenen de aynı referans değere işaret ediyorsa işleç <em>True</em> değerini döndürür. İki işlenenin aynı değişkene bağlı olmasını sağlamak istiyorsak atama işleci(=) değil, bağlama(:=) işlecini kullanırız.</p>
+</div>
+<div class="paragraph">
+<p>Aynı referans değerden kastetiğimiz ili işleneninde aynı bellek alanını işaret etmesidir.</p>
+</div>
+<div class="paragraph">
+<p>Biraz kafa karıştırıcı olabilir hemen örneklendirelim.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; my <span class="tok-nv">$a</span> <span class="tok-o">=</span> <span class="tok-m">1</span>
+<span class="tok-m">1</span>
+&gt; my <span class="tok-nv">$b</span> <span class="tok-o">=</span> <span class="tok-nv">$a</span>
+<span class="tok-m">1</span>
+&gt; <span class="tok-nv">$a</span> <span class="tok-o">=</span>:<span class="tok-o">=</span> <span class="tok-nv">$b</span>
+False
+&gt; <span class="tok-nv">$b</span> <span class="tok-o">=</span> <span class="tok-m">2</span>
+<span class="tok-m">2</span>
+&gt; <span class="tok-nv">$a</span>
+<span class="tok-m">1</span>
+&gt; my <span class="tok-nv">$c</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;merhaba&quot;</span>
+merhaba
+&gt; my <span class="tok-nv">$d</span> :<span class="tok-o">=</span> <span class="tok-nv">$c</span>
+merhaba
+&gt; <span class="tok-nv">$c</span> <span class="tok-o">=</span>:<span class="tok-o">=</span> <span class="tok-nv">$d</span>
+True
+&gt; <span class="tok-nv">$c</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;hello&quot;</span>
+hello
+&gt; <span class="tok-nv">$d</span>
+hello</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Burada $c değişkenin değerini değiştirdiğimiz de bağlı olan $d değişkenin işaret ettiği bellek alanındaki değer değiştiği için iki değişkenimiz de değişmiş oldu.</p>
+</div>
+<div class="paragraph">
+<p><strong>Değer Kimliği Kontrol İşleci (===):</strong> Eşitlik kontrolünün sınıfsal farklılıkları da gözeten çeşididir.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; <span class="tok-nv">12</span> <span class="tok-o">==</span> <span class="tok-m">12</span>
+True
+&gt; <span class="tok-nv">12</span> <span class="tok-o">==</span> <span class="tok-s2">&quot;12&quot;</span>
+True
+&gt; <span class="tok-nv">12</span> <span class="tok-o">==</span> <span class="tok-m">12</span>.0
+True
+&gt; <span class="tok-nv">13</span> <span class="tok-o">===</span> <span class="tok-m">13</span>
+True
+&gt; <span class="tok-nv">13</span> <span class="tok-o">===</span> <span class="tok-s2">&quot;13&quot;</span>
+False
+&gt; <span class="tok-nv">13</span> <span class="tok-o">===</span> <span class="tok-m">13</span>.0
+False</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Sınıf kavramına kitabın ilerleyen bölümlerinde değineceğiz ancak konun anlaşılması açısından basitçe herhangi bir değere ne(.WHAT) olduğunu sorarak hangi sınıfa mensup olduğunu anlayabiliriz.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; <span class="tok-m">14</span>.WHAT
+<span class="tok-o">(</span>Int<span class="tok-o">)</span>
+&gt; <span class="tok-s2">&quot;14&quot;</span>.WHAT
+<span class="tok-o">(</span>Str<span class="tok-o">)</span>
+&gt; <span class="tok-m">14</span>.0.WHAT
+<span class="tok-o">(</span>Rat<span class="tok-o">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Eşdeğerlik İşleci (eqv):</strong> İki işlenenin eşdeğer olup olmadığını kontrol eder. Değer kimliği kontrol işleci(===) gibi çalışır.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; <span class="tok-m">4</span> eqv <span class="tok-m">4</span>
+True
+&gt; <span class="tok-m">4</span> eqv <span class="tok-m">4</span>.0
+False
+&gt; <span class="tok-m">4</span> eqv <span class="tok-s2">&quot;4&quot;</span>
+False</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Yaklaşık Eşitlik İşleci (=~=):</strong> İşlenenler arasındaki fark tölerans değerinden düşükse karşılaştırmanın sonucu <em>True</em> olur. Varsayılan tölarans değeri 1E-15 olan 0.000 000 000 000 001&#8217;dir.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; <span class="tok-nv">1</span> <span class="tok-o">=</span>~<span class="tok-o">=</span> <span class="tok-m">1</span>.0000001
+False
+&gt; <span class="tok-nv">1</span> <span class="tok-o">=</span>~<span class="tok-o">=</span> <span class="tok-m">1</span>.000000000000001
+True</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Minimum ve Maksimum işleçleri (min, max):</strong> Belirtilen işlenenler arasından minimum ve maksimum değerleri döndürür.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; min<span class="tok-o">(</span><span class="tok-m">1</span>..10<span class="tok-o">)</span>
+<span class="tok-m">1</span>
+&gt; max<span class="tok-o">(</span><span class="tok-m">1</span>..10<span class="tok-o">)</span>
+<span class="tok-m">10</span>
+&gt; <span class="tok-m">1</span> min <span class="tok-m">2</span>
+<span class="tok-m">1</span>
+&gt; <span class="tok-m">4</span> max <span class="tok-m">5</span>
+<span class="tok-m">5</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Önek Olarak ~ İşleci:</strong> İşleneni karakter dizisi şeklinde döndürür.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; my <span class="tok-nv">$a</span> <span class="tok-o">=</span> <span class="tok-m">3</span>
+<span class="tok-m">3</span>
+&gt; my <span class="tok-nv">$b</span> <span class="tok-o">=</span> ~3
+<span class="tok-m">3</span>
+&gt; <span class="tok-nv">$b</span>.WHAT
+<span class="tok-o">(</span>Str<span class="tok-o">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Önek olarak + İşleci:</strong> İşleneni pozitif sayısal değer şeklinde döndürür.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; my <span class="tok-nv">$a</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;3&quot;</span>
+<span class="tok-m">3</span>
+&gt; my <span class="tok-nv">$b</span> <span class="tok-o">=</span> +<span class="tok-s2">&quot;3&quot;</span>
+<span class="tok-m">3</span>
+&gt; <span class="tok-nv">$b</span>.WHAT
+<span class="tok-o">(</span>Int<span class="tok-o">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Önek olarak - İşleci:</strong> İşleneni negatif sayısal değer şeklinde döndürür.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; my <span class="tok-nv">$a</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;3&quot;</span>
+<span class="tok-m">3</span>
+&gt; my <span class="tok-nv">$b</span> <span class="tok-o">=</span> -<span class="tok-s2">&quot;3&quot;</span>
+-3
+&gt; <span class="tok-nv">$b</span>.WHAT
+<span class="tok-o">(</span>Int<span class="tok-o">)</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_mantıksal_i̇şleçler">Mantıksal İşleçler</h3>
+<div class="paragraph">
+<p>Bu işleçler mantıksal ve(and), veya(or) ve dışlayıcı veya(xor) işlemlerini gerçekleştiren işleçlerdir.</p>
+</div>
+<div class="paragraph">
+<p>Mantıksal işlenenler <em>True</em> veya <em>False</em> döndürür. Tek istisnası xor işlecinde kullanılan True ^^ True ifadesi <em>Nil</em> döndürür.</p>
+</div>
+<div class="paragraph">
+<p>Farklı programlama dillerindeki kullanıma benzer şekilde kullanılır.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Ve(and) işleci için <strong>&amp;&amp;</strong> kullanılır.</p>
+</li>
+<li>
+<p>Veya(or) işleci için <strong>||</strong> kullanılır.</p>
+</li>
+<li>
+<p>Dışlayıcı Veya(xor) işleci için <strong>^^</strong> kullanılır.</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">İşlenen 1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">İşleç</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">İşlenen 2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sonuç</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&amp;&amp;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&amp;&amp;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&amp;&amp;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&amp;&amp;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">*</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* </p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">*</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">*</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">*</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">*</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">^^</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">^^</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Nil</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">^^</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">^^</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">True</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">False</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Tanımlı Veya İşleci (//):</strong> Eğer bir değişkenin değeri varsa onu yoksa belirttiğimiz değeri döndürür.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; my <span class="tok-nv">$ad</span>
+<span class="tok-o">(</span>Any<span class="tok-o">)</span>
+&gt; <span class="tok-nv">$ad</span> // <span class="tok-s1">&#39;Yalın&#39;</span>
+Yalın
+&gt; <span class="tok-nv">$ad</span> <span class="tok-o">=</span> <span class="tok-s1">&#39;Asu&#39;</span>
+Asu
+&gt; <span class="tok-nv">$ad</span>
+Asu
+&gt; <span class="tok-nv">$ad</span> // <span class="tok-s1">&#39;Yalın&#39;</span>
+Asu</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Perl 6 evreninde birçok işleç daha bulunmakta, ancak geri kalanına kitabın ilerleyen bölümlerinde değineceğiz.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_yorumlar_açıklama_satırları">Yorumlar, Açıklama Satırları</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Yorumlar diğer dillerde olduğu gibi derleyici tarafından yok sayılan, yazarların açıklamalarıdır.</p>
+</div>
+<div class="paragraph">
+<p>Yazdığımız yorumlar Perl 6&#8217;ya hiç bir şey ifade etmez. Perl bu yorumları tamamen görmezden gelecektir. Bu yorumlar bilgisayardan ziyade kodları okuyan kişi için bir anlam taşır.</p>
+</div>
+<div class="paragraph">
+<p>Yorumlar programı geliştiren kişinin kodlar arasına eklediği notlardır. Bu koda dışarıdan bakan, hatta bizzat programı yazanın dahi kodların ne ifade ettiğini anlamasına yardımcı olur ve programın geliştirilmesini, bakımını, anlaşılır olmasını sağlar.</p>
+</div>
+<div class="paragraph">
+<p>Sizin yazdığınız kodları nasıl başkaları okurken zorlanıyorsa, kendi yazdığınız kodları okurken siz bile zorlanabilirsiniz. Özellikle uzun süredir ilgilenmediğiniz eski programlarınızı gözden geçirirken böyle bir sorunla karşılaşabilirsiniz. Programın içindeki bir kod parçası, programın ilk yazılışının üzerinden zaman geçtikten sonra size artık hiçbir şey ifade etmiyor olabilir. Kodlara bakıp, "Acaba burada ne yapmaya çalışmışım?"" diye düşündüğünüz zamanlar da olacaktır. İşte bu tür sıkıntıları ortadan kaldırmak veya en aza indirmek için kodlarımızın arasına açıklayıcı notlar ekleyeceğiz.</p>
+</div>
+<div class="paragraph">
+<p>Perl 6 dili bize üç tür açıklama satırı ekleme yöntemi sunmakta.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Tek Satırlık Yorumlar</p>
+</li>
+<li>
+<p>Çok Satırlı Yorumlar</p>
+</li>
+<li>
+<p>Gömülü Yorumlar</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Bu bölüm boyunca bunları inceleyeceğiz.</p>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="sect2">
+<h3 id="_tek_satırlık_yorumlar">Tek Satırlık Yorumlar</h3>
+<div class="paragraph">
+<p>Tek satırlık yorumları derleyicinin kodumuzdan ayırabilmesi için "<strong>#</strong>" işareti ile belirtiriz.</p>
+</div>
+<div class="paragraph">
+<p><strong>#</strong> işaretinden sonraki her şey satır sonuna kadar Perl tarafından atlanır. Unutmayın yorumlar Perl için değil bizim için gereklidir.</p>
+</div>
+<div class="paragraph">
+<p>Örnek kullanımı aşağıdaki şekildedir.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="perl6"><span></span><span class="tok-c1"># Ekrana Merhaba yazan program.</span>
+<span class="tok-nb">say</span> <span class="tok-s">&quot;Merhaba&quot;</span>;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Kodu çalıştırdığımızda ise aşağıda gördüğümüz gibi yorum satırımız programa etki etmemiştir.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ perl6 tek-satirlik-yorumlar.p6
+Merhaba</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Yorum satırı için herhangi bir sınırınız yoktur istediğiniz kadar yorum yazabilirsiniz.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="perl6"><span></span><span class="tok-c1"># Bu bir Perl 6 programıdır.</span>
+<span class="tok-c1"># Ekrana Merhaba yazar.</span>
+
+<span class="tok-nb">say</span> <span class="tok-s">&quot;Merhaba&quot;</span>;
+
+<span class="tok-c1"># Program bitti.</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Bu aşamada yorumların ne kadar kullanılacağı tamamen yazarın insiyatifindedir.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_çok_satırlı_yorumlar">Çok Satırlı Yorumlar</h3>
+<div class="paragraph">
+<p>Her ne kadar tek satırlık yorumlar büyük miktarda dokümantasyon sağlamak için kullanılsada her satırda <em>#</em> işaretini kullanmak ve yorumların tek satırdan ibaret olması kısıtlayıcıdır.</p>
+</div>
+<div class="paragraph">
+<p>Bu noktada Perl 6 bize çok satırlı yorumları işaret eder.</p>
+</div>
+<div class="paragraph">
+<p>Çok satırlı yorumlar "<strong>#`</strong>" işaretleri ile başlar ve yorumumuzu "()", "[]" veya "{}" parantezler arasına yazarız.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="perl6"><span></span><span class="tok-cm">#`{</span>
+<span class="tok-cm">    Bu bir çok satırlı yorumdur.</span>
+<span class="tok-cm">    Bu kod Yalın Pala tarafından yazılmıştır.</span>
+<span class="tok-cm">    Ekrana Merhaba yazan bir program yazacağız.</span>
+<span class="tok-cm">}</span>
+
+<span class="tok-nb">say</span> <span class="tok-s">&quot;Merhaba&quot;</span>;
+
+<span class="tok-cm">#`( Program burada bitiyor.</span>
+<span class="tok-cm">    Ancak farklı kullanımlar için örneklendiriyoruz. )</span>
+
+<span class="tok-cm">#`[</span>
+<span class="tok-cm">    Bu da farklı bir kullanım şekli.</span>
+<span class="tok-cm">    Yorumumuz mutlaka parantezler ile sarılmalı.</span>
+<span class="tok-cm">    Aksi durumda hata alırız.</span>
+<span class="tok-cm">]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Çok satırlı yorumların bir kullanım çeşidide blok olarak kullanımdır. Ancak bu ileride göreceğimiz POD dokümanı oluşturmak amacı ile kullanılmaktadır ve yorum olarak kullanılması önerilmemektedir.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="perl6"><span></span><span class="tok-cm">=begin yorum</span>
+<span class="tok-cm">[...]</span>
+<span class="tok-cm">Burada</span>
+<span class="tok-cm">bir</span>
+<span class="tok-cm">yorum</span>
+<span class="tok-cm">yapıyorum</span>
+<span class="tok-cm">[...]</span>
+<span class="tok-cm">=end yorum</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_gömülü_yorumlar">Gömülü Yorumlar</h3>
+<div class="paragraph">
+<p>Gömülü yorumlar çok satırlı yorumlar gibi kullanılır ancak kodun içerisine doğrudan göümülüdür.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="perl6"><span></span><span class="tok-nb">say</span> <span class="tok-cm">#`(say kendisinden sonra gelen ifadeyi ekrana yazar)</span> <span class="tok-s">&quot;Merhaba Dünya&quot;</span>;
+
+<span class="tok-k">my</span> <span class="tok-nv">$a</span> = <span class="tok-mi">1</span>;
+<span class="tok-k">my</span> <span class="tok-nv">$b</span> = <span class="tok-mi">2</span>;
+
+<span class="tok-nb">say</span> <span class="tok-nv">$a</span> + <span class="tok-cm">#`(+ ile iki değişkeni toplayalım.)</span> <span class="tok-nv">$b</span>;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Gibi kullanılabilir. Kodu çalıştırdığımızda yorumların göz ardı edildiğini göreceğiz.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ perl6 gomulu-yorumlar.p6
+Merhaba Dünya
+<span class="tok-m">3</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Gömülü yorumların bir dezavantajı ise kod okunabilirliğini azaltmasıdır. Bu durumun önüne geçmek için gömülü yorumu olabildiğince kısa tutmalıyız.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_pod">POD</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Perl 6 dokümantasyonu yazmak için kullanılan bir işaretleme dilidir. Kodu ifade etmekte daha fazla işlevsellik sağlayan yorumların genişletilmiş bir sürümü olarak kabul edilebilir.</p>
+</div>
+<div class="paragraph">
+<p>Yorumlar gibi Pod içeriği de kodlarımızı yazdığımız dosyanın içinde barındırılır.</p>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="sect2">
+<h3 id="_begin_ve_end_blokları">=begin ve =end Blokları</h3>
+<div class="paragraph">
+<p>Pod blokları <strong>=begin <em>tanımlayıcı</em></strong> ile başlar ve <strong>=begin <em>tanımlayıcı</em></strong> ile biter. Burada tanımlayıcı Pod içirisinde belirtilen verileri anlatan yazarın verdiği bir tanımdır. Ayrıca bloklar içerisinde kullanılabilecek bazı tanımlayıcılar da vardır.</p>
+</div>
+<div class="paragraph">
+<p>Bir kodun içerisinde yazılan Pod verisini okumak için programı çalıştırırken <strong>--doc</strong> komutuyla çalıştırırız.</p>
+</div>
+<div class="paragraph">
+<p>Basit bir Pod dokümanı şuna benzer.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="perl6"><span></span><span class="tok-cm">=begin pod</span>
+<span class="tok-cm">Bu bir Pod dokümanıdır.</span>
+<span class="tok-cm">=end pod</span>
+
+<span class="tok-nb">say</span> <span class="tok-s">&quot;Merhaba&quot;</span>;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ve --doc komutu ile çalıştıralım.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ perl6 --doc basic_pod.p6
+Bu bir Pod dokümanıdır.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Şimdi de Pod tanımlayıcılarına göz atalım.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_paragraf_bloklar">Paragraf Bloklar</h3>
+<div class="paragraph">
+<p>Paragraf blokları <strong>=for <em>tanımlayıcı</em></strong> ile başlar ve kendisinden sonra gelen ilk boş satır veya ilk Pod tanımlayıcısı ile sonlanır.</p>
+</div>
+<div class="paragraph">
+<p>=for yapısından sonra tanımlayıcı adı gelir. Tanımlayıcı ad gelmezse =for yapısı paragraf şeklinde yazar.</p>
+</div>
+<div class="paragraph">
+<p>=for yapısının bir avantajı bitişini belirtmememizdir.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="perl6"><span></span><span class="tok-cm">=for head1</span>
+<span class="tok-cm">Bu bir başlıktır.</span>
+
+=<span class="tok-k">for</span> <span class="tok-n">param</span>
+<span class="tok-n">Burada</span> <span class="tok-n">normal</span> <span class="tok-n">bir</span> <span class="tok-n">paragraftır</span>,
+<span class="tok-n">kendisinden</span> <span class="tok-n">sonra</span> <span class="tok-n">gelen</span> <span class="tok-n">ilk</span> <span class="tok-n">boş</span> <span class="tok-n">satırda</span> <span class="tok-n">sonlanacaktır</span>.</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tek_satırlık_bloklar">Tek Satırlık Bloklar</h3>
+<div class="paragraph">
+<p><strong>=<em>tanımlayıcı</em></strong> ile başlar ve kendisinden sonra gelen ilk boş satır veya ilk Pod tanımlayıcısı ile sonlanır.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="perl6"><span></span><span class="tok-cm">=head1 Büyük başlık</span>
+
+=<span class="tok-n">head2</span> <span class="tok-n">Alt</span> <span class="tok-n">Başlık</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_blok_tipleri">Blok Tipleri</h3>
+<div class="paragraph">
+<p>Pod çeşitli standart blok tipleri(<em>tanımlayıcılar</em>) sunar.</p>
+</div>
+<div class="sect3">
+<h4 id="_başlıklar">Başlıklar</h4>
+<div class="paragraph">
+<p>Başlıklar <strong>headN</strong> şeklinde tanımlanır. N burada sıfırdan büyük sayılardır.</p>
+</div>
+<div class="paragraph">
+<p>Bunu biraz yukarıda örneklendirmiştik.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_paragraflar">Paragraflar</h4>
+<div class="paragraph">
+<p><strong>=para</strong> ile kullanılır ancak birkaç farklı kullanım şekli vardır.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="perl6"><span></span><span class="tok-cm">=head1 Büyük başlık</span>
+
+<span class="tok-n">Invidunt</span> <span class="tok-n">gubergren</span> <span class="tok-n">et</span> <span class="tok-n">sea</span> <span class="tok-n">ea</span> <span class="tok-n">takimata</span> <span class="tok-n">erat</span> <span class="tok-n">kasd</span>. <span class="tok-n">Elitr</span> <span class="tok-n">sadipscing</span> <span class="tok-n">eos</span> <span class="tok-n">dolor</span> <span class="tok-n">tempor</span> <span class="tok-n">justo</span> <span class="tok-n">amet</span> <span class="tok-n">et</span> <span class="tok-n">dolor</span> <span class="tok-n">et</span>, <span class="tok-n">duo</span> <span class="tok-n">duo</span>.
+
+<span class="tok-cm">=para</span>
+<span class="tok-cm">Sit et ipsum sed kasd sed. Dolor sed dolor eos rebum stet invidunt amet, justo eirmod et clita sed no.</span>
+
+<span class="tok-cm">=begin para</span>
+<span class="tok-cm">Eos duo justo et dolores eos, stet sed amet stet tempor eirmod no. Kasd duo est ut tempor dolor et..</span>
+
+<span class="tok-cm">Sit sed et tempor rebum sanctus diam ipsum eos amet, sit rebum stet elitr ipsum voluptua. Sed et sit ipsum.</span>
+<span class="tok-cm">=end para</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Burada begin ve end blokları şeklinde kullandığımızda boş satır kullanabildiğimize dikkat edelim.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_kod_blokları">Kod Blokları</h4>
+<div class="paragraph">
+<p>Pod içerisinde kod yazabilmemize olanak verir. <strong>=begin code</strong> ve <strong>=end code</strong> bloklarının arasına kodumuzu yazabiliriz.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="perl6"><span></span><span class="tok-cm">=begin code</span>
+<span class="tok-cm">my $ad = &#39;Yalın&#39;;</span>
+<span class="tok-cm">say $ad;</span>
+<span class="tok-cm">=end code</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_listeler">Listeler</h4>
+<div class="paragraph">
+<p>Listeler Pod içerisinde <strong>=item</strong> tanımlayıcısı ile tanımlanır. Yine seviyeli listelerde =headN kullanımına benzer şekilde <strong>itemN</strong> şeklinde kullanılabilir.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="perl6"><span></span><span class="tok-cm">=item Kanguru</span>
+<span class="tok-cm">=item Papağan</span>
+<span class="tok-cm">=item Kaplumbağa</span>
+
+=<span class="tok-n">item1</span> <span class="tok-n">Hayvanlar</span>
+=<span class="tok-n">item2</span>  <span class="tok-n">Kanguru</span>
+=<span class="tok-n">item2</span>  <span class="tok-n">Papağan</span>
+=<span class="tok-n">item2</span>  <span class="tok-n">Kaplumbağa</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Bunun yanında tanım listeleri de kullanabiliriz. Tanım listeleri için <strong>=defn</strong> kullanılır.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="perl6"><span></span><span class="tok-cm">=defn Gece Körlüğü</span>
+<span class="tok-cm">Beslenmede A vitamini yetersizliğinden ortaya çıkan bir hastalık belirtisi, tavukkarası.</span>
+
+=<span class="tok-n">defn</span> <span class="tok-n">Renk</span> <span class="tok-n">Körlüğü</span>
+<span class="tok-n">Bütün</span> <span class="tok-n">renkleri</span> <span class="tok-n">veya</span> <span class="tok-n">birkaç</span> <span class="tok-n">rengi</span>, <span class="tok-n">özellikle</span> <span class="tok-n">kırmızı</span> <span class="tok-n">ile</span> <span class="tok-n">yeşili</span> <span class="tok-n">birbirinden</span> <span class="tok-n">ayırt</span> <span class="tok-n">etmeye</span> <span class="tok-n">engel</span> <span class="tok-n">olan</span> <span class="tok-n">görme</span> <span class="tok-n">bozukluğu</span>.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Paragraf listeleride kullanabiliriz.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="perl6"><span></span><span class="tok-cm">=begin item</span>
+<span class="tok-cm">I&lt;Tavır:&gt;</span>
+
+<span class="tok-cm">Özürlerden kaçın, seçeneksun, hata gerçekleşmeden yedek planlar yap.</span>
+<span class="tok-cm">=end item</span>
+
+<span class="tok-cm">=begin item</span>
+<span class="tok-cm">I&lt;Bilgi:&gt;</span>
+
+<span class="tok-cm">Bilgiye yatırım en yüksek faizi getirir.</span>
+<span class="tok-cm">=end item</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_tablolar">Tablolar</h4>
+<div class="paragraph">
+<p>Bir Pod dokümanında tabloları <strong>=begin table</strong> ve <strong>=end table</strong> blokları içerisinde tanımlarız. <strong>=begin table :caption&lt;Tablo Adı&gt;</strong> şeklinde tablomuza isim verebiliriz.</p>
+</div>
+<div class="paragraph">
+<p>Basit bir tablo örneği şuna benzer.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="perl6"><span></span><span class="tok-cm">=begin table :caption&lt;Bu benim ilk tablom&gt;</span>
+<span class="tok-cm">Başlık, Sütun 0 | Başlık, Sütun 1</span>
+<span class="tok-cm">======================</span>
+<span class="tok-cm">Satır 0     | Satır 0</span>
+<span class="tok-cm">Sütun 0     | Süun 1</span>
+<span class="tok-cm">----------------------</span>
+<span class="tok-cm">Satır 1     | Satır 1</span>
+<span class="tok-cm">Sütun 0     | Sütun 1</span>
+<span class="tok-cm">----------------------</span>
+<span class="tok-cm">=end table</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_pod_yorumları">Pod Yorumları</h4>
+<div class="paragraph">
+<p>Pod yorumları kodumuzda kullandığımız yorumlar gibi çalışır. Pod doküman oluşturucu tarafından yok sayılır.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="perl6"><span></span><span class="tok-cm">=comment Bu bir yorumdur.</span>
+
+<span class="tok-cm">=begin comment</span>
+<span class="tok-cm">Çok satırlı</span>
+<span class="tok-cm">bir</span>
+<span class="tok-cm">yorum.</span>
+<span class="tok-cm">=end comment</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_format">Format</h4>
+<div class="paragraph">
+<p>Pod metin formatı kodları tanımlayıcı bir büyük harf ve sonrasında "<strong>&lt;&gt;</strong>" işaretleri ile kullanılır. Şöyle bir kullanıma sahiptir: BüyükHarf&lt;&gt;.</p>
+</div>
+<div class="paragraph">
+<p>Kullanılabilecek harfler: B, C, E, I, K, L, N, P, R, T, U, V, X, ve Z&#8217;dir. Burada çok kullanılanlara değineceğiz.</p>
+</div>
+<div class="paragraph">
+<p>Daha fazla bilgiye: <a href="https://docs.perl6.org/language/pod#Formatting_codes" class="bare">https://docs.perl6.org/language/pod#Formatting_codes</a> adresinden ulaşabilirsiniz.</p>
+</div>
+<div class="paragraph">
+<p><strong>Bold:</strong> B&lt;&gt;
+<strong>İtalik:</strong> I&lt;&gt;
+<strong>Altıçizili:</strong> U&lt;&gt;
+<strong>Kod:</strong> C&lt;&gt;
+<strong>Bağlantılar:</strong> L&lt;&gt;
+<strong>Yorumlar:</strong> Z&lt;&gt;
+<strong>Alt Notlar:</strong> N&lt;&gt;
+<strong>Unicode:</strong> E&lt;&gt;</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="perl6"><span></span>=<span class="tok-n">para</span>
+    <span class="tok-n">Perl</span> <span class="tok-mi">6</span> <span class="tok-n">B</span><span class="tok-s">&lt;harikadır.&gt;</span>
+    <span class="tok-n">Perl</span> <span class="tok-mi">6</span> <span class="tok-n">I</span><span class="tok-s">&lt;harikadır.&gt;</span>
+    <span class="tok-n">Perl</span> <span class="tok-mi">6</span> <span class="tok-n">U</span><span class="tok-s">&lt;harikadır.&gt;</span>
+    <span class="tok-n">C</span><span class="tok-s">&lt;my $a = 1; say $a;&gt;</span>
+    <span class="tok-n">Perl</span> <span class="tok-mi">6</span> <span class="tok-n">anasayfası</span> <span class="tok-n">L</span><span class="tok-s">&lt;https://perl6.org&gt;</span>
+    <span class="tok-n">Perl</span> <span class="tok-mi">6</span> <span class="tok-n">harikadır</span>. <span class="tok-o">Z</span><span class="tok-s">&lt;Bu bir yorum&gt;</span>
+    <span class="tok-n">Perl</span> <span class="tok-mi">6</span> <span class="tok-n">bir</span> <span class="tok-n">çok</span> <span class="tok-n">paradigmayı</span> <span class="tok-n">destekler</span>. <span class="tok-n">N</span><span class="tok-s">&lt;Emirsel, Nesne Yönelimli ve Fonksiyonel&gt;</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_pod_doküman_yapısı">Pod Doküman Yapısı</h3>
+<div class="paragraph">
+<p>Sea aliquyam labore et sanctus nonumy sed ipsum amet invidunt dolore, elitr lorem aliquyam eos sed, sanctus erat justo clita.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_pod_dokümanını_dışarı_aktarma">Pod Dokümanını Dışarı Aktarma</h3>
+<div class="paragraph">
+<p>Pod dokümanını birçok şekilde dışarıya aktarabiliriz. Şimdi bu yöntemleri inceleyelim.</p>
+</div>
+<div class="paragraph">
+<p>Dışa aktarma işlemi için çeşitli modüller kullanırız. Bu modülleri <em>zef</em> modül yöneticisi aracılığı ile kurabiliriz.</p>
+</div>
+<div class="sect3">
+<h4 id="_html">HTML</h4>
+<div class="paragraph">
+<p>Bir Pod dokümanını HTML olarak dışarı aktarmak için <strong>Pod::To::HTML</strong> modülüne ihtiyaç duyarız. Eğer modül sisteminizde kurulu değilse <strong>zef install Pod::To::HTML</strong> komutu ile kurabilirsiniz.</p>
+</div>
+<div class="paragraph">
+<p>Modül hakkında daha fazla bilgiye <a href="https://github.com/perl6/Pod-To-HTML" class="bare">https://github.com/perl6/Pod-To-HTML</a> adresinden ulaşabilirsiniz.</p>
+</div>
+<div class="paragraph">
+<p>Kullanımına bakacak olursak:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ perl6 --doc<span class="tok-o">=</span>HTML program.p6 &gt; output.html</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Şeklinde kullanabiliriz. Bu komut ile output.html isminde bulunduğunuz dizinde bir dosya oluşturulur.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_markdown">Markdown</h4>
+<div class="paragraph">
+<p>Bir Pod dokümanını Markdown olarak dışarı aktarmak için <strong>Pod::To::Markdown</strong> modülüne ihtiyaç duyarız. Eğer modül sisteminizde kurulu değilse <strong>zef install Pod::To::Markdown</strong> komutu ile kurabilirsiniz.</p>
+</div>
+<div class="paragraph">
+<p>Modül hakkında daha fazla bilgiye <a href="https://github.com/softmoth/perl6-pod-to-markdown" class="bare">https://github.com/softmoth/perl6-pod-to-markdown</a> adresinden ulaşabilirsiniz.</p>
+</div>
+<div class="paragraph">
+<p>Kullanımına bakacak olursak:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>$ perl6 --doc<span class="tok-o">=</span>Markdown program.p6 &gt; output.md</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Şeklinde kullanabiliriz. Bu komut ile output.md isminde bulunduğunuz dizinde bir dosya oluşturulur.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_metin">Metin</h4>
+<div class="paragraph">
+<p>Bir Pod dokümanını metin belgesi olarak dışarı aktarmak için:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>perl6 --doc basic_pod.p6 &gt; output.txt</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Komutunu kullanırız. Bu komut ile output.txt isminde bulunduğunuz dizinde bir dosya oluşturulur.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+</div>
+<h1 id="_temel_veri_tipleri_ve_değişken_kullanımı" class="sect0">Temel Veri Tipleri ve Değişken Kullanımı</h1>
+<div class="openblock partintro">
+<div class="content">
+<div class="paragraph">
+<p>Bu bölümde, diğer dillerden aşina olduğumuz temel veri türlerini Perl 6 üzerinde ele alacağız.</p>
+</div>
+<div class="paragraph">
+<p>Perl 6, statik tipli dillerde olduğu gibi değişkenin tipinin baştan belirlendiği ve program boyunca tipinin değişmediği bir dil değildir. Kademeli tip(<em>gradual type</em>) belirtme kullanan bir dildir, yani oluşturduğumuz değişkenlerin tiplerini belirtmeyebileceğimiz anlamına gelir. Farklı türdeki verileri tanımlamak için aynı değişkeni kullanabiliriz. Aynı zamanda oluşturulan değişken için tür de belirtmemize izin verir ve bu değişkenin farklı veri türleri için kısıtlayabilir.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_değişken_tanımlamak_ve_değer_atamak">Değişken Tanımlamak ve Değer Atamak</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Her değişken program içerisinde kullanılmadan önce oluşturulmalıdır. Bir değişken oluştururken <strong>my</strong> anahtar kelimesini kullanırız. <strong>my</strong> geçerli kapsam için değişken tanımlar. Kapsamlara ileride değineceğiz.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="perl6"><span></span><span class="tok-k">my</span> <span class="tok-nv">$degisken</span>;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Şeklinde bir değişken oluştururuz. Kullanımda gördüğümüz gibi önce <em>my $degişken-adı</em> şeklinde bir kullanımı vardır. Bu kullanım bize bir değişken oluşturur ve bu değişken için <em>(Any)</em> tipinde bir dönüş yapar. Yani bu değişken herhangi bir şey olabilir.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; my <span class="tok-nv">$degisken</span><span class="tok-p">;</span>
+<span class="tok-o">(</span>Any<span class="tok-o">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Bir kere tanımlanmış değişkene değer atamak için <strong>=</strong> işleci kullanılır.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; <span class="tok-nv">$degisken</span> <span class="tok-o">=</span> <span class="tok-m">1</span><span class="tok-p">;</span>
+<span class="tok-m">1</span>
+&gt; <span class="tok-nv">$degisken</span>
+<span class="tok-m">1</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Bu değişken sabit değişken(Sabit değişkenleri ileride göreceğiz.) olmadığı için değerini istediğimiz zaman değiştirebiliriz.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; <span class="tok-nv">$degisken</span> <span class="tok-o">=</span> <span class="tok-m">5</span><span class="tok-p">;</span>
+<span class="tok-m">5</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Bir diğer değişken oluşturma yöntemi ise değişkenin değerini değişkeni oluşturken belirtmektir.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; my <span class="tok-nv">$deg</span> <span class="tok-o">=</span> <span class="tok-m">2</span><span class="tok-p">;</span>
+<span class="tok-m">2</span>
+&gt; <span class="tok-nv">$deg</span><span class="tok-p">;</span>
+<span class="tok-m">2</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Yeri gelmişken noktalı virgül işareti Perl 6&#8217;ya ifadenin bittiğini belirtir.</p>
+</div>
+<div class="paragraph">
+<p><strong>$</strong> işareti değişkenin yapısal tipini belirtir ve her zaman değişken adının önünde bulunur. $ ile sembolize edilen veri tipleri skaler veriler olarak geçer. İleride değineceğimiz diziler <strong>@</strong> ile sembolize edilirken hash yapıları <strong>%</strong> ile sembolize edilir. Bu kodun okunaklığını arttırır ve kullanım kolaylığı sağlar.</p>
+</div>
+<div class="paragraph">
+<p>Bu sembollerin kullanılmaması hataya sebep olur.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; my <span class="tok-nv">sayi</span> <span class="tok-o">=</span> <span class="tok-m">2</span><span class="tok-p">;</span>
+<span class="tok-o">===</span>SORRY!<span class="tok-o">===</span> Error <span class="tok-k">while</span> compiling:
+Malformed my <span class="tok-o">(</span>did you mean to <span class="tok-nb">declare</span> a sigilless <span class="tok-se">\s</span>ayi or <span class="tok-nv">$sayi</span>?<span class="tok-o">)</span>
+------&gt; my sayi⏏ <span class="tok-o">=</span> <span class="tok-m">2</span><span class="tok-p">;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Değişkenleri adlandırırken dikkat etmemiz gereken kurallar vardır. Bir değişken sayı veya harf ile başlamalı, alt çizgi, tire, veya kesme işareti içerebilir.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="perl6"><span></span>&gt; <span class="tok-k">my</span> <span class="tok-nv">$ad_soyad</span>;
+(<span class="tok-nb">Any</span>)
+&gt; <span class="tok-k">my</span> <span class="tok-nv">$ad-soyad</span>;
+(<span class="tok-nb">Any</span>)
+&gt; <span class="tok-k">my</span> <span class="tok-nv">$ad&#39;soyad</span>;
+(<span class="tok-nb">Any</span>)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Değişken adlarının hepsi doğru ve birbirinden farklıdır. Ancak -, ' gibi işaretlerden sonra mutlaka bir harf gelmeli ve tekrar etmemelidirler. Örneğin aşağıda geçersiz isimlendirmeleri görüyoruz.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; my <span class="tok-nv">$ad</span>--soyad
+&gt; my <span class="tok-nv">$ad</span><span class="tok-s1">&#39;&#39;</span>soyad
+&gt; my $<span class="tok-err">&#39;</span>adsoyad
+&gt; my <span class="tok-nv">$adsoyad</span>-1</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Bunların tümü hatalıdır.</p>
+</div>
+<div class="paragraph">
+<p>Skaler veriler bir tam sayı, kayan noktalı sayı, karakter dizileri gibi tek bir değeri saklayabilen verilerdir.</p>
+</div>
+<div class="paragraph">
+<p>Biraz daha kullanım örneği yapalım.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; my <span class="tok-nv">$a</span> <span class="tok-o">=</span> <span class="tok-m">2</span><span class="tok-p">;</span>
+<span class="tok-m">2</span>
+&gt; my <span class="tok-nv">$b</span> <span class="tok-o">=</span> <span class="tok-nv">$a</span> * <span class="tok-m">5</span><span class="tok-p">;</span>
+<span class="tok-m">10</span>
+&gt; say <span class="tok-s2">&quot;\$b değişkenin değeri: </span><span class="tok-nv">$b</span><span class="tok-s2">&quot;</span><span class="tok-p">;</span>
+<span class="tok-nv">$b</span> değişkenin değeri: <span class="tok-m">10</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>\</strong> işareti ile o değişkeni işleme sokmadan yazdıracağımızı belirttik.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; my <span class="tok-nv">$ad</span> <span class="tok-o">=</span> <span class="tok-s1">&#39;Yalın&#39;</span><span class="tok-p">;</span>
+Yalın
+&gt; my <span class="tok-nv">$soyad</span> <span class="tok-o">=</span> <span class="tok-s1">&#39;Pala&#39;</span><span class="tok-p">;</span>
+Pala
+&gt; say <span class="tok-s2">&quot;Merhaba, </span><span class="tok-nv">$ad</span><span class="tok-s2"> </span><span class="tok-nv">$soyad</span><span class="tok-s2">.&quot;</span><span class="tok-p">;</span>
+Merhaba, Yalın Pala.
+&gt; say <span class="tok-s1">&#39;Merhaba, $ad $soyad&#39;</span><span class="tok-p">;</span>
+Merhaba, <span class="tok-nv">$ad</span> <span class="tok-nv">$soyad</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Burada çift tırnak işareti ile tek tırnak işaretinin kullanım farklılığını görüyoruz. Çift tırnak işareti ekrana yazarken değişkenlerimizi işleme sokmuşken, tek tırnak işareti değişkenlerin varlığını umursamamış ve onlara karakter gibi davranmıştır.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_sayılar">Sayılar</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Bu bölümde tam sayıları(integer), rasyonel(rational) sayıları, kompleks(complex) sayıları göreceğiz. Kısaca aşinalık sağlamak için aşağıdaki gibi bir tablo yapabiliriz.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Değer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sınıf(Class)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Açıklama</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Int</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tam Sayı</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.1415926</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Rat</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Rasyonel Sayı</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6.026e34</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Num</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bilimsel Gösterim</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1+0i</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Complex</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kompleks, Karmaşık Sayılar</p></td>
+</tr>
+</tbody>
+</table>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; say <span class="tok-m">42</span><span class="tok-p">;</span>
+<span class="tok-m">42</span>
+&gt; say <span class="tok-m">2123123123131231312312312312312123132123123123121231212311231231</span>
+<span class="tok-m">2123123123131231312312312312312123132123123123121231212311231231</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Burada ondalık(decimal) gösterim kullandık ancak Perl 6 bize çok daha fazlasını sunmakta onaltılık(Hexadecimal), sekizlik(octal), ikilik(binary) gösterimleride kullanabiliriz.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; say <span class="tok-m">13</span>
+<span class="tok-m">13</span>
+&gt; say :2<i class="conum" data-value="1101"></i><b>(1101)</b>
+<span class="tok-m">13</span>
+&gt; say :8<i class="conum" data-value="15"></i><b>(15)</b>
+<span class="tok-m">13</span>
+&gt; say :16&lt;D&gt;
+<span class="tok-m">13</span>
+&gt; say :16&lt;d&gt;
+<span class="tok-m">13</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Şeklinde sayı sistemlerini kullanabiliriz. Alfabetik karakterler büyük-küçük harf duyarlılığına sahip değildir.</p>
+</div>
+<div class="paragraph">
+<p>Büyük sayıların okunabilirkiğini arttırmak için <strong>_</strong> alt tire işareti kullanabiliriz.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; say 1_000_000_000
+<span class="tok-m">1000000000</span>
+&gt; say 599_999_99_99
+<span class="tok-m">5999999999</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Şimdi bazı tam sayı metotlarına bakalım:</p>
+</div>
+<div class="paragraph">
+<p><strong>.chr:</strong> Bir tam sayı değeri karaktere çevirir.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; say <span class="tok-m">65</span>.chr
+A
+&gt; say <span class="tok-m">66</span>.chr
+B</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>.is-prime:</strong> Bir tam sayının asal olup olmadığını kontrol eder.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; <span class="tok-m">3</span>.is-prime
+True
+&gt; <span class="tok-m">8</span>.is-prime
+False</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>.rand:</strong> Belirli aralıkta rastgele sayı üretir.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; <span class="tok-m">10</span>.rand
+<span class="tok-m">7</span>.951998306157705
+&gt; <span class="tok-m">100</span>.rand
+<span class="tok-m">23</span>.118963811372407
+&gt; <span class="tok-m">100</span>.rand.truncate
+<span class="tok-m">74</span>
+&gt; <span class="tok-m">10</span>.rand.truncate
+<span class="tok-m">6</span>
+&gt; <span class="tok-m">10</span>.rand.truncate.WHAT
+<span class="tok-o">(</span>Int<span class="tok-o">)</span>
+&gt; <span class="tok-m">10</span>.rand.WHAT
+<span class="tok-o">(</span>Num<span class="tok-o">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Burada <em>.rand</em> metodunun sonucunu <strong>.truncate</strong> metodu ile yalnızca tam sayı kısmını almasını söyledik. tip dönüşüm işlemlerine ileride değineceğiz. <em>.WHAT</em> metodu bize hangi sınıfa ait bir veri ile çalıştığımızı döndürdüğünü hatırlayalım.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; my <span class="tok-nv">$a</span> <span class="tok-o">=</span> <span class="tok-m">1</span>/4
+<span class="tok-m">0</span>.25
+&gt; <span class="tok-nv">$a</span>.WHAT
+<span class="tok-o">(</span>Rat<span class="tok-o">)</span>
+&gt; <span class="tok-nv">$a</span>.numerator
+<span class="tok-m">1</span>
+&gt; <span class="tok-nv">$a</span>.denominator
+<span class="tok-m">4</span>
+&gt; <span class="tok-o">(</span><span class="tok-m">1</span>/4 + <span class="tok-m">1</span>/3<span class="tok-o">)</span>.perl
+&lt;<span class="tok-m">7</span>/12&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Bir rasyonel sayının pay ve paydasını <strong>.numerator</strong> ve <strong>.denominator</strong> metotları ile bulabiliriz.</p>
+</div>
+<div class="paragraph">
+<p><strong>.perl</strong> metodu ise rasyonel işlemler yapmamızı sağlar. Pay ve paydayı korur.</p>
+</div>
+<div class="paragraph">
+<p>Bir rasyonel sayıyı yuvarlamak istiyorsak <strong>.round</strong> metodunu kullanabiliriz.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; <span class="tok-m">2</span>.2.round
+<span class="tok-m">2</span>
+&gt; <span class="tok-m">2</span>.6.round
+<span class="tok-m">3</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Bir sayının işaretini <strong>.sign</strong> metodu ile öğrenebiliriz. Bu metot sayı eksi ise <strong>-1</strong> artı ise <strong>1</strong> sonucunu döner.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; <span class="tok-m">3</span>.sign
+<span class="tok-m">1</span>
+&gt; -3.sign
+-1</code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_karakter_dizileri">Karakter Dizileri</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Karakter dizileri(String) <strong>Str</strong> sınıfından türetilmiş nesnelerdir. Hemen bir örnek vermek gerekirse:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; my <span class="tok-nv">$karakter</span>-dizisi <span class="tok-o">=</span> <span class="tok-s2">&quot;Ben bir karakter dizisiyim!&quot;</span>
+Ben bir karakter dizisiyim!
+&gt; <span class="tok-nv">$karakter</span>-dizisi.WHAT
+<span class="tok-o">(</span>Str<span class="tok-o">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Karakter dizilerini ekrana yazdırırken bize yardımcı olan kaçış karakterleri vardır. Örneğin:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; say <span class="tok-s2">&quot;Ankara&#39;da&quot;</span>
+Ankara<span class="tok-s1">&#39;da</span>
+<span class="tok-s1">&gt; say &#39;</span>Ankara<span class="tok-s1">&#39;da&#39;</span>
+<span class="tok-o">[</span>hata mesajı<span class="tok-o">]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Tırnakların kullanımı karakter dizileri için önemlidir. Peki yukarıda hata mesajı aldığımız ifadeyi nasıl yazabilirdik. İşte bu noktada kaçış karakterleri dediğimiz karakterler işimize yarar.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; say <span class="tok-s1">&#39;Ankara\&#39;</span>da<span class="tok-s1">&#39;</span>
+<span class="tok-s1">Ankara&#39;</span>da
+&gt; say <span class="tok-s1">&#39;Ankara \\ Yenimahalle&#39;</span>
+Ankara <span class="tok-se">\ </span>Yenimahalle</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Bu kullanımı önceki bölümlerde değişkenin işleme sokulmadan yazdırılması için de kullandığımızı hatırlayın. Burada ters eğik çizginin(<strong>\</strong>) kaçış karakteri olduğunugörüyoruz. Ekrana ters eğik çizgi yazdırmak için iki ters eğik çizgi kullanıldığına diikat edelim.</p>
+</div>
+<div class="paragraph">
+<p>Bazı kaçış dizisi karakterlerine bakalım.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Karakter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Açıklama</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\a</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ses karakteri</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\b</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Geri alma tuşu</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\n</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yeni satır</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\t</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tab</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\f</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Form</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\c[NAME]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Karakter adıyla</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\q[&#8230;&#8203;]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tek tırnaklı yazım</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\qq[&#8230;&#8203;]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Çift tırnaklı yazım</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">\x[ABCD]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hex kodu ile karakter yazım</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Farklı bir kullanım tekniği ise daha özgür bir kullanım imkanı sunan <strong>q&lt;sınırlayıcı&gt;</strong> kullanımıdır. Bu kullanımda istediğimiz sırılayıcı karakterleri kullanabiliriz.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; say q<span class="tok-s">&lt;&lt;Ankara&#39;da biri var&gt;&gt;</span>
+<span class="tok-s">Ankara</span><span class="tok-err">&#39;</span>da biri var
+&gt; say q<span class="tok-o">{</span>Ankara <span class="tok-se">\ </span>Yenimahalle<span class="tok-o">}</span>
+Ankara <span class="tok-se">\ </span>Yenimahalle</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>İki karakter dizisini birleştirmek için <strong>~</strong> işlecini kullandığımızı görmüştük.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; my <span class="tok-nv">$ad</span> <span class="tok-o">=</span> <span class="tok-s1">&#39;Yalın&#39;</span><span class="tok-p">;</span>
+Yalın
+&gt; say <span class="tok-s2">&quot;Merhaba &quot;</span> ~ <span class="tok-nv">$ad</span> ~ <span class="tok-s2">&quot;!&quot;</span><span class="tok-p">;</span>
+Merhaba Yalın!
+&gt; say <span class="tok-s2">&quot;Merhaba&quot;</span> ~ <span class="tok-s2">&quot; &quot;</span> ~ <span class="tok-s2">&quot;Dünya&quot;</span>
+Merhaba Dünya</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Farklı bir karakter dizisi birleştirme yöntemi ise <strong>join</strong> fonksiyonu kullanmaktır. <strong>.chars</strong> metodu ise bize karakter dizimizin boyutunu verir. <strong>.uc</strong>(<em>uppercase</em>) metodu ile karakter dizisi içerisindeki tüm karakterleri büyük, <strong>.lc</strong>(<em>lowercase</em>) metodu ile küçük harfe çevirdik. <strong>.tc</strong> metodu ile ilk karakteri büyük, <strong>.tclc</strong> metodu ile ilk karakteri büyük, kalan karakterleri küçük hale çevirdik.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; my <span class="tok-nv">$ad</span>-soyad <span class="tok-o">=</span> join <span class="tok-s1">&#39; &#39;</span>, <span class="tok-s1">&#39;Yalın&#39;</span>, <span class="tok-s1">&#39;Pala&#39;</span>
+Yalın Pala
+&gt; <span class="tok-s1">&#39;Yalın&#39;</span>.chars
+<span class="tok-m">5</span>
+&gt; <span class="tok-s1">&#39;yalın&#39;</span>.uc
+YALIN
+&gt; <span class="tok-s1">&#39;YalıN&#39;</span>.lc
+yalın
+&gt; <span class="tok-s1">&#39;Yalın PALA&#39;</span>. tclc
+Yalın pala</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Bir karakter dizisinin içine bakmak istersek <strong>.contains()</strong> metodunu kullanabiliriz. Metot karakter dizimizin içine bakarak belirttiğimiz karakterin veya karakterlerin, karakter dizisi içerisinde varsa <em>True</em> yoksa <em>False</em> sonucunu döner. Metodun büyük-küçük harf duyayarlılığı vardır.</p>
+</div>
+<div class="paragraph">
+<p><strong>.start-with()</strong> metodu ile metnin başlangıç karakterlerini, <strong>.ends-with()</strong> ile bitiş karakterlerinin belirttiğimiz karakterler olup olmadığını sorgulayabliriz.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; <span class="tok-s1">&#39;Örnek cümlemiz Perl 6 karakter dizileri&#39;</span>.contains<span class="tok-o">(</span><span class="tok-s1">&#39;perl&#39;</span><span class="tok-o">)</span>
+False
+&gt; <span class="tok-s1">&#39;Örnek cümlemiz Perl 6 karakter dizileri&#39;</span>.contains<span class="tok-o">(</span><span class="tok-s1">&#39;Perl&#39;</span><span class="tok-o">)</span>
+True
+&gt; <span class="tok-s1">&#39;Örnek cümlemiz Perl 6 karakter dizileri&#39;</span>.contains: <span class="tok-s1">&#39;Perl&#39;</span>
+True
+&gt; <span class="tok-s1">&#39;Örnek cümlemiz Perl 6 karakter dizileri&#39;</span>.starts-with<span class="tok-o">(</span><span class="tok-s1">&#39;Örne&#39;</span><span class="tok-o">)</span>
+True
+&gt; <span class="tok-s1">&#39;Örnek cümlemiz Perl 6 karakter dizileri&#39;</span>.starts-with: <span class="tok-s1">&#39;leri&#39;</span>
+False
+&gt; <span class="tok-s1">&#39;Örnek cümlemiz Perl 6 karakter dizileri&#39;</span>.ends-with: <span class="tok-s1">&#39;leri&#39;</span>
+True</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>.fc</strong> metodu ile büyük-küçük harf duyarlılığını kapatabiliriz.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; <span class="tok-s1">&#39;Örnek cümlemiz Perl 6 karakter dizileri&#39;</span>.starts-with: <span class="tok-s1">&#39;örnek&#39;</span>
+False
+&gt; <span class="tok-s1">&#39;Örnek cümlemiz Perl 6 karakter dizileri&#39;</span>.fc.starts-with: <span class="tok-s1">&#39;örnek&#39;</span>
+True</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>.index:</strong> ile bir karakterin kaçıncı sırada olduğunu öğrenebiliriz. Burada dikkat etmemiz gereken nokta <strong>.chars</strong> metodundan farklı olarak <strong>.index:</strong> metodu saymaya sıfırdan başlar. Olmayan bir karakter girdiğimizde ise <em>Nil</em> sonucunu döner.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; <span class="tok-s1">&#39;Yalın&#39;</span>.index: <span class="tok-s1">&#39;ı&#39;</span>
+<span class="tok-m">3</span>
+&gt; <span class="tok-s1">&#39;Yalın&#39;</span>.index: <span class="tok-s1">&#39;m&#39;</span>
+Nil</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Bir karakter dizisi içerisinden bir aralığın içerisini görmek istersek <strong>.substr:</strong> metodunu kullanabiliriz.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; <span class="tok-s1">&#39;Yalın Perl 6 Kitabı yazıyor...&#39;</span>.substr: <span class="tok-m">6</span>, <span class="tok-m">6</span>
+Perl <span class="tok-m">6</span>
+&gt; <span class="tok-s1">&#39;Yalın Perl 6 Kitabı yazıyor...&#39;</span>.substr: <span class="tok-m">13</span>
+Kitabı yazıyor...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>İlk kullanımda 6. karakterden başla ve 6 karakteri getir dedik. İkinci bir parametre kullanmazsak karakter dizisi bitene kadar anlamına gelir.</p>
+</div>
+<div class="paragraph">
+<p>Farklı bir metin kullanım yöntemi ise <strong>Q</strong> kullanımıdır. Q daha genelleştirilmiş bir kullanım sunar. Q tek başına kullanıldığında q gibi davranır.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; say Q<span class="tok-s">&lt;&lt;Ankara&#39;da biri var&gt;&gt;</span>
+<span class="tok-s">Ankara</span><span class="tok-err">&#39;</span>da biri var
+&gt; say Q<span class="tok-o">{</span>Ankara <span class="tok-se">\ </span>Yenimahalle<span class="tok-o">}</span>
+Ankara <span class="tok-se">\ </span>Yenimahalle</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Q işleminin davranışını değiştirmek için parametreler kullanırız. Bu parametreler Q harfinden sonra gelir ve : ile başlarlar.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; Q :q <span class="tok-s1">&#39;Bu metin \&#39;</span> işaretleri ile sınırlıdır. <span class="tok-se">\\</span><span class="tok-s1">&#39;</span>
+<span class="tok-s1">Bu metin &#39;</span> işaretleri ile sınırlıdır. <span class="tok-se">\</span>
+&gt; Q :q &lt;Bu metin <span class="tok-s1">&#39; ile değil \&lt; ile sınırlıdır.&gt;</span>
+<span class="tok-s1">Bu metin &#39;</span> ile değil &lt; ile sınırlıdır.
+&gt; Q :single <span class="tok-s1">&#39;Bu metin \&#39;</span> işaretleri ile sınırlıdır. <span class="tok-se">\\</span><span class="tok-s1">&#39;</span>
+<span class="tok-s1">Bu metin &#39;</span> işaretleri ile sınırlıdır. <span class="tok-se">\</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>:q</strong> parametresinin uzun hali <strong>:single</strong> parametresidir, ikiside aynı işi yapar. Bunun gibi <strong>:qq</strong> parametresinin uzun hali <strong>:double</strong> parametresidir.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; my <span class="tok-nv">$ad</span> <span class="tok-o">=</span> <span class="tok-s1">&#39;Yalın&#39;</span>
+Yalın
+&gt; Q :q <span class="tok-s1">&#39;Merhaba $ad&#39;</span>
+Merhaba <span class="tok-nv">$ad</span>
+&gt; Q :qq <span class="tok-s1">&#39;Merhaba $ad&#39;</span>
+Merhaba Yalın
+&gt; Q :double <span class="tok-s1">&#39;Merhaba $ad&#39;</span>
+Merhaba Yalın</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>:c</strong> parametresi ise yalnızca süslü parantez içini işleme sokar. <strong>:s</strong> parametresi ise yalnızca değişkenleri işleme sokar. <strong>:b</strong> parametresi ise yalnızca kaçış karakterleri ile ilgilenir. Q parametreleri birlikte kullanılabilir.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; Q :c <span class="tok-s1">&#39;Merhaba $ad \n {2 ** 4}&#39;</span>
+Merhaba <span class="tok-nv">$ad</span> <span class="tok-m">16</span>
+&gt; Q :c <span class="tok-s1">&#39;Merhaba \n {$ad}&#39;</span>
+Merhaba Yalın
+&gt; Q :s <span class="tok-s1">&#39;Merhaba $ad \n {2 ** 4}&#39;</span>
+Merhaba Yalın <span class="tok-se">\n</span> <span class="tok-o">{</span><span class="tok-m">2</span> ** <span class="tok-m">4</span><span class="tok-o">}</span>
+&gt; Q :b <span class="tok-s1">&#39;Merhaba $ad \n {2 ** 4}&#39;</span>
+Merhaba <span class="tok-nv">$ad</span>
+ <span class="tok-o">{</span><span class="tok-m">2</span> ** <span class="tok-m">4</span><span class="tok-o">}</span>
+&gt; Q :c :s :b <span class="tok-s1">&#39;Merhaba $ad \n {2 ** 4}&#39;</span>
+Merhaba Yalın
+ <span class="tok-m">16</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Bazı Q parametrelerinin bir tablosu:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kısa Ad</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Uzun Ad</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Açıklama</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">:x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">:exec</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Shell komutunu çalıştırır ve sonucu döner.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">:q</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">:single</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kaçış karakterleriyle işleme girer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">:qq</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">:double</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">:s, :a, :h, :f, :c, :b ile işleme girer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">:s</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">:scalar</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">$ değişkenleri ile işleme girer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">:a</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">:array</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">@ değişkenleri ile işleme girer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">:h</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">:hash</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">% değişkenleri ile işleme girer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">:f</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">:function</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&amp; çağrıları ile işleme girer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">:c</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">:closure</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{&#8230;&#8203;} süslü parantez içi ile işleme girer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">:b</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">:backslash</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kaçış karakterleri ile etkileşime girer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">:to</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">:heredoc</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Here doc ayrıştırma sonucu.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">:v</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">:val</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mümkünse allomorph a dönüştürür.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Son olarak <strong>Here Doc</strong>'tan bahsedelim. Here doc çok satırlı bir metin yazmanın özel bir yoldur. <strong>:heredoc</strong> veya kısaca <strong>:to</strong> parametresi ile tanımlanır.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="perl6"><span></span><span class="tok-k">my</span> <span class="tok-nv">$cok-satirli</span> = <span class="tok-s">Q :to&lt;END&gt;;</span>
+<span class="tok-s">    Tıkanma&#39;dan bir alıntı:</span>
+<span class="tok-s">        Sahip olacağım her şey bir gün kaybedeceğim şeylerden sadece biri.</span>
+<span class="tok-s">    Tıkanma&#39;nın yazarı: Chuck Palahniuk</span>
+<span class="tok-s">    END</span>
+
+<span class="tok-nb">say</span> <span class="tok-nv">$cok-satirli</span>;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Kodun çıktısı:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>Tıkanma<span class="tok-s1">&#39;dan bir alıntı:</span>
+<span class="tok-s1">    Sahip olacağım her şey bir gün kaybedeceğim şeylerden sadece biri.</span>
+<span class="tok-s1">Tıkanma&#39;</span>nın yazarı: Chuck Palahniuk</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>:to parametresinden sonra gelen kapsayıcılar değişebilir. Örneğin // kullanılabilir. Kapsayıcının içerisine yazılan ifade de değişebilir ancak mutlaka son ifade ile aynı olması gerekir.</p>
+</div>
+<div class="paragraph">
+<p>Here doc değişken kullanımını desteklemez. Eğer değişken kullanmak istiyorsanız farklı parametreler ile birlikte kullanmalısınız.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="perl6"><span></span><span class="tok-k">my</span> <span class="tok-nv">$yazar</span> = <span class="tok-s">&#39;Chuck Palahniuk&#39;</span>;
+
+<span class="tok-k">my</span> <span class="tok-nv">$cok-satirli</span> = <span class="tok-s">Q :qq :to&lt;ALINTI&gt;;</span>
+<span class="tok-s">    Tıkanma&#39;dan bir alıntı:</span>
+<span class="tok-s">        Sahip olacağım her şey bir gün kaybedeceğim şeylerden sadece biri.</span>
+<span class="tok-s">    Tıkanma&#39;nın yazarı: $yazar</span>
+<span class="tok-s">    ALINTI</span>
+
+<span class="tok-nb">say</span> <span class="tok-nv">$cok-satirli</span>;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Kodumuzun çıktısı:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>Tıkanma<span class="tok-s1">&#39;dan bir alıntı:</span>
+<span class="tok-s1">    Sahip olacağım her şey bir gün kaybedeceğim şeylerden sadece biri.</span>
+<span class="tok-s1">Tıkanma&#39;</span>nın yazarı: Chuck Palahniuk</code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_sabitler">Sabitler</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Perl 6&#8217;da diğer dillerden aşina olduğumuz sabitler, bir değişkenin değerinin bir kere belirlenebildiği değişkenler vardır.</p>
+</div>
+<div class="paragraph">
+<p>Sabitler <strong>constant</strong> anahtar kelimesi ile oluşturulur.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; constant <span class="tok-nv">$A</span> <span class="tok-o">=</span> <span class="tok-m">4</span>
+<span class="tok-m">4</span>
+&gt; <span class="tok-nv">$A</span>
+<span class="tok-m">4</span>
+&gt; <span class="tok-nv">$A</span> <span class="tok-o">=</span> <span class="tok-m">2</span>
+Cannot assign to an immutable value
+  in block &lt;unit&gt; at &lt;unknown file&gt; line <span class="tok-m">1</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Yukarıdaki örnekte de gördüğümüz gibi bir sabitin değerini değiştirmeye çalıştığımız da hata ile karşılaşırız. Yine değişkenlerden farklı olarak sabitlere ilk değer ataması yapılmak zorundadır aksi durumda hata ile karşılaşılır.</p>
+</div>
+<div class="paragraph">
+<p>Sabitler varsayılan olarak <strong>our</strong> kapsayıcısını alır. Ancak <strong>my</strong> kapsayıcısını da alabilirler. Kapsayıcılara ilerideki bölümlerde değineceğiz.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; my constant <span class="tok-nv">$B</span> <span class="tok-o">=</span> <span class="tok-m">4</span>
+<span class="tok-m">4</span>
+&gt; <span class="tok-nv">$B</span>
+<span class="tok-m">4</span>
+&gt; <span class="tok-nv">$B</span> <span class="tok-o">=</span> <span class="tok-m">2</span>
+Cannot assign to an immutable value
+  in block &lt;unit&gt; at &lt;unknown file&gt; line <span class="tok-m">1</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Sabit adlandırırken büyük harfler kullanılması güzel bir alışkanlıktır.</p>
+</div>
+<div class="paragraph">
+<p>Sabitleri tanımlarken değişken adını işaretsiz($, @, % olmaksızın) belirtebiliriz.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt;constant <span class="tok-nv">DENEME</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;Deneme&quot;</span>
+Deneme
+&gt; DENEME
+Deneme
+&gt; <span class="tok-nv">DENEME</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;Fark!&quot;</span>
+Cannot modify an immutable Str <span class="tok-o">(</span>Deneme<span class="tok-o">)</span>
+  in block &lt;unit&gt; at &lt;unknown file&gt; line <span class="tok-m">1</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Sabitleri oluşturmanın farklı bir yoluda işaretsiz değişken kullanımı gibi olan <strong>\degisken</strong> şeklinde kullanımdır.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; my <span class="tok-se">\s</span>abit <span class="tok-o">=</span> <span class="tok-m">4</span>
+<span class="tok-m">4</span>
+&gt; sabit
+<span class="tok-m">4</span>
+&gt; <span class="tok-se">\s</span>abit
+<span class="tok-se">\(</span><span class="tok-m">4</span><span class="tok-o">)</span>
+&gt; <span class="tok-nv">sabit</span> <span class="tok-o">=</span> <span class="tok-m">3</span>
+Cannot modify an immutable Int <span class="tok-o">(</span><span class="tok-m">4</span><span class="tok-o">)</span>
+  in block &lt;unit&gt; at &lt;unknown file&gt; line <span class="tok-m">1</span>
+
+&gt; <span class="tok-se">\s</span>abit <span class="tok-o">=</span> <span class="tok-m">3</span>
+Cannot modify an immutable Capture <span class="tok-o">(</span><span class="tok-se">\(</span><span class="tok-m">4</span><span class="tok-o">))</span>
+  in block &lt;unit&gt; at &lt;unknown file&gt; line <span class="tok-m">1</span></code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_değişken_tanımlama_yöntemleri">Değişken Tanımlama Yöntemleri</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Perl 6 da değişkenlerin tiplerinin belirtilebileceğini söylemiştik. Bu bölümde değişken tanımlamanın farklı yöntemlerini göreceğiz.</p>
+</div>
+<div class="sect2">
+<h3 id="_değişken_tipi_belirtme">Değişken Tipi Belirtme</h3>
+<div class="paragraph">
+<p>Bir değişkenin tipini <strong>my tip değişkenadı</strong> şablonuna göre belirtiriz.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; my Int <span class="tok-nv">$a</span>
+<span class="tok-o">(</span>Int<span class="tok-o">)</span>
+&gt; <span class="tok-nv">$a</span> <span class="tok-o">=</span> <span class="tok-m">4</span>
+<span class="tok-m">4</span>
+&gt; <span class="tok-nv">$a</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;12&quot;</span>
+Type check failed in assignment to <span class="tok-nv">$a</span><span class="tok-p">;</span> expected Int but got Str <span class="tok-o">(</span><span class="tok-s2">&quot;12&quot;</span><span class="tok-o">)</span>
+  in block &lt;unit&gt; at &lt;unknown file&gt; line <span class="tok-m">1</span>
+&gt; <span class="tok-nv">$a</span> <span class="tok-o">=</span> <span class="tok-m">4</span>.5
+Type check failed in assignment to <span class="tok-nv">$a</span><span class="tok-p">;</span> expected Int but got Rat <span class="tok-o">(</span><span class="tok-m">4</span>.5<span class="tok-o">)</span>
+  in block &lt;unit&gt; at &lt;unknown file&gt; line <span class="tok-m">1</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Örneğimizde görüldüğü gibi değişken tipi belirtildikten sonra o değişkenin tipinin dışında bir tipte değer alması hataya sebep olur.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; my Str <span class="tok-nv">$b</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;Bir karakter dizisi&quot;</span>
+Bir karakter dizisi
+&gt; <span class="tok-nv">$b</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;farklı bir  karakter dizisi&quot;</span>
+farklı bir karakter dizisi
+&gt; my Bool <span class="tok-nv">$c</span> <span class="tok-o">=</span> True
+True</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ancak aynı tipte olmak üzere değeri değiştirilebilir.</p>
+</div>
+<div class="paragraph">
+<p>Şuana kadar gördüğümüz ve göreceğimiz, oluşturabileceğimiz bütün tipleri değişken oluştururken kullanabiliriz.</p>
+</div>
+<div class="paragraph">
+<p>Farklı olarak sabitlerin tiplerini belirtemeyiz.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; constant Int <span class="tok-nv">$a</span> <span class="tok-o">=</span> <span class="tok-nv">4</span>
+<span class="tok-o">===</span>SORRY!<span class="tok-o">===</span> Error <span class="tok-k">while</span> compiling:
+Missing initializer on constant declaration
+------&gt; constant Int⏏ <span class="tok-nv">$a</span> <span class="tok-o">=</span> <span class="tok-m">4</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_çoklu_değişken_tanımlama">Çoklu Değişken Tanımlama</h3>
+<div class="paragraph">
+<p>Elbette her satırda bir değişken tanımlamak zorunda değiliz. Bir satırda birden fazla değişken tanımlayabiliriz.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; my <span class="tok-o">(</span><span class="tok-nv">$e</span>, <span class="tok-nv">$f</span>, <span class="tok-nv">$g</span><span class="tok-o">)</span>
+<span class="tok-o">((</span>Any<span class="tok-o">)</span> <span class="tok-o">(</span>Any<span class="tok-o">)</span> <span class="tok-o">(</span>Any<span class="tok-o">))</span>
+&gt; <span class="tok-nv">$e</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;e&quot;</span>
+e
+&gt; <span class="tok-nv">$f</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;f&quot;</span>
+f
+&gt; <span class="tok-nv">$g</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;g&quot;</span>
+g</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Tanımlama esnasında değer belirtebiliriz ve yine tek satırda bu değerleri değiştirebiliriz.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; my <span class="tok-o">(</span><span class="tok-nv">$a</span>, <span class="tok-nv">$b</span><span class="tok-o">)</span> <span class="tok-o">=</span> <span class="tok-m">1</span>, <span class="tok-m">2</span>
+<span class="tok-o">(</span><span class="tok-m">1</span> <span class="tok-m">2</span><span class="tok-o">)</span>
+&gt; <span class="tok-nv">$a</span>
+<span class="tok-m">1</span>
+&gt; <span class="tok-nv">$b</span>
+<span class="tok-m">2</span>
+&gt; <span class="tok-o">(</span><span class="tok-nv">$e</span>, <span class="tok-nv">$f</span>, <span class="tok-nv">$g</span><span class="tok-o">)</span> <span class="tok-o">=</span> <span class="tok-m">1</span>, <span class="tok-m">2</span>, <span class="tok-m">3</span>
+<span class="tok-o">(</span><span class="tok-m">1</span> <span class="tok-m">2</span> <span class="tok-m">3</span><span class="tok-o">)</span>
+&gt; <span class="tok-nv">$g</span>
+<span class="tok-m">3</span>
+&gt; <span class="tok-nv">$f</span>
+<span class="tok-m">2</span>
+&gt; <span class="tok-nv">$e</span>
+<span class="tok-m">1</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Ayrıca bir önceki bölümde gördüğümüz gibi çoklu tanımlama yaparken de tip belirtebiliriz.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; my Str <span class="tok-o">(</span><span class="tok-nv">$c</span>, <span class="tok-nv">$d</span><span class="tok-o">)</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;Farklı&quot;</span>, <span class="tok-s2">&quot;kullanım&quot;</span>
+<span class="tok-o">(</span>Farklı kullanım<span class="tok-o">)</span>
+&gt; <span class="tok-nv">$c</span>
+Farklı
+&gt; <span class="tok-nv">$d</span>
+kullanım</code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_değişkenlerin_kapsamı_ve_bloklar">Değişkenlerin Kapsamı ve Bloklar</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Bloklar bir veya daha fazla ifadeyi süslü parantezler <strong>{ &#8230;&#8203; }</strong> ile çevirerek tek bir birim altında toplar.</p>
+</div>
+<div class="paragraph">
+<p>Bloklar döngüler, koşullar gibi ifadeler de görülebileceği gibi ifadesizde görülebilir.</p>
+</div>
+<div class="paragraph">
+<p>Bir blok kendi kapsamını yaratır.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="perl6"><span></span><span class="tok-k">my</span> <span class="tok-nv">$ad</span> = <span class="tok-s">&quot;Yalın&quot;</span>;
+<span class="tok-nb">say</span> <span class="tok-nv">$ad</span>;
+
+{
+    <span class="tok-c1"># Burası bir blok</span>
+    <span class="tok-k">my</span> <span class="tok-nv">$ad</span> = <span class="tok-s">&quot;Asu&quot;</span>;
+    <span class="tok-nb">say</span> <span class="tok-nv">$ad</span>;
+}
+
+<span class="tok-nb">say</span> <span class="tok-nv">$ad</span>;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Bu kodun çıktısı aşağıdaki gibi olur.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>Yalın
+Asu
+Yalın</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Bir blok icerisinde tanimlanan ifadeler yalniz o blok icerisinde kalan alanda gecerliligini korur.</p>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tip_dönüşümleri">Tip Dönüşümleri</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Genellikle bir değişkenin tipini değiştirmek için <strong>$degisken.Tipadı</strong> gibi bir kullanım vardır.</p>
+</div>
+<div class="paragraph">
+<p>Bir kullanım çeşidi ise bir string ifadenin başına <strong>+</strong> işleci koymaktır. Bu değişkeni en olası numerik tipe çevirmeye çalışır. Tam tersi numerik bir tipi string&#8217;e çevirmek için <strong>~</strong> işleci numerik ifadenin başına konur.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>&gt; my <span class="tok-nv">$a</span> <span class="tok-o">=</span> <span class="tok-m">3</span>
+<span class="tok-m">3</span>
+&gt; <span class="tok-nv">$a</span>.WHAT
+<span class="tok-o">(</span>Int<span class="tok-o">)</span>
+&gt; <span class="tok-nv">$a</span>.Str.WHAT
+<span class="tok-o">(</span>Str<span class="tok-o">)</span>
+ my <span class="tok-nv">$b</span> <span class="tok-o">=</span> <span class="tok-m">4</span>.5
+<span class="tok-m">4</span>.5
+&gt; <span class="tok-nv">$b</span>.Int
+<span class="tok-m">4</span>
+&gt; my Str <span class="tok-nv">$c</span> <span class="tok-o">=</span> <span class="tok-nv">$b</span>.Str
+<span class="tok-m">4</span>.5
+my Rat <span class="tok-nv">$d</span> <span class="tok-o">=</span> +<span class="tok-nv">$c</span>
+<span class="tok-m">4</span>.5
+&gt; <span class="tok-nv">$d</span>.WHAT
+<span class="tok-o">(</span>Rat<span class="tok-o">)</span>
+my Str <span class="tok-nv">$e</span> <span class="tok-o">=</span> ~<span class="tok-nv">$b</span>
+<span class="tok-m">4</span>.5
+&gt; <span class="tok-nv">$e</span>.WHAT
+<span class="tok-o">(</span>Str<span class="tok-o">)</span></code></pre>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<h1 id="_listeler_2" class="sect0">Listeler</h1>
+
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2019-10-08 23:57:56 +0300
+</div>
+</div>
+<style>
+pre.pygments .hll { background-color: #ffffcc }
+pre.pygments  { background: #f8f8f8; }
+pre.pygments .tok-c { color: #408080; font-style: italic } /* Comment */
+pre.pygments .tok-err { border: 1px solid #FF0000 } /* Error */
+pre.pygments .tok-k { color: #008000; font-weight: bold } /* Keyword */
+pre.pygments .tok-o { color: #666666 } /* Operator */
+pre.pygments .tok-ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+pre.pygments .tok-cm { color: #408080; font-style: italic } /* Comment.Multiline */
+pre.pygments .tok-cp { color: #BC7A00 } /* Comment.Preproc */
+pre.pygments .tok-cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+pre.pygments .tok-c1 { color: #408080; font-style: italic } /* Comment.Single */
+pre.pygments .tok-cs { color: #408080; font-style: italic } /* Comment.Special */
+pre.pygments .tok-gd { color: #A00000 } /* Generic.Deleted */
+pre.pygments .tok-ge { font-style: italic } /* Generic.Emph */
+pre.pygments .tok-gr { color: #FF0000 } /* Generic.Error */
+pre.pygments .tok-gh { color: #000080; font-weight: bold } /* Generic.Heading */
+pre.pygments .tok-gi { color: #00A000 } /* Generic.Inserted */
+pre.pygments .tok-go { color: #888888 } /* Generic.Output */
+pre.pygments .tok-gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+pre.pygments .tok-gs { font-weight: bold } /* Generic.Strong */
+pre.pygments .tok-gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+pre.pygments .tok-gt { color: #0044DD } /* Generic.Traceback */
+pre.pygments .tok-kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+pre.pygments .tok-kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+pre.pygments .tok-kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+pre.pygments .tok-kp { color: #008000 } /* Keyword.Pseudo */
+pre.pygments .tok-kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+pre.pygments .tok-kt { color: #B00040 } /* Keyword.Type */
+pre.pygments .tok-m { color: #666666 } /* Literal.Number */
+pre.pygments .tok-s { color: #BA2121 } /* Literal.String */
+pre.pygments .tok-na { color: #7D9029 } /* Name.Attribute */
+pre.pygments .tok-nb { color: #008000 } /* Name.Builtin */
+pre.pygments .tok-nc { color: #0000FF; font-weight: bold } /* Name.Class */
+pre.pygments .tok-no { color: #880000 } /* Name.Constant */
+pre.pygments .tok-nd { color: #AA22FF } /* Name.Decorator */
+pre.pygments .tok-ni { color: #999999; font-weight: bold } /* Name.Entity */
+pre.pygments .tok-ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+pre.pygments .tok-nf { color: #0000FF } /* Name.Function */
+pre.pygments .tok-nl { color: #A0A000 } /* Name.Label */
+pre.pygments .tok-nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+pre.pygments .tok-nt { color: #008000; font-weight: bold } /* Name.Tag */
+pre.pygments .tok-nv { color: #19177C } /* Name.Variable */
+pre.pygments .tok-ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+pre.pygments .tok-w { color: #bbbbbb } /* Text.Whitespace */
+pre.pygments .tok-mb { color: #666666 } /* Literal.Number.Bin */
+pre.pygments .tok-mf { color: #666666 } /* Literal.Number.Float */
+pre.pygments .tok-mh { color: #666666 } /* Literal.Number.Hex */
+pre.pygments .tok-mi { color: #666666 } /* Literal.Number.Integer */
+pre.pygments .tok-mo { color: #666666 } /* Literal.Number.Oct */
+pre.pygments .tok-sa { color: #BA2121 } /* Literal.String.Affix */
+pre.pygments .tok-sb { color: #BA2121 } /* Literal.String.Backtick */
+pre.pygments .tok-sc { color: #BA2121 } /* Literal.String.Char */
+pre.pygments .tok-dl { color: #BA2121 } /* Literal.String.Delimiter */
+pre.pygments .tok-sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+pre.pygments .tok-s2 { color: #BA2121 } /* Literal.String.Double */
+pre.pygments .tok-se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+pre.pygments .tok-sh { color: #BA2121 } /* Literal.String.Heredoc */
+pre.pygments .tok-si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+pre.pygments .tok-sx { color: #008000 } /* Literal.String.Other */
+pre.pygments .tok-sr { color: #BB6688 } /* Literal.String.Regex */
+pre.pygments .tok-s1 { color: #BA2121 } /* Literal.String.Single */
+pre.pygments .tok-ss { color: #19177C } /* Literal.String.Symbol */
+pre.pygments .tok-bp { color: #008000 } /* Name.Builtin.Pseudo */
+pre.pygments .tok-fm { color: #0000FF } /* Name.Function.Magic */
+pre.pygments .tok-vc { color: #19177C } /* Name.Variable.Class */
+pre.pygments .tok-vg { color: #19177C } /* Name.Variable.Global */
+pre.pygments .tok-vi { color: #19177C } /* Name.Variable.Instance */
+pre.pygments .tok-vm { color: #19177C } /* Name.Variable.Magic */
+pre.pygments .tok-il { color: #666666 } /* Literal.Number.Integer.Long */
+</style>
+</body>
+</html>

@@ -1,0 +1,91 @@
+== Değişken Tanımlama Yöntemleri
+
+Perl 6 da değişkenlerin tiplerinin belirtilebileceğini söylemiştik. Bu bölümde değişken tanımlamanın farklı yöntemlerini göreceğiz.
+
+
+=== Değişken Tipi Belirtme
+
+Bir değişkenin tipini *my tip değişkenadı* şablonuna göre belirtiriz.
+
+```bash
+> my Int $a
+(Int)
+> $a = 4
+4
+> $a = "12"
+Type check failed in assignment to $a; expected Int but got Str ("12")
+  in block <unit> at <unknown file> line 1
+> $a = 4.5
+Type check failed in assignment to $a; expected Int but got Rat (4.5)
+  in block <unit> at <unknown file> line 1
+```
+
+Örneğimizde görüldüğü gibi değişken tipi belirtildikten sonra o değişkenin tipinin dışında bir tipte değer alması hataya sebep olur.
+
+```bash
+> my Str $b = "Bir karakter dizisi"
+Bir karakter dizisi
+> $b = "farklı bir  karakter dizisi"
+farklı bir karakter dizisi
+> my Bool $c = True
+True
+```
+
+Ancak aynı tipte olmak üzere değeri değiştirilebilir.
+
+Şuana kadar gördüğümüz ve göreceğimiz, oluşturabileceğimiz bütün tipleri değişken oluştururken kullanabiliriz.
+
+Farklı olarak sabitlerin tiplerini belirtemeyiz.
+
+```bash
+> constant Int $a = 4
+===SORRY!=== Error while compiling:
+Missing initializer on constant declaration
+------> constant Int⏏ $a = 4
+```
+
+
+=== Çoklu Değişken Tanımlama
+
+Elbette her satırda bir değişken tanımlamak zorunda değiliz. Bir satırda birden fazla değişken tanımlayabiliriz.
+
+```bash
+> my ($e, $f, $g)
+((Any) (Any) (Any))
+> $e = "e"
+e
+> $f = "f"
+f
+> $g = "g"
+g
+```
+
+Tanımlama esnasında değer belirtebiliriz ve yine tek satırda bu değerleri değiştirebiliriz.
+
+```bash
+> my ($a, $b) = 1, 2
+(1 2)
+> $a
+1
+> $b
+2
+> ($e, $f, $g) = 1, 2, 3
+(1 2 3)
+> $g
+3
+> $f
+2
+> $e
+1
+```
+
+Ayrıca bir önceki bölümde gördüğümüz gibi çoklu tanımlama yaparken de tip belirtebiliriz.
+
+```bash
+> my Str ($c, $d) = "Farklı", "kullanım"
+(Farklı kullanım)
+> $c
+Farklı
+> $d
+kullanım
+```

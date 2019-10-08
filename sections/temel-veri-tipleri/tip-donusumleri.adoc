@@ -1,0 +1,28 @@
+== Tip Dönüşümleri
+
+Genellikle bir değişkenin tipini değiştirmek için *$degisken.Tipadı* gibi bir kullanım vardır.
+
+Bir kullanım çeşidi ise bir string ifadenin başına *+* işleci koymaktır. Bu değişkeni en olası numerik tipe çevirmeye çalışır. Tam tersi numerik bir tipi string'e çevirmek için *~* işleci numerik ifadenin başına konur.
+
+```bash
+> my $a = 3
+3
+> $a.WHAT
+(Int)
+> $a.Str.WHAT
+(Str)
+ my $b = 4.5
+4.5
+> $b.Int
+4
+> my Str $c = $b.Str
+4.5
+my Rat $d = +$c
+4.5
+> $d.WHAT
+(Rat)
+my Str $e = ~$b
+4.5
+> $e.WHAT
+(Str)
+```

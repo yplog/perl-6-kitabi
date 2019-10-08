@@ -1,0 +1,118 @@
+== Sayılar
+
+Bu bölümde tam sayıları(integer), rasyonel(rational) sayıları, kompleks(complex) sayıları göreceğiz. Kısaca aşinalık sağlamak için aşağıdaki gibi bir tablo yapabiliriz.
+
+|=== 
+| Değer | Sınıf(Class) | Açıklama  
+| 12 | Int | Tam Sayı
+| 3.1415926 | Rat | Rasyonel Sayı
+| 6.026e34 | Num | Bilimsel Gösterim
+| 1+0i| Complex | Kompleks, Karmaşık Sayılar
+|=== 
+
+```bash
+> say 42;
+42
+> say 2123123123131231312312312312312123132123123123121231212311231231
+2123123123131231312312312312312123132123123123121231212311231231
+```
+
+Burada ondalık(decimal) gösterim kullandık ancak Perl 6 bize çok daha fazlasını sunmakta onaltılık(Hexadecimal), sekizlik(octal), ikilik(binary) gösterimleride kullanabiliriz.
+
+```bash
+> say 13
+13
+> say :2<1101>
+13
+> say :8<15>
+13
+> say :16<D>
+13
+> say :16<d>
+13
+```
+
+Şeklinde sayı sistemlerini kullanabiliriz. Alfabetik karakterler büyük-küçük harf duyarlılığına sahip değildir.
+
+Büyük sayıların okunabilirkiğini arttırmak için *_* alt tire işareti kullanabiliriz.
+
+```bash
+> say 1_000_000_000
+1000000000
+> say 599_999_99_99
+5999999999
+```
+
+Şimdi bazı tam sayı metotlarına bakalım:
+
+*.chr:* Bir tam sayı değeri karaktere çevirir.
+
+```bash
+> say 65.chr
+A
+> say 66.chr
+B
+```
+
+*.is-prime:* Bir tam sayının asal olup olmadığını kontrol eder.
+
+```bash
+> 3.is-prime
+True
+> 8.is-prime
+False
+```
+
+*.rand:* Belirli aralıkta rastgele sayı üretir.
+
+```bash
+> 10.rand
+7.951998306157705
+> 100.rand
+23.118963811372407
+> 100.rand.truncate
+74
+> 10.rand.truncate
+6
+> 10.rand.truncate.WHAT
+(Int)
+> 10.rand.WHAT
+(Num)
+```
+
+Burada _.rand_ metodunun sonucunu *.truncate* metodu ile yalnızca tam sayı kısmını almasını söyledik. tip dönüşüm işlemlerine ileride değineceğiz. _.WHAT_ metodu bize hangi sınıfa ait bir veri ile çalıştığımızı döndürdüğünü hatırlayalım.
+
+```bash
+> my $a = 1/4
+0.25
+> $a.WHAT
+(Rat)
+> $a.numerator
+1
+> $a.denominator
+4
+> (1/4 + 1/3).perl
+<7/12>
+```
+
+Bir rasyonel sayının pay ve paydasını *.numerator* ve *.denominator* metotları ile bulabiliriz.
+
+*.perl* metodu ise rasyonel işlemler yapmamızı sağlar. Pay ve paydayı korur. 
+
+Bir rasyonel sayıyı yuvarlamak istiyorsak *.round* metodunu kullanabiliriz.
+
+```bash
+> 2.2.round
+2
+> 2.6.round
+3
+```
+
+Bir sayının işaretini *.sign* metodu ile öğrenebiliriz. Bu metot sayı eksi ise *-1* artı ise *1* sonucunu döner.
+
+```bash
+> 3.sign
+1
+> -3.sign
+-1
+```

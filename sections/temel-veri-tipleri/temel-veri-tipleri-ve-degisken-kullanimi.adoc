@@ -1,0 +1,5 @@
+= Temel Veri Tipleri ve Değişken Kullanımı
+
+Bu bölümde, diğer dillerden aşina olduğumuz temel veri türlerini Perl 6 üzerinde ele alacağız.
+
+Perl 6, statik tipli dillerde olduğu gibi değişkenin tipinin baştan belirlendiği ve program boyunca tipinin değişmediği bir dil değildir. Kademeli tip(_gradual type_) belirtme kullanan bir dildir, yani oluşturduğumuz değişkenlerin tiplerini belirtmeyebileceğimiz anlamına gelir. Farklı türdeki verileri tanımlamak için aynı değişkeni kullanabiliriz. Aynı zamanda oluşturulan değişken için tür de belirtmemize izin verir ve bu değişkenin farklı veri türleri için kısıtlayabilir.

@@ -1,0 +1,239 @@
+== Karakter Dizileri
+
+Karakter dizileri(String) *Str* sınıfından türetilmiş nesnelerdir. Hemen bir örnek vermek gerekirse:
+
+```bash
+> my $karakter-dizisi = "Ben bir karakter dizisiyim!"
+Ben bir karakter dizisiyim!
+> $karakter-dizisi.WHAT
+(Str)
+```
+
+Karakter dizilerini ekrana yazdırırken bize yardımcı olan kaçış karakterleri vardır. Örneğin:
+
+```bash
+> say "Ankara'da"
+Ankara'da
+> say 'Ankara'da'
+[hata mesajı]
+```
+
+Tırnakların kullanımı karakter dizileri için önemlidir. Peki yukarıda hata mesajı aldığımız ifadeyi nasıl yazabilirdik. İşte bu noktada kaçış karakterleri dediğimiz karakterler işimize yarar.
+
+```bash
+> say 'Ankara\'da'
+Ankara'da
+> say 'Ankara \\ Yenimahalle'
+Ankara \ Yenimahalle
+```
+
+Bu kullanımı önceki bölümlerde değişkenin işleme sokulmadan yazdırılması için de kullandığımızı hatırlayın. Burada ters eğik çizginin(*\*) kaçış karakteri olduğunugörüyoruz. Ekrana ters eğik çizgi yazdırmak için iki ters eğik çizgi kullanıldığına diikat edelim.
+
+Bazı kaçış dizisi karakterlerine bakalım.
+
+|=== 
+| Karakter | Açıklama  
+| \a | Ses karakteri
+| \b | Geri alma tuşu
+| \n | Yeni satır
+| \t | Tab
+| \f | Form
+| \c[NAME] | Karakter adıyla
+| \q[...] | Tek tırnaklı yazım
+| \qq[...] | Çift tırnaklı yazım
+| \x[ABCD] | Hex kodu ile karakter yazım
+|===
+
+Farklı bir kullanım tekniği ise daha özgür bir kullanım imkanı sunan *q<sınırlayıcı>* kullanımıdır. Bu kullanımda istediğimiz sırılayıcı karakterleri kullanabiliriz. 
+
+```bash
+> say q<<Ankara'da biri var>>
+Ankara'da biri var
+> say q{Ankara \ Yenimahalle}
+Ankara \ Yenimahalle
+```
+
+İki karakter dizisini birleştirmek için *~* işlecini kullandığımızı görmüştük.
+
+```bash
+> my $ad = 'Yalın';
+Yalın
+> say "Merhaba " ~ $ad ~ "!";
+Merhaba Yalın!
+> say "Merhaba" ~ " " ~ "Dünya"
+Merhaba Dünya
+```
+
+Farklı bir karakter dizisi birleştirme yöntemi ise *join* fonksiyonu kullanmaktır. *.chars* metodu ise bize karakter dizimizin boyutunu verir. *.uc*(_uppercase_) metodu ile karakter dizisi içerisindeki tüm karakterleri büyük, *.lc*(_lowercase_) metodu ile küçük harfe çevirdik. *.tc* metodu ile ilk karakteri büyük, *.tclc* metodu ile ilk karakteri büyük, kalan karakterleri küçük hale çevirdik.
+
+```bash
+> my $ad-soyad = join ' ', 'Yalın', 'Pala'
+Yalın Pala
+> 'Yalın'.chars
+5
+> 'yalın'.uc
+YALIN
+> 'YalıN'.lc
+yalın
+> 'Yalın PALA'. tclc
+Yalın pala
+```
+
+Bir karakter dizisinin içine bakmak istersek *.contains()* metodunu kullanabiliriz. Metot karakter dizimizin içine bakarak belirttiğimiz karakterin veya karakterlerin, karakter dizisi içerisinde varsa _True_ yoksa _False_ sonucunu döner. Metodun büyük-küçük harf duyayarlılığı vardır.
+
+*.start-with()* metodu ile metnin başlangıç karakterlerini, *.ends-with()* ile bitiş karakterlerinin belirttiğimiz karakterler olup olmadığını sorgulayabliriz.
+
+```bash
+> 'Örnek cümlemiz Perl 6 karakter dizileri'.contains('perl')
+False
+> 'Örnek cümlemiz Perl 6 karakter dizileri'.contains('Perl')
+True
+> 'Örnek cümlemiz Perl 6 karakter dizileri'.contains: 'Perl'
+True
+> 'Örnek cümlemiz Perl 6 karakter dizileri'.starts-with('Örne')
+True
+> 'Örnek cümlemiz Perl 6 karakter dizileri'.starts-with: 'leri'
+False
+> 'Örnek cümlemiz Perl 6 karakter dizileri'.ends-with: 'leri'
+True
+```
+
+*.fc* metodu ile büyük-küçük harf duyarlılığını kapatabiliriz.
+
+```bash
+> 'Örnek cümlemiz Perl 6 karakter dizileri'.starts-with: 'örnek'
+False
+> 'Örnek cümlemiz Perl 6 karakter dizileri'.fc.starts-with: 'örnek'
+True
+```
+
+*.index:* ile bir karakterin kaçıncı sırada olduğunu öğrenebiliriz. Burada dikkat etmemiz gereken nokta *.chars* metodundan farklı olarak *.index:* metodu saymaya sıfırdan başlar. Olmayan bir karakter girdiğimizde ise _Nil_ sonucunu döner.
+
+```bash
+> 'Yalın'.index: 'ı'
+3
+> 'Yalın'.index: 'm'
+Nil
+```
+
+Bir karakter dizisi içerisinden bir aralığın içerisini görmek istersek *.substr:* metodunu kullanabiliriz.
+
+```bash
+> 'Yalın Perl 6 Kitabı yazıyor...'.substr: 6, 6
+Perl 6
+> 'Yalın Perl 6 Kitabı yazıyor...'.substr: 13
+Kitabı yazıyor...
+```
+
+İlk kullanımda 6. karakterden başla ve 6 karakteri getir dedik. İkinci bir parametre kullanmazsak karakter dizisi bitene kadar anlamına gelir.
+
+Farklı bir metin kullanım yöntemi ise *Q* kullanımıdır. Q daha genelleştirilmiş bir kullanım sunar. Q tek başına kullanıldığında q gibi davranır.
+
+```bash
+> say Q<<Ankara'da biri var>>
+Ankara'da biri var
+> say Q{Ankara \ Yenimahalle}
+Ankara \ Yenimahalle
+```
+
+Q işleminin davranışını değiştirmek için parametreler kullanırız. Bu parametreler Q harfinden sonra gelir ve : ile başlarlar.
+
+```bash
+> Q :q 'Bu metin \' işaretleri ile sınırlıdır. \\'
+Bu metin ' işaretleri ile sınırlıdır. \
+> Q :q <Bu metin ' ile değil \< ile sınırlıdır.>
+Bu metin ' ile değil < ile sınırlıdır.
+> Q :single 'Bu metin \' işaretleri ile sınırlıdır. \\'
+Bu metin ' işaretleri ile sınırlıdır. \
+```
+
+*:q* parametresinin uzun hali *:single* parametresidir, ikiside aynı işi yapar. Bunun gibi *:qq* parametresinin uzun hali *:double* parametresidir.
+
+```bash
+> my $ad = 'Yalın'
+Yalın
+> Q :q 'Merhaba $ad'
+Merhaba $ad
+> Q :qq 'Merhaba $ad'
+Merhaba Yalın
+> Q :double 'Merhaba $ad'
+Merhaba Yalın
+```
+
+*:c* parametresi ise yalnızca süslü parantez içini işleme sokar. *:s* parametresi ise yalnızca değişkenleri işleme sokar. *:b* parametresi ise yalnızca kaçış karakterleri ile ilgilenir. Q parametreleri birlikte kullanılabilir.
+
+```bash
+> Q :c 'Merhaba $ad \n {2 ** 4}'
+Merhaba $ad 16
+> Q :c 'Merhaba \n {$ad}'
+Merhaba Yalın
+> Q :s 'Merhaba $ad \n {2 ** 4}'
+Merhaba Yalın \n {2 ** 4}
+> Q :b 'Merhaba $ad \n {2 ** 4}'
+Merhaba $ad
+ {2 ** 4}
+> Q :c :s :b 'Merhaba $ad \n {2 ** 4}'
+Merhaba Yalın
+ 16
+```
+
+Bazı Q parametrelerinin bir tablosu:
+
+|=== 
+| Kısa Ad | Uzun Ad | Açıklama  
+| :x | :exec | Shell komutunu çalıştırır ve sonucu döner.
+| :q | :single | Kaçış karakterleriyle işleme girer.
+| :qq | :double | :s, :a, :h, :f, :c, :b ile işleme girer.
+| :s | :scalar | $ değişkenleri ile işleme girer.
+| :a | :array | @ değişkenleri ile işleme girer.
+| :h | :hash | % değişkenleri ile işleme girer.
+| :f | :function | & çağrıları ile işleme girer. 
+| :c | :closure | {...} süslü parantez içi ile işleme girer.
+| :b | :backslash | Kaçış karakterleri ile etkileşime girer.
+| :to | :heredoc | Here doc ayrıştırma sonucu.
+| :v | :val | Mümkünse allomorph a dönüştürür.
+|===
+
+Son olarak *Here Doc*'tan bahsedelim. Here doc çok satırlı bir metin yazmanın özel bir yoldur. *:heredoc* veya kısaca *:to* parametresi ile tanımlanır.
+
+```perl6
+my $cok-satirli = Q :to<END>;
+    Tıkanma'dan bir alıntı:
+        Sahip olacağım her şey bir gün kaybedeceğim şeylerden sadece biri.
+    Tıkanma'nın yazarı: Chuck Palahniuk
+    END
+
+say $cok-satirli; 
+```
+
+Kodun çıktısı:
+
+```bash
+Tıkanma'dan bir alıntı:
+    Sahip olacağım her şey bir gün kaybedeceğim şeylerden sadece biri.
+Tıkanma'nın yazarı: Chuck Palahniuk
+```
+
+:to parametresinden sonra gelen kapsayıcılar değişebilir. Örneğin // kullanılabilir. Kapsayıcının içerisine yazılan ifade de değişebilir ancak mutlaka son ifade ile aynı olması gerekir.
+
+Here doc değişken kullanımını desteklemez. Eğer değişken kullanmak istiyorsanız farklı parametreler ile birlikte kullanmalısınız.
+
+```perl6
+my $yazar = 'Chuck Palahniuk';
+
+my $cok-satirli = Q :qq :to<ALINTI>;
+    Tıkanma'dan bir alıntı:
+        Sahip olacağım her şey bir gün kaybedeceğim şeylerden sadece biri.
+    Tıkanma'nın yazarı: $yazar
+    ALINTI
+
+say $cok-satirli; 
+```
+
+Kodumuzun çıktısı:
+
+```bash
+Tıkanma'dan bir alıntı:
+    Sahip olacağım her şey bir gün kaybedeceğim şeylerden sadece biri.
+Tıkanma'nın yazarı: Chuck Palahniuk
+```

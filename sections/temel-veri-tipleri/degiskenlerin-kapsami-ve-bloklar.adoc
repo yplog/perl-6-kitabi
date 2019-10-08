@@ -1,0 +1,30 @@
+== Değişkenlerin Kapsamı ve Bloklar
+
+Bloklar bir veya daha fazla ifadeyi süslü parantezler *{ ... }* ile çevirerek tek bir birim altında toplar. 
+
+Bloklar döngüler, koşullar gibi ifadeler de görülebileceği gibi ifadesizde görülebilir. 
+
+Bir blok kendi kapsamını yaratır.
+
+```perl6
+my $ad = "Yalın";
+say $ad;
+
+{
+    # Burası bir blok
+    my $ad = "Asu";
+    say $ad;
+}
+
+say $ad;
+```
+
+Bu kodun çıktısı aşağıdaki gibi olur.
+
+```bash
+Yalın
+Asu
+Yalın
+```
+
+Bir blok icerisinde tanimlanan ifadeler yalniz o blok icerisinde kalan alanda gecerliligini korur.

@@ -1,0 +1,61 @@
+== Sabitler
+
+Perl 6'da diğer dillerden aşina olduğumuz sabitler, bir değişkenin değerinin bir kere belirlenebildiği değişkenler vardır.
+
+Sabitler *constant* anahtar kelimesi ile oluşturulur.
+
+```bash
+> constant $A = 4
+4
+> $A
+4
+> $A = 2
+Cannot assign to an immutable value
+  in block <unit> at <unknown file> line 1
+```
+
+Yukarıdaki örnekte de gördüğümüz gibi bir sabitin değerini değiştirmeye çalıştığımız da hata ile karşılaşırız. Yine değişkenlerden farklı olarak sabitlere ilk değer ataması yapılmak zorundadır aksi durumda hata ile karşılaşılır.
+
+Sabitler varsayılan olarak *our* kapsayıcısını alır. Ancak *my* kapsayıcısını da alabilirler. Kapsayıcılara ilerideki bölümlerde değineceğiz.
+
+```bash
+> my constant $B = 4
+4
+> $B
+4
+> $B = 2
+Cannot assign to an immutable value
+  in block <unit> at <unknown file> line 1
+```
+
+Sabit adlandırırken büyük harfler kullanılması güzel bir alışkanlıktır.
+
+Sabitleri tanımlarken değişken adını işaretsiz($, @, % olmaksızın) belirtebiliriz.
+
+```bash
+>constant DENEME = "Deneme"
+Deneme
+> DENEME
+Deneme
+> DENEME = "Fark!"
+Cannot modify an immutable Str (Deneme)
+  in block <unit> at <unknown file> line 1
+```
+
+Sabitleri oluşturmanın farklı bir yoluda işaretsiz değişken kullanımı gibi olan *\degisken* şeklinde kullanımdır.
+
+```bash
+> my \sabit = 4
+4
+> sabit
+4
+> \sabit
+\(4)
+> sabit = 3
+Cannot modify an immutable Int (4)
+  in block <unit> at <unknown file> line 1
+
+> \sabit = 3
+Cannot modify an immutable Capture (\(4))
+  in block <unit> at <unknown file> line 1
+```

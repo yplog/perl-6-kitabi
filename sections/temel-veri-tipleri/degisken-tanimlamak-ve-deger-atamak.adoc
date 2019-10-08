@@ -1,0 +1,102 @@
+== Değişken Tanımlamak ve Değer Atamak
+
+Her değişken program içerisinde kullanılmadan önce oluşturulmalıdır. Bir değişken oluştururken *my* anahtar kelimesini kullanırız. *my* geçerli kapsam için değişken tanımlar. Kapsamlara ileride değineceğiz.
+
+```perl6
+my $degisken;
+```
+
+Şeklinde bir değişken oluştururuz. Kullanımda gördüğümüz gibi önce _my $degişken-adı_ şeklinde bir kullanımı vardır. Bu kullanım bize bir değişken oluşturur ve bu değişken için _(Any)_ tipinde bir dönüş yapar. Yani bu değişken herhangi bir şey olabilir.
+
+```bash
+> my $degisken;
+(Any)
+```
+
+Bir kere tanımlanmış değişkene değer atamak için *=* işleci kullanılır.
+
+```bash
+> $degisken = 1;
+1
+> $degisken
+1
+```
+
+Bu değişken sabit değişken(Sabit değişkenleri ileride göreceğiz.) olmadığı için değerini istediğimiz zaman değiştirebiliriz.
+
+```bash
+> $degisken = 5;
+5
+```
+
+Bir diğer değişken oluşturma yöntemi ise değişkenin değerini değişkeni oluşturken belirtmektir.
+
+```bash
+> my $deg = 2;
+2
+> $deg;
+2
+```
+
+Yeri gelmişken noktalı virgül işareti Perl 6'ya ifadenin bittiğini belirtir. 
+
+*$* işareti değişkenin yapısal tipini belirtir ve her zaman değişken adının önünde bulunur. $ ile sembolize edilen veri tipleri skaler veriler olarak geçer. İleride değineceğimiz diziler *@* ile sembolize edilirken hash yapıları *%* ile sembolize edilir. Bu kodun okunaklığını arttırır ve kullanım kolaylığı sağlar.
+
+Bu sembollerin kullanılmaması hataya sebep olur.
+
+```bash
+> my sayi = 2;
+===SORRY!=== Error while compiling:
+Malformed my (did you mean to declare a sigilless \sayi or $sayi?)
+------> my sayi⏏ = 2;
+```
+
+Değişkenleri adlandırırken dikkat etmemiz gereken kurallar vardır. Bir değişken sayı veya harf ile başlamalı, alt çizgi, tire, veya kesme işareti içerebilir.
+
+```perl6
+> my $ad_soyad;
+(Any)
+> my $ad-soyad;
+(Any)
+> my $ad'soyad;
+(Any)
+```
+
+Değişken adlarının hepsi doğru ve birbirinden farklıdır. Ancak -, ' gibi işaretlerden sonra mutlaka bir harf gelmeli ve tekrar etmemelidirler. Örneğin aşağıda geçersiz isimlendirmeleri görüyoruz.
+
+```bash
+> my $ad--soyad
+> my $ad''soyad
+> my $'adsoyad
+> my $adsoyad-1
+```
+
+Bunların tümü hatalıdır.
+
+Skaler veriler bir tam sayı, kayan noktalı sayı, karakter dizileri gibi tek bir değeri saklayabilen verilerdir.
+
+Biraz daha kullanım örneği yapalım.
+
+```bash
+> my $a = 2;
+2
+> my $b = $a * 5;
+10
+> say "\$b değişkenin değeri: $b";
+$b değişkenin değeri: 10
+```
+
+*\* işareti ile o değişkeni işleme sokmadan yazdıracağımızı belirttik.
+
+```bash
+> my $ad = 'Yalın';
+Yalın
+> my $soyad = 'Pala';
+Pala
+> say "Merhaba, $ad $soyad.";
+Merhaba, Yalın Pala.
+> say 'Merhaba, $ad $soyad';
+Merhaba, $ad $soyad
+```
+
+Burada çift tırnak işareti ile tek tırnak işaretinin kullanım farklılığını görüyoruz. Çift tırnak işareti ekrana yazarken değişkenlerimizi işleme sokmuşken, tek tırnak işareti değişkenlerin varlığını umursamamış ve onlara karakter gibi davranmıştır.
