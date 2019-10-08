@@ -1,0 +1,41 @@
+=== Perl 5 Versiyonuna Aşinalar İçin Bir Rehber
+
+Burası daha önce Perl deneyimine sahip kullanıcılar için bir tür kısa karşılaştırma bölümü. Tabi ki tüm özellikleri karşılaştırmayacağız, burada amacımız küçük farklara değinmek. Daha önce Perl dili kullanmadıysanız bu bölümü atlayabilirsiniz.
+
+Bu rehberin çok daha ayrıntılı haline https://docs.perl6.org/language/5to6-nutshell adresinden ulaşabilirsiniz.
+
+==== CPAN
+
+Modüller için https://modules.perl6.org/ adresine bakabilirsiniz.
+
+Eğer aradığınız modül Perl 6 için henüz yoksa *Inline::Perl5* modülü ile Perl 6 kodunuz içinde Perl 5 modüllerini doğrudan kullanabilirsiniz.
+
+CPAN Butterfly planının parçası olarak bazı modüllerin API'leri korunmaya çalışılarak bir takım Perl 5 modüllü Perl 6'ya taşındı. Bunlara https://modules.perl6.org/t/CPAN5 adresinden ulaşabilirsiniz.
+
+Birçok yerleşik Perl 5 fonksiyonu olduğu gibi Perl 6'ya taşındı ancak aradığınız yerleşik fonsiyonu Perl 6 da kullanmak için P5built-ins modülünü kullanabilirsiniz. Hakkında daha fazla bilgi için https://modules.perl6.org/dist/P5built-ins adresine bakabilirsiniz.
+
+==== Bazı Sözdizimi Farklılıkları
+
+Perl 5 ve Perl 6 arasında bazı sözdizimi farklılıkları vardır. Bunlardan bazılarına bakalım.
+
+Perl 6 isimlendirme kurallarında tire (-), alt çizgi (_), kesme işareti (') ve alfanumerik kullanımına izin verir.
+
+Metot çağrıları Perl 5'den farklı olarak ok(->) yerine nokta(.) kullanılır. Nokta gösterimi kullanım ve standart olarak daha kolaydır.
+
+Boşlukların kullanımın da Perl 5 şaşırtıcı derecede esnektir. Perl 6 daha anlamlı bir söz dizilimi için tasarlanmıştır.
+Sonuç olarak sözdiziminde Perl 5'te boşluğun isteğe bağlı olduğu ancak Perl 6'da zorunlu veya yasak olduğu yerler vardır.
+
+* Bir argüman listesinin açılış parantezi öncesi boşluğa izin verilmez.
+* Anahtar kelimelerden hemen sonra boşluk kullanılmalı.
+* Ön ek veya son eklerden önce boşluk kullanılmaz.
+* Aradaki ifadelerin sağına ve soluna boşluk konulur. (4 < 5)
+
+Sözdizimi ile ilgili çok daha fazla bilgiye https://docs.perl6.org/language/syntax#Lexical_conventions adresinden ulaşabilirsiniz.
+
+Perl 5'de değişkenlerin başlarına konulan işaretler nasıl erişildiklerine bağlı olarak değişir, Perl 6'da değişmez.
+
+Ternary operatörü de değişmiştir. Karşılaştırma operatörleri olan *?* ve *:* işaretleri *??* ve *!!* olarak değiştirilmiştir.
+
+Karakter dizilerini birleştirmemizi sağlayan ".", "~" ile değiştirilmiştir.
+
+Ve Perl 6 pek çok değişiklik getirdi, kalanları kitabın ilerleyen bölümlerinde birlikte keşfedelim.

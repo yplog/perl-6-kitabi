@@ -1,0 +1,12 @@
+== Metin Editörleri ve Tümleşik Geliştirme Ortamları
+
+Çoğu zaman, Perl 6 programlarımız dosyalara yazıp depolayacağımız için, Perl 6 söz dizilimini tanıyan iyi bir editöre sahip olmalıyız. Bu noktada pek çok alternatifimiz bulunmakta.
+
+* **Atom:** Atom editörüne https://atom.io/ adresinden ulaşabilirsiniz. Perl 6 söz dizilimi için https://atom.io/packages/language-perl6 eklentisini yükleyebilirsiniz.
+
+* **Visual Studio Code:** VSCode editörüne https://code.visualstudio.com/ adresinden ulaşabilirsiniz. Perl 6 söz dizilimi için https://marketplace.visualstudio.com/items?itemName=scriplit.perl6-lsp eklentisini kurabilirsiniz.
+
+* **Padre:** http://padre.perlide.org/
+* **Comma IDE:** https://commaide.com/
+
+Sublime Text, JetBrains ortamları, Emacs veya Vim gibi metin editörleri kullanıyorsanız Perl 6 eklentileri mevcut. Bu editörlerden herhangi birini kullanabilirsiniz. Basit bir internet aramasıyla daha fazla sonuca ulaşabilirsiniz.

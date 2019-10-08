@@ -1,0 +1,3 @@
+= Perl 6 Temelleri
+
+Bu bölümde dokümantasyonu okumayı, operatörleri, yorumları, POD dokümantasyonunu, blokları, boşlukları, unicode kullanımını ve basit olarak girdi çıktı işlemlerine değineceğiz.

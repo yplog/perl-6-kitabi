@@ -1,0 +1,14 @@
+== Perl Versiyonları
+
+[quote, Perl dilinin mottolarından biri, (Easy things should stay easy hard things should get easier and impossible things should get hard.)]
+____
+Kolay şeyler kolay olmalı, zor şeyler kolaylaştırılmalı ve imkansız şeyler zorlanmalı.
+____
+
+Perl 5, otuz yılı aşkın süredir geliştirilen yüksek seviyeli ve zengin özelliklere sahip bir programlama dilidir. Yüzden fazla platformda çalışır ve hem prototipleme hem de büyük ölçekli projeler için uygundur.
+
+Perl bir dil ailesidir, Perl 6 ise bu ailenin bir üyesidir ancak kendi gelişim ekibine sahip ayrı bir dildir. Varlığının devam edem Perl 5 gelişimi üzerimde önemli bir etkisi yoktur.
+
+Yaklaşık olarak 2000 yılında Perl dilinin revize edilmesi söz konusu olmaya başladı. Perl 5 dilinin kalabalık bir dil olarak görülmesi, yazılan kodların anlaşılmazlığı gibi eleştiriler buna ön ayak oldu.  Perl 6 da tasarımcılar kötü düşündükleri her şeyi attılar ve iyi olduğunu düşündükleri özellikleri sakladılar. Perl 6 aşağı yukarı bu şekilde oluşturuldu.
+
+Perl 6 dilinin size öğreteceği kavramlara bakınca emirli(imperative), fonksiyonel veya nesne yönelimli programlama gibi öğreneceğiniz diğer dillere uygulayabileceğiniz kavramları öğrenmiş olacaksınız.

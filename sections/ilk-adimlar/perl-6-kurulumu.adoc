@@ -1,0 +1,53 @@
+== Perl 6 Kurulumu
+
+Perl kurulumuna geçmeden önce kısaca jargondan bahsedenim.
+
+* **Rakudo:** Perl 6 derleyicisidir.
+
+* **Zef:** Perl 6 modül yöneticisidir.
+
+* **Rakudo Star:** Rakudo, zef, Perl 6 modül koleksiyonu ve dokümantasyonu içeren pakettir.
+
+* **Rakudobrew:** Rakudo kurulum yöneticisidir.
+
+Bu noktada birden fazla kurulum alternatifimiz var. Rakudo Star kurulumu yapabilirsiniz veya rakudobrew aracılığı ile kurulumu gerçekleştirebilirsiniz. Burada kurulum tamamen kullanıcının insiyatifindedir.
+
+Bu kitap yazılırken son versiyon 2019.03 idi. Kurulum aşamasını bu versiyona göre takip edeceğiz.
+
+Rakudo Star kurulumu için http://rakudo.org/files adresinden işletim sisteminize uygun versiyonu indirip yükleyebilirsiniz.
+
+**Docker** ile kurulum için, Docker’ı destekleyen platformlarda, mevcut Docker Rakudo Star konteynırını Docker hub’dan yükleyebilirsiniz.
+
+```bash
+$ docker pull rakudo-star
+```
+
+Daha sonra etkileşimli kabuk için aşağıdaki kodu çalıştırabilirsiniz:
+
+```bash
+$ docker run -it rakudo-star perl6:2019.03
+```
+
+Rakudobrew kurlumu için: https://github.com/tadzik/rakudobrew adresine bakabilirsiniz. Oldukça kolay kurulum adımlarına sahip.
+
+Kaynak koddan derlemek için:
+
+```bash
+$ wget https://rakudostar.com/files/star/rakudo-star-2019.03.tar.gz
+$ tar xfz rakudo-star-2019.03.tar.gz
+$ cd rakudo-star-2019.03
+$ perl Configure.pl —gen-moar —make-install —prefix ~rakudo
+```
+
+Komutlarını kullanabilirsiniz. Kaynak koddan derleme tecrübesiz kullanıcılar için önermediğim bir yöntem.
+
+Kurulumumuzun başarılı olup olmadığına sistemimizde yüklü olan rakudo versiyonunu aşağıdaki komut ile görebiliriz.
+
+```bash
+$ perl6 —version
+This is Rakudo version 2019.03-32-g33e2d7f4c built on MoarVM version 2019.03-2-gbb2dc6619
+implementing Perl 6.d.
+```
+
+
+Benim sistemim de yukarıdaki çıktıyı oluşturmaktadır. Eğer buna benzer bir çıktı görüyorsanız Perl 6 kurulumunuz başarılı olmuş demektir.

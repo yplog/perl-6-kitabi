@@ -1,0 +1,5 @@
+= Giriş
+
+Bu bölümde dilin genel özelliklerine, nasıl bir süreçten geçtiğine değineceğiz. İlerideki bölümlerde burada üzerinde konuştuklarımızı detaylandıracak ve kod örneklerine geçeceğiz.
+
+Öncelikler Perl 6 dilinin ne olduğundan bahsedeceğiz, Perl 5 ile nasıl bir ilişkisi olduğuna değineceğiz, kütüphane kavramına değineceğiz ve son olarak neden Perl 6’yı kullandığımızdan bahsederek bölümü bitireceğiz.

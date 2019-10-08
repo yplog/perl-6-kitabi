@@ -1,0 +1,10 @@
+== Kütüphane Desteği
+
+Nispeten genç bir dil olan Perl 6, Perl 5 ve Python gibi dillerin sağladığı olgun modül ekosisteminden yoksundur. Eklenen modüller her geçen gün artmaktadır ancak işinize yarayacak bir modülü bulamıyorsanız, bu boşluğu doldurmak için C, Python, Perl 5 ve Ruby ile yazılmış kütüphaneleri aramanıza izin veren arayüzler bulunmaktadır.
+
+Örneğin belirli bir Python kütüphanesini seviyorsanız Inline::Python modülünü kullanarak programınıza yükleyebilirsiniz. Bunun gibi arayüz kullanımlarına ilerideki bölümlerde detaylı olarak değineceğiz.
+
+Perl 6 da çeşitli dillerde gördüğümüz (Python - pip, Ruby -gem, vb.) zef adında modern modül yöneticisine sahiptir. Kolay kullanımlı ve hızlıdır. 
+
+Modüller hakkında daha fazla bilgiye https://modules.perl6.org/ adresinden ulaşılabilir.
+Detayları sonraki bölümlere bırakıp devam edelim.

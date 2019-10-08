@@ -1,0 +1,14 @@
+== Perl 6 Nedir?
+
+[quote, Larry Wall]
+____
+Perl 6’nın  gelişimini açıkladığımda, bunun bir topluluk tasarımı olacağını söylemiştim. Perl’ü kendim tasarladım. Bu benim kendi beyin gücümle sınırlı. Bu yüzden Perl 6’nın bir topluluk tasarımı olmasını istedim.
+____
+
+Perl 6 yüksek seviyeli, genel amaçlı Perl programlama dili ailesine dahil bir programlama dilidir. Kolayca öğrenilebilecek, yazılıp okunabilecek şekilde tasarlanmıştır. Tecrübeli programcılara ifade özgürlüğü verirken, acemi programcıların da yazabilmesine olanak verir.
+
+Kademeli tipleme(Graduall Typed) kullanır. Dinamik diller gibi çalışır, derleme sırasında tip güvenliğini garanti edemediği programları kabul eder. Ancak, birçok dinamik dilden farklı olarak, tip kısıtlamarını kabul eder ve uygular. Bunu için ek açıklamalar kullanılır. 
+
+Birçok programlama paradigması destekler. Fonksiyonel, nesne yönelimli, emirsel olarak yazılabilir.
+
+Perl 6 şu anda hevesli gönüllülerden oluşan bir ekip tarafından geliştirilmektedir ve Perl topluluğunun yüksek ideallerini bir üst çitaya taşımayı amaçlamaktadır.

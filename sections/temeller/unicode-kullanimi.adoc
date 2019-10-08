@@ -1,0 +1,53 @@
+== Unicode Kullanımı
+
+Unicode (Evrensel Kod) Unicode Consortium organizasyonu tarafından geliştirilen ve her karaktere bir sayı değeri karşılığı atayan bir endüstri standardıdır. Sistemin amacı farklı karakter kodlama sistemlerinin birbiriyle tutarlı çalışmasını ve dünyadaki tüm yazım sistemlerinden metinlerin bilgisayar ortamında tek bir standart altında temsil edilebilmesini sağlamaktır. 
+
+Perl 6 yüksek seviyede Unicode desteğine sahiptir. 
+
+Örneğin:
+
+```bash
+$ perl6 -e 'say "😃"'
+😃
+$ perl6 -e 'say "𝛂 + 𝛃"'
+𝛂 + 𝛃
+$ perl6 -e 'say e'
+2.718281828459045
+$ perl6 -e 'say "Хороший язык."'
+Хороший язык.
+$ perl6 -e 'say "好语言。"'
+好语言
+$ perl6 -e 'say ½ + ½'
+1
+$ perl6 -e 'say π'
+3.141592653589793
+$ perl6 -e 'say "\c[PILE OF POO]"'
+💩
+$ perl6 -e 'say "\c[BELL]"'
+🔔
+$ perl6 -e 'say "dizzy symbol".uniparse;'
+💫
+$ perl6 -e 'say uniparse("speech balloon"), " Merhaba"'
+💬 Merhaba
+$ perl6 -e 'say "\x1F4AF"'
+💯
+```
+
+Şimdi tek bir örnek üzerinden kullanımlara bakalım.
+
+```bash
+$ perl6 -e 'say "Bu kopyala yapıştır: 🎉"'
+Bu kopyala yapıştır: 🎉
+$ perl6 -e 'say "🎉".uniname'
+PARTY POPPER
+$ perl6 -e 'say "Bu codepoint ismi: \c[PARTY POPPER]"'
+Bu codepoint ismi: 🎉
+$ perl6 -e 'say "PARTY POPPER".uniparse'
+🎉
+$ perl6 -e 'say "Bu decimal: \c[127881]"'
+Bu deciamal: 🎉
+$ perl6 -e 'say "Bu hexadecimal: \x1F389"'
+Bu hexadecimal: 🎉
+```
+
+Unicode kullanımı Perl 6 da oldukça kolaydır.

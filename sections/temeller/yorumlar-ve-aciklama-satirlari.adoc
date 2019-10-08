@@ -1,0 +1,116 @@
+== Yorumlar, Açıklama Satırları
+
+Yorumlar diğer dillerde olduğu gibi derleyici tarafından yok sayılan, yazarların açıklamalarıdır.
+
+Yazdığımız yorumlar Perl 6'ya hiç bir şey ifade etmez. Perl bu yorumları tamamen görmezden gelecektir. Bu yorumlar bilgisayardan ziyade kodları okuyan kişi için bir anlam taşır.
+
+Yorumlar programı geliştiren kişinin kodlar arasına eklediği notlardır. Bu koda dışarıdan bakan, hatta bizzat programı yazanın dahi kodların ne ifade ettiğini anlamasına yardımcı olur ve programın geliştirilmesini, bakımını, anlaşılır olmasını sağlar.
+
+Sizin yazdığınız kodları nasıl başkaları okurken zorlanıyorsa, kendi yazdığınız kodları okurken siz bile zorlanabilirsiniz. Özellikle uzun süredir ilgilenmediğiniz eski programlarınızı gözden geçirirken böyle bir sorunla karşılaşabilirsiniz. Programın içindeki bir kod parçası, programın ilk yazılışının üzerinden zaman geçtikten sonra size artık hiçbir şey ifade etmiyor olabilir. Kodlara bakıp, "Acaba burada ne yapmaya çalışmışım?"" diye düşündüğünüz zamanlar da olacaktır. İşte bu tür sıkıntıları ortadan kaldırmak veya en aza indirmek için kodlarımızın arasına açıklayıcı notlar ekleyeceğiz.
+
+Perl 6 dili bize üç tür açıklama satırı ekleme yöntemi sunmakta.
+
+* Tek Satırlık Yorumlar
+* Çok Satırlı Yorumlar
+* Gömülü Yorumlar
+
+Bu bölüm boyunca bunları inceleyeceğiz.
+
+<<<
+
+=== Tek Satırlık Yorumlar
+
+Tek satırlık yorumları derleyicinin kodumuzdan ayırabilmesi için "*#*" işareti ile belirtiriz.
+
+*#* işaretinden sonraki her şey satır sonuna kadar Perl tarafından atlanır. Unutmayın yorumlar Perl için değil bizim için gereklidir.
+
+Örnek kullanımı aşağıdaki şekildedir.
+
+```perl6
+# Ekrana Merhaba yazan program.
+say "Merhaba";
+```
+
+Kodu çalıştırdığımızda ise aşağıda gördüğümüz gibi yorum satırımız programa etki etmemiştir.
+
+```bash
+$ perl6 tek-satirlik-yorumlar.p6
+Merhaba
+```
+
+Yorum satırı için herhangi bir sınırınız yoktur istediğiniz kadar yorum yazabilirsiniz.
+
+```perl6
+# Bu bir Perl 6 programıdır.
+# Ekrana Merhaba yazar.
+
+say "Merhaba";
+
+# Program bitti.
+```
+
+Bu aşamada yorumların ne kadar kullanılacağı tamamen yazarın insiyatifindedir.
+
+=== Çok Satırlı Yorumlar
+
+Her ne kadar tek satırlık yorumlar büyük miktarda dokümantasyon sağlamak için kullanılsada her satırda _#_ işaretini kullanmak ve yorumların tek satırdan ibaret olması kısıtlayıcıdır.
+
+Bu noktada Perl 6 bize çok satırlı yorumları işaret eder.
+
+Çok satırlı yorumlar "*#`*" işaretleri ile başlar ve yorumumuzu "()", "[]" veya "{}" parantezler arasına yazarız.
+
+```perl6
+#`{
+    Bu bir çok satırlı yorumdur.
+    Bu kod Yalın Pala tarafından yazılmıştır.
+    Ekrana Merhaba yazan bir program yazacağız. 
+}
+
+say "Merhaba";
+
+#`( Program burada bitiyor.
+    Ancak farklı kullanımlar için örneklendiriyoruz. )
+
+#`[ 
+    Bu da farklı bir kullanım şekli.
+    Yorumumuz mutlaka parantezler ile sarılmalı.
+    Aksi durumda hata alırız.
+]
+```
+
+Çok satırlı yorumların bir kullanım çeşidide blok olarak kullanımdır. Ancak bu ileride göreceğimiz POD dokümanı oluşturmak amacı ile kullanılmaktadır ve yorum olarak kullanılması önerilmemektedir.
+
+```perl6
+=begin yorum
+[...]
+Burada 
+bir 
+yorum 
+yapıyorum
+[...]
+=end yorum
+```
+
+
+=== Gömülü Yorumlar
+
+Gömülü yorumlar çok satırlı yorumlar gibi kullanılır ancak kodun içerisine doğrudan göümülüdür.
+
+```perl6
+say #`(say kendisinden sonra gelen ifadeyi ekrana yazar) "Merhaba Dünya";
+
+my $a = 1;
+my $b = 2;
+
+say $a + #`(+ ile iki değişkeni toplayalım.) $b;
+```
+
+Gibi kullanılabilir. Kodu çalıştırdığımızda yorumların göz ardı edildiğini göreceğiz.
+
+```bash
+$ perl6 gomulu-yorumlar.p6
+Merhaba Dünya
+3
+```
+
+Gömülü yorumların bir dezavantajı ise kod okunabilirliğini azaltmasıdır. Bu durumun önüne geçmek için gömülü yorumu olabildiğince kısa tutmalıyız.

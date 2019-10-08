@@ -1,0 +1,537 @@
+== İşleçler
+
+Bu bölümde, aslında pek de yabancısı olmadığımız ve hatta önceki derslerimizde üstünkörü de olsa değindiğimiz bir konuyu çok daha ayrıntılı bir şekilde ele alacağız. Burada anlatacağımız konu size yer yer sıkıcı gelebilir. Ancak bu konuyu hakkıyla öğrenmenizin, programcılık maceranız açısından hayati önemde olduğunu rahatlıkla söyleyebilirim.
+
+İşleçler sağında ve solunda bulunan değerler arasında ilişki kuran işaretlerdir.
+
+İşleçler değerler üzerinde eylemler gerçekleştirerek sonuç döndürürler. Bu değerlere veya işlecin argümanlarına işlenen denir.
+
+Perl 6 çok sayıda işlecin bulunduğu bir dildir.
+
+İşleçler inflix(bağlama), prefix(önek), postfix(sonek), circumfix(koşulsal) ve postcircumfix(sonrasında koşulsal) durumlarında bulunabilir ve bunlara göre kategorize edilir.
+Bunların sözdizimlerine bakalım.
+
+|=== 
+| *Bağlama İşleçleri* | işlenen1 + işlenen2  
+| *Önek İşleçleri* | +işlenen
+| *Sonek İşleçleri* | işlenen+
+| *Koşulsal İşleçler* | (işlenen)
+| *Sonrasında Koşulsal İşleçler* | işlenen1[işlenen2]
+|=== 
+
+Şeklinde kullanılırlar.
+
+Bu bölüm bir tür referans bölümü gibi düşünülebilir. İşleçler kullanıldıkça aklınızda kalacaktır. Bölüm boyunca bazı işleçleri açıklayabilmek ve örneklendirebilmek için henüz kullanmadığımız kod parçaları kullanacağız, bunlar için endişelenmenize gerek yok ileride ki bölümlerde hepsini netliğe kavuşturacağız.
+
+
+=== Atama Operatörü(=)
+
+Atama işleci "*=*" işaretidir. Bağlama işleci olarak kullanılır. 
+
+```perl6
+my $yedi = 7
+```
+
+Kudu *$yedi* değişkenine 7 değerini atar.
+
+=== Aritmatik İşleçler
+
+*Toplama(+), Çıkarma(-), Çarpma(*), Bölme(/) İşleçleri:*
+```bash
+> 1 + 2
+3
+> 2 - 1
+1
+> 2 * 2
+4
+> 4 / 2
+2
+> 3 / 2
+1.5
+```
+
+*Kuvvet İşleci (**):*
+
+```bash
+> 4 ** 2
+16
+```
+
+*Tam Sayı Bölme İşleci (div):*
+
+```bash
+> 3 div 2
+1
+> 7 div 3
+2
+```
+
+*Mod (%):*
+
+```bash
+> 7 % 4
+3
+> 2 % 2
+0
+> 3 % 2
+1
+```
+
+*Bölünebilme (%%):* İşlenenler tam bölünebiliyorsa _True_ bölünemiyorsa _False_ sonucunu döner.
+
+```bash
+> 7 %% 4
+False
+> 6 %% 3
+True
+```
+
+*Sayısal Eşitlik (==) ve Tersi (!=):* İşlenenler birbirine eşitse _True_ değilse _False_ sonucunu döner. Tersi ise tam tersini yapar ve işlenenler birbirine eşit değilse _True_ eşitse _False_ sonucunu döner.
+
+```bash
+> 7 == 7
+True
+> 6 == 3
+False
+> 7 != 7
+False
+> 6 != 3
+True
+```
+
+*Küçük(<), Büyük(>), Küçük Eşit(<=), Büyük Eşit(>=):* 
+
+```bash
+> 1 < 2
+True
+> 1 > 2
+False
+> 1 <= 2
+True
+> 2 <= 2
+True
+> 1 >= 2
+False
+> 2 >= 2
+True
+```
+
+*Sayısal Üç Yönlü Karşılaştırma (<=>):*
+
+```bash
+> 1 <=> 1.0
+Same
+> 1 <=> 1
+Same
+> 1 <=> 2
+Less
+> 3 <=> 2
+More
+```
+
+*En Büyük Ortak Bölen ve en Küçük Ortak Kat İşleçleri (gcd, lcm)*
+
+```bash
+> 6 gcd 9
+3
+> 4 lcm 3
+12
+```
+
+*Önek ve Sonek Arttırma İşleçleri (++işlenen, işlenen++):* *Sonek* olarak kullanıldığında değişkenin değerini döner ve 1 arttırır veya azaltır. *Önek* olarak kullanıldığında değeri 1 arttırır veya 1 azaltır ve değişkenin değerini döner.
+
+```bash
+> my $a = 0
+0
+> $a++
+0
+> $a
+1
+> $a--
+1
+> $a
+0
+> ++$a
+1
+> --$a
+0
+```
+
+=== Karakter Dizisi İşleçleri
+
+*Karakter Dizisi Eşitliği (eq) ve Tersi:* İşlenen Karakter dizileri birbirine eşit ise _True_ değil ise _False_ sonucunu döner. Tersi ise tam tersini yapar ve diziler birbirine eşit değilse _True_ eşitse _False_ sonucunu döner. (Bir hatırlatıcı, eq: equal, ne: not equal)
+
+```bash
+> "a" eq "a"
+True
+> "a" eq "b"
+False
+> "a" ne "b"
+True
+> "a" ne "a"
+False
+```
+
+*Karakter Dizisi Önceliği (lt, gt, le, ge):* Karakterleri sözlüksel sıraya göre karşılaştırır.
+
+```bash
+> "a" lt "b"
+True
+> "a" gt "b"
+False
+> "a" le "b"
+True
+> "a" ge "a"
+False
+```
+
+*Karakter Dizisi Üç Yönlü Karşılaştırma (leg):*
+
+```bash
+> "a" leg "a"
+Same
+> "a" leg "b"
+Less
+> "c" leg "b"
+More
+```
+
+*Akıllı Üç Yönlü Karşılaştırma (cmp):* Hem sayısal hem de karakter dizilerini karşılaştırabilir.
+
+```bash
+> "a" cmp "b"
+Less
+> 1 cmp 1
+Same
+> "c" cmp "b"
+More
+```
+
+*Karakter Dizisi Olarak Birleştirme (~):*
+
+```bash
+> "Merhaba" ~ " Dünya"
+Merhaba Dünya
+> 1 ~ 2
+12
+```
+
+*Karakter Dizisi Olarak Çoğaltma (x):*
+
+```bash
+> "Merhaba " x 4
+Merhaba Merhaba Merhaba Merhaba
+> 25 x 4
+25252525
+```
+
+*Akıllı Eşleme (~~):*
+
+```bash
+> "Merhaba" ~~ "Merhaba"
+True
+> 25 ~~ 25
+True
+> 25 ~~ "25"
+True
+> "Merhaba Dünya" ~~ /Merhaba/
+｢Merhaba｣
+> "Merhaba Dünya" ~~ /Perl/
+Nil
+> "Merhaba" ~~ Str
+True
+> 2 ~~ Int
+True
+```
+
+*Önek Olarak ? İşleci:* İşleneni mantıksal bir veri tipi şeklinde döndürür.
+
+```bash
+> ?"Merhaba"
+True
+> ?""
+False
+> ?1
+True
+> ?100
+True
+> ?0
+False
+> my $b
+(Any)
+> ?$b
+False
+> $b = 3
+3
+> ?$b
+True
+```
+
+*Önek Olarak ! İşleci:* İşleneni _False_ ise _True_, _True_ ise _False_ şeklinde döndürür.
+
+```bash
+> !"Merhaba"
+False
+> !""
+True
+> !1
+False
+> ?0
+True
+> my $c
+(Any)
+> !$c
+True
+> $c = 2
+2
+> !$c
+False
+```
+
+*Bağlayıcı Olarak Aralık İşleçleri (.., ..^, ^.., ^.. ^, ^, ...):*
+
+* *..:* İki işlenen arasında aralık oluşturur.
+* *..^:* Son işlenen değeri dahil etmeden bir aralık oluşturur.
+* *^..:* İlk işlenen değeri dahil etmeden bir aralık oluşturur.
+* *^.. ^:* İşlenen değerleri dahil etmeden bir aralık oluşturur.
+* *...:* İşlenen değerler arası bir tembel *liste* oluşturur. Bunun ne olduğuna ilerideki bölümlerde değneceğiz.
+
+```bash
+> 1..5
+1..5
+> 1..^5
+1..^5
+> 1^..5
+1^..5
+> 1^..^5 
+1^..^5
+> 1...1000
+(1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 ...)
+```
+
+*Önek Olarak ^ İşleci:* Sıfırdan başlayarak kendisinden sonra gelen sayıya kadar aralık oluşturur.
+
+```bash
+> ^5
+^5
+```
+
+*Aralıkları Listeye Çeviren | Önek İşleci:*
+
+```bash
+> |(1..5)
+(1 2 3 4 5)
+> |(1..^5)
+(1 2 3 4)
+> |(1^..5)
+(2 3 4 5)
+> |(1^..^5) 
+(2 3 4)
+> |(^5)
+(0 1 2 3 4)
+```
+
+*İşlenenlerin Yerini Değiştiren R İşleci:*
+
+```bash
+> 2 R/ 3
+1.5
+> 2 R- 1
+-1
+```
+
+*İndirgeme(Reduction) İşleci:* Lisp dil ailesine aşina kişilere yabancı gelmeyecek bir kullanım sunar.
+Örneğin Racket dilinde bir Toplama işlemi yapalım:
+
+```racket
+> (+ 1 2 3 4 5)
+15
+```
+
+Şimdi de Perl 6 ile yapalım:
+
+```bash
+> 1 + 2 + 3 + 4 + 5
+15
+> [+] 1,2,3,4,5
+15
+> [+] 1..5
+15
+> 1 * 2 * 3 * 4 * 5
+120
+> [*] 1,2,3,4,5
+120
+> [*] 1..5
+120
+```
+
+*Bağlı(Bound) Kontrol İşleci (=:=):* Her iki işlenende aynı değişkene atanmışsa, yani iki işlenen de aynı referans değere işaret ediyorsa işleç _True_ değerini döndürür. İki işlenenin aynı değişkene bağlı olmasını sağlamak istiyorsak atama işleci(=) değil, bağlama(:=) işlecini kullanırız.
+
+Aynı referans değerden kastetiğimiz ili işleneninde aynı bellek alanını işaret etmesidir.
+
+Biraz kafa karıştırıcı olabilir hemen örneklendirelim.
+
+```bash
+> my $a = 1
+1
+> my $b = $a
+1
+> $a =:= $b
+False
+> $b = 2
+2
+> $a
+1
+> my $c = "merhaba"
+merhaba
+> my $d := $c
+merhaba
+> $c =:= $d
+True
+> $c = "hello"
+hello
+> $d
+hello
+```
+
+Burada $c değişkenin değerini değiştirdiğimiz de bağlı olan $d değişkenin işaret ettiği bellek alanındaki değer değiştiği için iki değişkenimiz de değişmiş oldu.
+
+*Değer Kimliği Kontrol İşleci (===):* Eşitlik kontrolünün sınıfsal farklılıkları da gözeten çeşididir.
+
+```bash
+> 12 == 12
+True
+> 12 == "12"
+True
+> 12 == 12.0
+True
+> 13 === 13
+True
+> 13 === "13"
+False
+> 13 === 13.0
+False
+```
+
+Sınıf kavramına kitabın ilerleyen bölümlerinde değineceğiz ancak konun anlaşılması açısından basitçe herhangi bir değere ne(.WHAT) olduğunu sorarak hangi sınıfa mensup olduğunu anlayabiliriz.
+
+```bash
+> 14.WHAT
+(Int)
+> "14".WHAT
+(Str)
+> 14.0.WHAT
+(Rat)
+```
+
+*Eşdeğerlik İşleci (eqv):* İki işlenenin eşdeğer olup olmadığını kontrol eder. Değer kimliği kontrol işleci(===) gibi çalışır.
+
+```bash
+> 4 eqv 4
+True
+> 4 eqv 4.0
+False
+> 4 eqv "4"
+False
+```
+
+*Yaklaşık Eşitlik İşleci (=~=):* İşlenenler arasındaki fark tölerans değerinden düşükse karşılaştırmanın sonucu _True_ olur. Varsayılan tölarans değeri 1E-15 olan 0.000 000 000 000 001'dir.
+
+```bash
+> 1 =~= 1.0000001
+False
+> 1 =~= 1.000000000000001
+True
+```
+
+*Minimum ve Maksimum işleçleri (min, max):* Belirtilen işlenenler arasından minimum ve maksimum değerleri döndürür.
+
+```bash
+> min(1..10)
+1
+> max(1..10)
+10
+> 1 min 2
+1
+> 4 max 5
+5
+```
+
+*Önek Olarak ~ İşleci:* İşleneni karakter dizisi şeklinde döndürür.
+
+```bash
+> my $a = 3
+3
+> my $b = ~3
+3
+> $b.WHAT
+(Str)
+```
+
+*Önek olarak + İşleci:* İşleneni pozitif sayısal değer şeklinde döndürür.
+
+```bash
+> my $a = "3"
+3
+> my $b = +"3"
+3
+> $b.WHAT
+(Int)
+```
+
+*Önek olarak - İşleci:* İşleneni negatif sayısal değer şeklinde döndürür.
+
+```bash
+> my $a = "3"
+3
+> my $b = -"3"
+-3
+> $b.WHAT
+(Int)
+```
+
+=== Mantıksal İşleçler
+
+Bu işleçler mantıksal ve(and), veya(or) ve dışlayıcı veya(xor) işlemlerini gerçekleştiren işleçlerdir.
+
+Mantıksal işlenenler _True_ veya _False_ döndürür. Tek istisnası xor işlecinde kullanılan True ^^ True ifadesi _Nil_ döndürür.
+
+Farklı programlama dillerindeki kullanıma benzer şekilde kullanılır.
+
+* Ve(and) işleci için *&&* kullanılır.
+* Veya(or) işleci için *||* kullanılır.
+* Dışlayıcı Veya(xor) işleci için *^^* kullanılır.
+
+|=== 
+| İşlenen 1 | İşleç | İşlenen 2 | Sonuç
+| False | && | False | False
+| True | && | True | True
+| True | && | False | False
+| False | && | True | False
+| False | *||* | False | False
+| True | *||* | True | True
+| True | *||* | False | True
+| False | *||* | True | True
+| False | ^^ | False | False
+| True | ^^ | True | Nil
+| True | ^^ | False | True
+| False | ^^ | True | False
+|===
+
+
+*Tanımlı Veya İşleci (//):* Eğer bir değişkenin değeri varsa onu yoksa belirttiğimiz değeri döndürür.
+
+```bash
+> my $ad
+(Any)
+> $ad // 'Yalın'
+Yalın
+> $ad = 'Asu'
+Asu
+> $ad
+Asu
+> $ad // 'Yalın'
+Asu
+```
+
+Perl 6 evreninde birçok işleç daha bulunmakta, ancak geri kalanına kitabın ilerleyen bölümlerinde değineceğiz.

@@ -1,0 +1,81 @@
+== İlk Programımız
+
+[quote, Audrey Tang]
+Perl 6 eğlence için optimize edilmiştir.
+
+Favori geliştirme ortamımızı kurduğumuzu ve gerekli ayarları yaptığımızı varsayarak yeni bir Perl 6 dosyası oluşturalım. Dokümantasyon dosya uzantısı olarak “**.p6**” veya “**.pl6**” önermesine rağmen Perl 6 uzantıyı önemsemez. Ancak Dokümantasyona sadık kalmak iyi bir alışkanlıktır.
+
+Dosyamızı “**merhaba-dunya.p6**” olarak kayıt edelim.
+Dosyamızın içerisine ekrana “Merhaba Dünya” yazan kodumuzu yazalım ve kayıt edelim.
+
+```perl6
+say “Merhaba Dünya”
+```
+
+Terminal arkalığı ile kodumuzu kayıt ettiğimiz yere gidelim ve dosyamızı çalıştıralım.
+
+```bash
+$ perl6 merhaba-dunya.p6
+Merhaba Dünya
+```
+
+İlk programımız başarı ile çalıştı ve ekrana Merhaba Dünya yazdı.
+
+Programımızı çalıştırmadan önce perl6 komut satırı özelliklerinde gördüğümüz -c parametresi ile bir kontrol yapalım. Hatırlarsanız bu komut programımızın söz dizilimini kontrol ediyordu.
+
+```bash
+$ perl6 -c merhaba-dunya.p6
+Syntax OK
+```
+
+Cevabını bize döndürdü ve sonlandı. Bu demek oluyorki herhangi bir söz dizimsel hata yapmadık. Programımızı biraz değiştirip tekrar deneyelim.
+
+```perl6
+say “Merhaba Dünya'
+```
+
+Kayıt edip tekrar -c komutu ile çalıştıralım.
+
+```bash
+$ perl6 -c merhaba-dunya.p6
+Unable to parse expression in double quotes; couldn't find final '"' (corresponding starter was at line 1)
+at […]Perl 6 Kitabı/perl-6-kitabı/merhaba-dunya.p6:1
+------> say "Merhaba Dünya'⏏<EOL>
+    expecting any of:
+        argument list
+        double quotes
+        term
+```
+
+Bize bir hata döndü ki bu hatayı tahmin ediyorduk. 
+Oldukça açıklayıcı bir hata aldık: İfade çift tırnak içinde değil sonuncu çift tırnağı bulamadım, karşılık gelen başlangıç birinci satırdaydı.
+
+Programlarınızı çalıştırmadan önce -c parametresi uygulamak programın çalışmadan önce söz diziliminde bir hatanız olup olmadığını size bildirecektir.
+
+Sonra yapacağımız örnekler için merhaba-dunya.p6 dosyamızın içerisindeki kodu eski(çalışan) haline getirelim.
+
+Önceki bölümlerde örneklendirmediğimiz bir komutta **—-stagestats** komutuydu. Bu komut hatırlayacağınız gibi derleyici tarafından harcanan zamanı, programın derlenmesi ve yürütülmesi zamanlarını ekrana yazdırıyordu.
+
+```bash
+$ perl6 --stagestats merhaba-dunya.p6
+Stage start      :   0.000
+Stage parse      :   0.241
+Stage syntaxcheck:   0.000
+Stage ast        :   0.000
+Stage optimize   :   0.004
+Stage mast       :   0.006
+Stage mbc        :   0.001
+Stage moar       :   0.000
+Merhaba Dünya
+```
+
+--stagestats komutu bize adım adım derleyicinin neler yaptığını göstermiş oldu ve son olarak programı çalıştırarak sonlandı.
+
+Perl 6'nın dosya uzantılarını umursamadığını belirtmiştik, şimdi bunun için bir deneme yapaılım. Bu sefer **merhaba-dunya.txt** adında bir dosya oluşturalım ve içerisine ekrana "Merhaba DÜnya" yazan kodumuzu içerisine yazalım ve kayıt edip çalıştırmaya çalışalım.
+
+```bash
+$ perl6 merhaba-dunya.txt
+Merhaba Dünya
+```
+
+Gördüğünüz gibi herhangi bir problem ile karşılaşmadık.

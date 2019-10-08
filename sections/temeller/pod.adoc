@@ -1,0 +1,252 @@
+== POD
+
+Perl 6 dokümantasyonu yazmak için kullanılan bir işaretleme dilidir. Kodu ifade etmekte daha fazla işlevsellik sağlayan yorumların genişletilmiş bir sürümü olarak kabul edilebilir.
+
+Yorumlar gibi Pod içeriği de kodlarımızı yazdığımız dosyanın içinde barındırılır.
+
+<<<
+
+=== =begin ve =end Blokları
+
+Pod blokları *=begin _tanımlayıcı_* ile başlar ve *=begin _tanımlayıcı_* ile biter. Burada tanımlayıcı Pod içirisinde belirtilen verileri anlatan yazarın verdiği bir tanımdır. Ayrıca bloklar içerisinde kullanılabilecek bazı tanımlayıcılar da vardır.
+
+Bir kodun içerisinde yazılan Pod verisini okumak için programı çalıştırırken *--doc* komutuyla çalıştırırız.
+
+Basit bir Pod dokümanı şuna benzer.
+
+```perl6
+=begin pod
+Bu bir Pod dokümanıdır.
+=end pod
+
+say "Merhaba";
+```
+
+Ve --doc komutu ile çalıştıralım.
+
+```bash
+$ perl6 --doc basic_pod.p6
+Bu bir Pod dokümanıdır.
+```
+
+Şimdi de Pod tanımlayıcılarına göz atalım.
+
+=== Paragraf Bloklar
+
+Paragraf blokları *=for _tanımlayıcı_* ile başlar ve kendisinden sonra gelen ilk boş satır veya ilk Pod tanımlayıcısı ile sonlanır.
+
+=for yapısından sonra tanımlayıcı adı gelir. Tanımlayıcı ad gelmezse =for yapısı paragraf şeklinde yazar.
+
+=for yapısının bir avantajı bitişini belirtmememizdir.
+
+```perl6
+=for head1
+Bu bir başlıktır.
+
+=for param
+Burada normal bir paragraftır,
+kendisinden sonra gelen ilk boş satırda sonlanacaktır.
+```
+
+=== Tek Satırlık Bloklar
+
+*=_tanımlayıcı_* ile başlar ve kendisinden sonra gelen ilk boş satır veya ilk Pod tanımlayıcısı ile sonlanır.
+
+```perl6
+=head1 Büyük başlık
+
+=head2 Alt Başlık
+```
+
+=== Blok Tipleri
+
+Pod çeşitli standart blok tipleri(_tanımlayıcılar_) sunar.
+
+==== Başlıklar
+
+Başlıklar *headN* şeklinde tanımlanır. N burada sıfırdan büyük sayılardır.
+
+Bunu biraz yukarıda örneklendirmiştik.
+
+==== Paragraflar
+
+*=para* ile kullanılır ancak birkaç farklı kullanım şekli vardır.
+
+```perl6
+=head1 Büyük başlık
+
+Invidunt gubergren et sea ea takimata erat kasd. Elitr sadipscing eos dolor tempor justo amet et dolor et, duo duo.
+
+=para
+Sit et ipsum sed kasd sed. Dolor sed dolor eos rebum stet invidunt amet, justo eirmod et clita sed no.
+
+=begin para
+Eos duo justo et dolores eos, stet sed amet stet tempor eirmod no. Kasd duo est ut tempor dolor et..
+
+Sit sed et tempor rebum sanctus diam ipsum eos amet, sit rebum stet elitr ipsum voluptua. Sed et sit ipsum.
+=end para
+```
+
+Burada begin ve end blokları şeklinde kullandığımızda boş satır kullanabildiğimize dikkat edelim.
+
+==== Kod Blokları
+
+Pod içerisinde kod yazabilmemize olanak verir. *=begin code* ve *=end code* bloklarının arasına kodumuzu yazabiliriz.
+
+```perl6
+=begin code
+my $ad = 'Yalın';
+say $ad;
+=end code
+```
+
+==== Listeler
+
+Listeler Pod içerisinde *=item* tanımlayıcısı ile tanımlanır. Yine seviyeli listelerde =headN kullanımına benzer şekilde *itemN* şeklinde kullanılabilir.
+
+```perl6
+=item Kanguru
+=item Papağan
+=item Kaplumbağa
+
+=item1 Hayvanlar
+=item2  Kanguru
+=item2  Papağan
+=item2  Kaplumbağa
+```
+
+Bunun yanında tanım listeleri de kullanabiliriz. Tanım listeleri için *=defn* kullanılır.
+
+```perl6
+=defn Gece Körlüğü
+Beslenmede A vitamini yetersizliğinden ortaya çıkan bir hastalık belirtisi, tavukkarası.
+
+=defn Renk Körlüğü
+Bütün renkleri veya birkaç rengi, özellikle kırmızı ile yeşili birbirinden ayırt etmeye engel olan görme bozukluğu.
+```
+
+Paragraf listeleride kullanabiliriz.
+
+```perl6
+=begin item
+I<Tavır:>
+ 
+Özürlerden kaçın, seçeneksun, hata gerçekleşmeden yedek planlar yap.
+=end item
+ 
+=begin item
+I<Bilgi:>
+ 
+Bilgiye yatırım en yüksek faizi getirir.
+=end item
+```
+
+==== Tablolar
+
+Bir Pod dokümanında tabloları *=begin table* ve *=end table* blokları içerisinde tanımlarız. *=begin table :caption<Tablo Adı>* şeklinde tablomuza isim verebiliriz.
+
+Basit bir tablo örneği şuna benzer.
+
+```perl6
+=begin table :caption<Bu benim ilk tablom>
+Başlık, Sütun 0 | Başlık, Sütun 1
+======================
+Satır 0     | Satır 0
+Sütun 0     | Süun 1
+----------------------
+Satır 1     | Satır 1
+Sütun 0     | Sütun 1
+----------------------
+=end table
+```
+
+
+==== Pod Yorumları
+
+Pod yorumları kodumuzda kullandığımız yorumlar gibi çalışır. Pod doküman oluşturucu tarafından yok sayılır.
+
+```perl6
+=comment Bu bir yorumdur.
+
+=begin comment
+Çok satırlı
+bir
+yorum.
+=end comment
+```
+
+==== Format
+
+Pod metin formatı kodları tanımlayıcı bir büyük harf ve sonrasında "*<>*" işaretleri ile kullanılır. Şöyle bir kullanıma sahiptir: BüyükHarf<>.
+
+Kullanılabilecek harfler: B, C, E, I, K, L, N, P, R, T, U, V, X, ve Z'dir. Burada çok kullanılanlara değineceğiz.
+
+Daha fazla bilgiye: https://docs.perl6.org/language/pod#Formatting_codes adresinden ulaşabilirsiniz.
+
+*Bold:* B<>
+*İtalik:* I<>
+*Altıçizili:* U<>
+*Kod:* C<>
+*Bağlantılar:* L<>
+*Yorumlar:* Z<>
+*Alt Notlar:* N<>
+*Unicode:* E<>
+
+```perl6
+=para
+    Perl 6 B<harikadır.>
+    Perl 6 I<harikadır.>
+    Perl 6 U<harikadır.>
+    C<my $a = 1; say $a;>
+    Perl 6 anasayfası L<https://perl6.org>
+    Perl 6 harikadır. Z<Bu bir yorum>
+    Perl 6 bir çok paradigmayı destekler. N<Emirsel, Nesne Yönelimli ve Fonksiyonel>
+```
+
+=== Pod Doküman Yapısı
+
+Sea aliquyam labore et sanctus nonumy sed ipsum amet invidunt dolore, elitr lorem aliquyam eos sed, sanctus erat justo clita.
+
+=== Pod Dokümanını Dışarı Aktarma
+
+Pod dokümanını birçok şekilde dışarıya aktarabiliriz. Şimdi bu yöntemleri inceleyelim.
+
+Dışa aktarma işlemi için çeşitli modüller kullanırız. Bu modülleri _zef_ modül yöneticisi aracılığı ile kurabiliriz.
+
+==== HTML
+
+Bir Pod dokümanını HTML olarak dışarı aktarmak için *Pod::To::HTML* modülüne ihtiyaç duyarız. Eğer modül sisteminizde kurulu değilse *zef install Pod::To::HTML* komutu ile kurabilirsiniz.
+
+Modül hakkında daha fazla bilgiye https://github.com/perl6/Pod-To-HTML adresinden ulaşabilirsiniz.
+
+Kullanımına bakacak olursak:
+
+```bash
+$ perl6 --doc=HTML program.p6 > output.html
+```
+
+Şeklinde kullanabiliriz. Bu komut ile output.html isminde bulunduğunuz dizinde bir dosya oluşturulur.
+
+==== Markdown
+
+Bir Pod dokümanını Markdown olarak dışarı aktarmak için *Pod::To::Markdown* modülüne ihtiyaç duyarız. Eğer modül sisteminizde kurulu değilse *zef install Pod::To::Markdown* komutu ile kurabilirsiniz.
+
+Modül hakkında daha fazla bilgiye https://github.com/softmoth/perl6-pod-to-markdown adresinden ulaşabilirsiniz.
+
+Kullanımına bakacak olursak:
+
+```bash
+$ perl6 --doc=Markdown program.p6 > output.md
+```
+
+Şeklinde kullanabiliriz. Bu komut ile output.md isminde bulunduğunuz dizinde bir dosya oluşturulur.
+
+==== Metin
+
+Bir Pod dokümanını metin belgesi olarak dışarı aktarmak için:
+
+```bash
+perl6 --doc basic_pod.p6 > output.txt
+```
+
+Komutunu kullanırız. Bu komut ile output.txt isminde bulunduğunuz dizinde bir dosya oluşturulur.

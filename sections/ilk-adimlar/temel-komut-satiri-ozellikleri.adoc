@@ -1,0 +1,174 @@
+== Temel Komut Satırı Özellikleri
+
+Perl 6 bir önceki bölümde kullandığımıza(perl6 —version) benzer bazı komut satırı özellikleri ile birlikte gelir.  Bu bölümde bu özellikleri inceleyeceğiz. Komutları kullanırken
+
+```bash
+$  perl6 <komut>
+```
+
+şeklinde kullanmamız gerekiyor.
+
+=== -h veya --help Komutu:
+
+Bu komut bize yardım yazısının bir çıktısını verir ve kullanabileceğimiz çeşitli komutları ve açıklamalarını burada görebiliriz. Aşağıdaki çıktıya benzer bir çıktı oluşturur.
+
+```bash
+$  perl6 -h
+[…]
+-c                   check syntax only (runs BEGIN and CHECK blocks)
+  --doc                extract documentation and print it as text
+  -e program           one line of program, strict is enabled by default
+  -h, --help           display this help text
+  -n                   run program once for each line of input
+  -p                   same as -n, but also print $_ at the end of lines
+[…]
+```
+
+=== -c Komutu:
+
+Programın söz dizilimini kontrol eder ve çıkar, kodu çalıştırmaz. Eğer kodun yazılı olduğu adresi belirtmezsek **Syntax OK** dönüşünü yaparak aynı zamanda herhangi bir söz dizimsel hata ile karşılaşmadığında da aynı dönüşü yapar ve sonlanır. Eğer bir hata ile karşılaşırsa hata mesajı dönerek sonlanır. Ayrıca daha sonra göreceğimiz _BEGIN_ ve _CHECK_ bloklarını çalıştırır.
+
+=== -e Komutu:
+
+Bu komut ile bir kodu komut satırı aracılığı ile yazıp kullanabiliriz. Kısa programlar ve küçük testler için uygundur.
+
+Şimdi bir örnek yapalım. Burada endişelenmenize gerek yok ekrana basit bir “Merhaba Dünya!” yazan programı tek **-e** komutu ile kullanmaya çalışalım. Şu aşamada kodun ekrana Merhaba Dünya yazması gerektiğini bilmemiz yeterli. Oldukça kolay bir kod.
+
+```bash
+$  perl6 -e ‘say “Merhaba Dünya”’
+Merhaba Dünya
+```
+
+Evet kodumuz düzgün bir şekilde çalıştı ve istediğimiz sonucu aldık.
+
+=== -n Komutu:
+
+Programa gönderilen bir metnin her satırı için yazılan komutun tekrar çalıştırılmasını sağlar. Yine buradaki kod parçası ve biraz sihir için endişelenmenize gerek yok kullanım örneği oluşturması için yazıyoruz sadece.
+
+```bash
+$ perl6 -n -e ‘say $_’ < davet.txt
+Dörtnala gelip Uzak Asya'dan
+Akdenize bir kısrak başı gibi uzanan
+Bu memleket bizim!
+Bilekler kan içinde, dişler kenetli
+Ayaklar çıplak
+Ve ipek bir halıya benzeyen toprak
+Bu cehennem, bu cennet bizim!
+Kapansın el kapıları bir daha açılmasın
+Yok edin insanın insana kulluğunu
+Bu davet bizim!
+Yaşamak bir ağaç gibi tek ve hür
+Ve bir orman gibi kardeşçesine
+Bu hasret bizim!
+```
+
+Bu kod parçacığını açacak olursak şöyle bir ifade orataya çıkacaktır. Sana bir dosyayı parametre olarak gönderiyorum bunu dosya bitene kadar **-n** kere **-e** kod parçacığını çalıştır.
+
+Kodumuz tam olarak beklediğimiz gibi çalıştı. Nazım Hikmet’in Davet adlı şiirinin olduğu “davet.txt” dosyamızın içeriğini dosya bitene kadar ekrana yazdı.
+
+=== -p Komutu:
+
+**-n** komutuna benzer bir şekilde çalışır ancak **$_** ifadesinin yaptığı işi program sonunda çalıştırır.
+
+```bash
+$ perl6 -p -e ‘say “-“‘ < davet.txt
+-
+Dörtnala gelip Uzak Asya'dan
+-
+Akdenize bir kısrak başı gibi uzanan
+-
+Bu memleket bizim!
+-
+Bilekler kan içinde, dişler kenetli
+-
+Ayaklar çıplak
+-
+Ve ipek bir halıya benzeyen toprak
+-
+Bu cehennem, bu cennet bizim!
+-
+Kapansın el kapıları bir daha açılmasın
+-
+Yok edin insanın insana kulluğunu
+-
+Bu davet bizim!
+-
+Yaşamak bir ağaç gibi tek ve hür
+-
+Ve bir orman gibi kardeşçesine
+-
+Bu hasret bizim!
+```
+
+Kod öncelikle dediğimiz gibi program bitene kadar “-“ işaretini ekrana yazdı ve sonra kodumuzda “$_” ifadesi varmış gibi davranarak ekrana davet.txt dosyasının içerisindeki metnin satırını yazdı.
+
+=== -I ve -M Komutları:
+
+Modülleri programa dahil etmek için kullanılır. -M seçeceği ile modülün adı ve gerekirse -I seçeceği ile modülün dizin yolu belirtilmeli.
+
+=== -v veya —version Komutu:
+
+Bir önceki bölümde de kullandığımız gibi Perl 6 versiyonunun çıktısını ekrana yazar.
+
+=== —stagestats Komutu:
+
+Derleyici tarafından harcanan zamanı, programın derlenmesi ve yürütülmesi zamanlarını ekrana yazdırır.
+
+=== —doc Komutu:
+
+Dokümantasyonu programdan alır ve yazdırır. Dokümantasyondan kast ettiğimiz Pod(Plain Old Documentation) dokümantasyonudur. Buna ilerideki bölümlerde değineceğiz.
+
+=== -V Komutu:
+
+Ekrana konfigürasyon özetini yazdırır. Bu ekrana oldukça uzun bir çıktı yazdırır.
+
+Komutların farklı bir kullanım şekli de çoklu komutlarda ilk tire(-) işaretinden sonra bir tire daha koymadan birleşik şekilde komutun yazılmasıdır. Farklı bir kullanımda komuttan sonra gelen kodumuzdan sonra gelen parametrenin bizim komutumuzda _davet.txt_) farklı yazımıdır. Bu da tamamen okunabilirlikle alakalıdır ve "<" işareti kullanılmadan yazılabilir.
+
+Hemen örneklendirelim:
+
+```bash
+$ perl6 -p -e 'say "-"' < davet.txt
+[...]
+$ perl6 -pe 'say "-"' < davet.txt
+[...]
+$ perl6 -pe 'say "-"' davet.txt
+[...]
+```
+
+```bash
+$ perl6 -n -e 'say $_' < davet.txt
+[...]
+$ perl6 -ne 'say $_' < davet.txt
+[...]
+$ perl6 -ne 'say $_' davet.txt
+[...]
+```
+
+Son olarak davet.txt dosyamızın her satırı için bir satır numarası yazdıralım ve inceleyelim.
+
+```bash
+$ perl6 -ne 'say $++ ~ ". satır: " ~ $_' davet.txt
+0. satır: Dörtnala gelip Uzak Asya'dan
+1. satır: Akdenize bir kısrak başı gibi uzanan
+2. satır: Bu memleket bizim!
+3. satır: Bilekler kan içinde, dişler kenetli
+4. satır: Ayaklar çıplak
+5. satır: Ve ipek bir halıya benzeyen toprak
+6. satır: Bu cehennem, bu cennet bizim!
+7. satır: Kapansın el kapıları bir daha açılmasın
+8. satır: Yok edin insanın insana kulluğunu
+9. satır: Bu davet bizim!
+10. satır: Yaşamak bir ağaç gibi tek ve hür
+11. satır: Ve bir orman gibi kardeşçesine
+12. satır: Bu hasret bizim!
+```
+
+Kodumuzu inceleyecek olursak şimdiye kadar kullanmadığımız "*$++*" ve "*~*" kullanımını gördük. Şu an için bu kodun ne yaptığını bilsek yeterli. 
+
+*$++* kullanımı ile bize gelen dosyadaki her bir satır için bir sayma oluşturduk. Program sonlanana kadar sayım yapacağız. Perl 6 da sayma işlemi çoğu programlama dilinde olduğu gibi 0'dan başlar.
+
+*~* kullanımı ile karakter dizilerini birleştirdik. Kodumuzda $++ ile ". satır: " karakter dizisini ve $_ işaretinin çıktılarını birleştirmek için kullandık.
+
+$++ ve $_ kullanımları değişken olduğu için doğrudan çift tırnak("") işaretleri arasına yazamadık. Bu nedenle "~" kullandık.
+
+*say* fonksiyonu ile tüm bunları ekrana yazdık.

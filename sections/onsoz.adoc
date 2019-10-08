@@ -1,0 +1,7 @@
+= Önsöz
+
+Kitap hiç programlama bilmeyen kullanıcılar için uygun olmayabilir. Ancak başka diller ile çalışmış kişilerin bu kitabı kolayca okuyacaklarını düşünüyorum.
+
+Kitap boyunca, Perl 6 diline özel konulara ağırlık vermeye, çok sayıda örnek kod koymaya, örnek kodların kolay anlaşılır türden olmasına gayret gösterdim. Umarım sizlerde okurken, uygularken keyif alırsınız.
+
+Kitap yayımlandığı sırada henüz Perl 6 ile ilgili çok az Türkçe kaynak vardı. Bu nedenle Perl 6 dili için ilk Türkçe kitap olan bu çalışmada özellikle Türkçe ifadeler kullanmaya özen gösterdim. Eğer ülkemizde Perl 6 ile yapılan çalışmalara birazcıkta olsa katkım olabilirse, ne mutlu bana.

@@ -1,0 +1,63 @@
+== Dokümantasyonu Okumak
+
+Perl 6 dokumantasyonuna komut satirina **p6doc** yazarak ulasabiliriz. p6doc sisteminizde kurulu olarka gelmez. Eger bir hata ile karsilasirsaniz muhtemelen p6doc sisteminizde kurulu degildir. Zef modul yoneticisi ile kurabiliriz.
+
+```bash
+$ zef install p6doc
+```
+
+Eğer bir sorun ile karşılaşırsanız _--force_ parametresiyle tekrar deneyiniz.
+
+```bash
+$ zef install p6doc --force
+```
+
+Herhangi bir hata almadıysanız kurulum başarılı demektir. Komut satırına p6doc yazarak kontrol edelim.
+
+```bash
+$ p6doc
+[...]
+
+What documentation do you want to read?
+Examples: p6doc Str
+          p6doc Str.split
+          p6doc faq
+          p6doc path/to/file
+
+[...]
+```
+
+Dokumantasyonu kullanmak son derece kolaydir. Şimdi birkaç örnek yapalım:
+
+```bash
+$ p6doc Int.is-prime
+[...]
+Defined as:
+
+    multi sub    is-prime (Int:D $number --> Bool:D)
+    multi method is-prime (Int:D: --> Bool:D)
+
+Returns True if this Int is known to be a prime, or is likely to be a prime
+based on a probabilistic Miller-Rabin test.
+
+Returns False if this Int is known not to be a prime.
+
+    say 2.is-prime;         # OUTPUT: «True»
+    say is-prime(9);        # OUTPUT: «False»
+
+```
+
+Gördüğünüz gibi p6doc bize oldukça detaylı bir sonuç döndü. Kısaca _.is-prime_ fonksiyonun ne yaptığını açıkladı ve kullanım örnekleri verdi.
+
+Dokümantasyondan çıkmak için "**q**" tuşunu kullanabilirsiniz.
+
+Şimdi bu örnekleri deneyelim.
+
+```bash
+$ perl6 -e 'say 21.is-prime'
+False
+$ perl6 -e 'say is-prime(101)'
+True
+```
+
+**p6doc** dışında https://docs.perl6.org adresinden de dokümantasyona ulaşabilirsiniz.

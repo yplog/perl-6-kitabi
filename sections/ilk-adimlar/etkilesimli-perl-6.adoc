@@ -1,0 +1,40 @@
+
+== Etkileşimli Perl 6
+
+REPL, Python, Ruby gibi dillerden aşina olunan Okuma-Değerlendirme-Yazdırma-Döngü etkileşimli ortamdır. REPL basitçe yazılan kodu değerlendirir, sonucu gösterir ve tekrar etkileşim bekler.
+
+Teknik olarak bu ekrana etkileşimli kabuk (interactive shell)adı verildiğini bilmemizde fayda var. Etkileşimli kabuk, bizim Perl programlama dili ile ilişki kurabileceğimiz, yani onunla etkileşebileceğimiz bir üst katmandır. Etkileşimli kabuk, asıl programımız içinde kullanacağımız kodları deneme imkanı sunar bize. Burası bir nevi test alanı gibidir. Örneğin bir Perl kodunun çalışıp çalışmadığını denemek veya nasıl çalıştığını, ne sonuç verdiğini görmek istediğimizde bu ekran son derece faydalı bir araç olarak karşımıza çıkar. Bu ortam, özellikle Perl'e yeni başlayanların bu programlama diline aşinalık kazanmasını sağlaması açısından da bulunmaz bir araçtır. Biz de bu bölümde etkileşimli kabuk üzerinde bazı çalışmalar yaparak, Perl'e alışma turları atacağız.
+
+Perl 6 hızlı ve etkin bir arayüz sunar. Bu arayüzü dilin inceliklerini öğrenirken deneme-yanılma yapabilmek açısından oldukça etkili, küçük kodların denenmesi için güzel bir ortamdır. Komut satırına **perl6** yazarak REPL ortamını başlatabilirsiniz.
+
+```bash
+$ perl6
+To exit type 'exit' or ‘^D'
+>
+```
+
+">" işareti ile Perl 6 etkileşimli kabuğu bizden girdi bekler. Bir önceki bölümde yazdığımız ekrana “Merhaba Dünya” yazan kodu burada deneyelim.
+
+```bash
+> say “Merhaba Dünya”
+Merhaba Dünya
+```
+
+Beklediğimiz sonucu aldık ve ortam bizden “>” işareti ile yeni bir etkileşim bekliyor. REPL aynı zamanda bir hesap makinesidir. Bir kaç deneme yapalım.
+
+```bash
+> 2 + 2
+4
+> 2 * 3 
+6
+> 2 ** 12
+4096
+> 5 / 2
+2.5
+> 5 % 2
+1
+> “Merhaba Dünya”
+Merhaba Dünya
+```
+
+Gibi örnekler yapabiliriz. Alışma aşaması için bu kadar REPL bilgisi bize yeterli ilerideki bölümlerde sık sık kullanacağız.

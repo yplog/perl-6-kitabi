@@ -1,0 +1,13 @@
+== Neden Perl 6?
+
+Bu bölümde Perl 6’yı çekici bir dil yapan özelliklerden bahsetmeye çalışacağız. Öncelikle hızlı prototip oluşturma deneyimini seviyorsanız, büyük, güvenilir ve yeterli güvenlik özellikleri de istiyorsanız Perl 6 sizin için uygun.
+
+Kademeli tiplemeye(gradual typing) izin verir. Yani bir değişkenin tipini belirtmeyeceğiniz gibi kötüye kullanımını önlemek, güvenlik ve okunabilirlik için değişkenlerin tiplerini belirtebilirsiniz.
+
+Düzenli ifadeler(regex) aracılığıyla metin işleme konusunda üne sahiptir ve harika bir metin işleme dilidir. Perl 6, düzenli ifadeleri kodla aynı düzeye getirerek, bunları alt yordamlar(alt yordamları diğer programlama dillerideki fonksiyonlara benzetebiliriz.)  gibi adlandırmanıza ve hatta nesneye yönelik özellikleri kullanmanıza olanak tanır.
+
+İnanılmaz bir Unicode desteğine sahiptir. Dahili eşzamanlılık ve tembel listeler gibi pek çok özelliğe sahiptir. Hata çıktıları oldukça detaylı ve anlaşılırdır. Son olarak Perl 6 size problemi ve çözümünü farklı yollar ve programlama paradigmaları ile ifade etme özgürlüğü verir.
+
+Listeleyebileceğimiz pek çok özellik var, ama daha da önemlisi dili kullanmak eğlenceli olacak şekilde tasarlandı. Kitap boyunca bu kavramlar ve şaşırtıcı pek çok özellikten daha bahsedeceğiz.
+
+Perl 6’yı kullanmayı tercih etmeyeceğiniz zamanlar tabii ki olacaktır. Hiçbir dil her iş için doğru araç değildir.
